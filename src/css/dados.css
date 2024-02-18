@@ -1,0 +1,174 @@
+#container {
+  float:right;
+  width: 25%;
+  height: auto;
+}
+
+ #divVerde {
+  position: absolute;
+  top: 18%;
+  left: 28.5%;
+  width: 2%;
+  height: 4%;
+  background: green;
+  border-radius: 1000px;
+}
+
+#divAmarelo {
+  position: absolute;
+  top: 24%;
+  left: 28.5%;
+  width: 2%;
+  height: 4%;
+  background: rgb(234, 234, 10);
+  border-radius: 1000px;
+}
+  
+
+#divVermelho {
+  position: absolute;
+  top: 30%;
+  left: 28.5%;
+  width: 2%;
+  height: 4%;
+  background: red;
+  border-radius: 1000px;
+}
+
+#imgLivro{
+  position: absolute; 
+  top: 30%;
+  left: 50%; 
+  width: 6%;
+  height: 14%;
+}
+
+#divLivro {
+  position: absolute;
+  top: 45%;
+  left: 51.5%;
+  width: 3%;
+  height: 6%;
+  background: red;
+  border-radius: 1000px;
+}
+
+
+#imgART{
+  position: absolute; 
+  top: 30%;
+  left: 57%; 
+  width: 6%;
+  height: 14%;
+}
+
+#divART {
+  position: absolute;
+  top: 45%;
+  left: 58.5%;
+  width: 3%;
+  height: 6%;
+  background: red;
+  border-radius: 1000px;
+}
+
+
+#imgDatabook{
+  position: absolute; 
+  top: 30%;
+  left: 64%; 
+  width: 6%;
+  height: 14%;
+}
+
+#divDatabook {
+  position: absolute;
+  top: 45%;
+  left: 65%;
+  width: 3%;
+  height: 6%;
+  background: red;
+  border-radius: 1000px;
+}
+
+
+#imgDesenhos{
+  position: absolute; 
+  top: 30%;
+  left: 71%; 
+  width: 6%;
+  height: 14%;
+}
+
+#divDesenhos {
+  position: absolute;
+  top: 45%;
+  left: 73%;
+  width: 3%;
+  height: 6%;
+  background: red;
+  border-radius: 1000px;
+}
+
+
+
+#imgMemoCalc{
+  position: absolute; 
+  top: 30%;
+  left: 80%; 
+  width: 6%;
+  height: 14%;
+}
+
+#divMemoCalc {
+  position: absolute;
+  top: 45%;
+  left: 85%;
+  width: 3%;
+  height: 6%;
+  background: red;
+  border-radius: 1000px;
+}
+
+
+#imgRegFoto{
+  position: absolute; 
+  top: 30%;
+  left: 85%; 
+  width: 6%;
+  height: 14%;
+}
+
+#divRegFoto {
+  position: absolute;
+  top: 45%;
+  left: 90%;
+  width: 3%;
+  height: 6%;
+  background: red;
+  border-radius: 1000px;
+}
+
+
+
+
+
+
+
+
+  
+#circle {
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 1530px;
+  border-radius: 500px;
+  background: black;
+  position: relative;
+   
+   
+  border: 50px solid black;
+
+
+
+}
