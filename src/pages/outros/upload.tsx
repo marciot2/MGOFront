@@ -4,7 +4,7 @@ import axios from 'axios';
  
  
  
-import { Button,  InputLabel } from '@mui/material';
+import { Button,  Input,  InputLabel } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Typography from '@mui/material/Typography';
@@ -68,16 +68,44 @@ const FileUpload: React.FC = () => {
 
     return (<div>
 
-          
+ 
+     
+    
+            <InputLabel htmlFor="file-upload"> </InputLabel>
+            <Input
+                id="file-upload"
+                type="file"
+                onChange={handleFileChange}
+                sx={{ mb: 1 }}
+            />
+           
+
+ 
+ 
+ 
+
+       
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <Button
+        variant="contained"
+        color="primary"
+        onClick={handleUpload}
+        disabled={!selectedFile}
+        startIcon={<FileUploadTwoToneIcon/>}
+        style={{ textTransform: "none", padding: "18px 50px" }}
+    >
+        Enviar Arquivo
+    </Button>
+
     
             <InputLabel> </InputLabel>
              
  
   
+            </div>
 
-
-    </div>
-
+ 
+            </div>
 
 )};
   

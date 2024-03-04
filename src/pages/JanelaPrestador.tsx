@@ -1,85 +1,123 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import { DataGrid } from '@mui/x-data-grid'
+import { Button } from '@mui/material'
 
+const columnsExcel = [
+  { field: 'idDadosExcel', headerName: 'ID' },
+  { field: 'tag', headerName: 'TAG', width: 150 },  
+  { field: 'equipamento', headerName: 'Equipamento', width: 300 },
+  { field: 'denominacao', headerName: 'Denominacao', width: 300 },
+  {
+    field: 'actions',
+    headerName: 'Ações',
+    width: 150,
+    renderCell: (params: { id: any; }) => (
+      <strong>
+        {/* Botão 1 */}
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          style={{ marginLeft: 16 }}
+          onClick={() => handleAction1(params.id)}
+        >
+          Selecionar
+        </Button>
+         
+      </strong>
+    ),
+  },
+];
+
+const columnsReport = [
+  { field: 'idDadosExcel', headerName: 'ID' },
+  { field: 'tag', headerName: 'TAG', width: 150 },  
+  { field: 'equipamento', headerName: 'Equipamento', width: 300 },
+  { field: 'denominacao', headerName: 'Denominacao', width: 300 },
+  {
+    field: 'actions',
+    headerName: 'Ações',
+    width: 150,
+    renderCell: (params: { id: any; }) => (
+      <strong>
+        {/* Botão 1 */}
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          style={{ marginLeft: 16 }}
+          onClick={() => handleAction1(params.id)}
+        >
+          Selecionar
+        </Button>
+         
+      </strong>
+    ),
+  },
+];
  
-interface DataItem {
-  id: string;
-  equipamento: string; 
-  tag: string;
-  denominacao: string;
-  classe: string;
- 
-}
+const handleAction1 = (id: any) => {
+  console.log('Ação 1 clicada para o ID:', id);
 
- 
-const JanelaPrestador = () => {
-  
-  const [data, setData] = useState<DataItem[]>([]);
+  {alert("Clicou"+id)}
 
+  // Implemente a lógica para a ação 1 aqui
+};
+const JanelaPrestador= () => {
 
-  const RI = () => {
+  const [tableData, setTableData] = useState([])
 
-    window.open("http://localhost:3000/prestador/Ri");
+  useEffect(() => {
+    fetch("http://localhost:8081/dadosExcel/listarTodos")
+      .then((data) => data.json())
+      .then((data) => setTableData(data))
 
-    
-  };
+  }, [])
 
-
-  const RNC = () => {
-
-    window.open("http://localhost:3000/prestador/Rnc");
-
-    
-  };
-
-  const RR = () => {
-
-    window.open("http://localhost:3000/prestador/Rr");
-
-    
-  };
-
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:8081/dadosExcel/listarTodos');
-      setData(response.data);
-    } catch (error) {
-      console.error('Erro ao buscar dados:', error);
-    }
-  };
+  console.log(tableData)
 
   return (
-    <div>
-      <h2>Gerenciamento de informações</h2>
-      <button onClick={fetchData}>CARREGAR DADOS</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Equipamento</th>
-            <th>tag</th>
-            <th>Denominação</th>
-            <th>Class</th>
-            <th>Ações</th>  
-          </tr>
-        </thead>
+    <div style={{ height: 380}}>
+      <DataGrid
+        rows={tableData}
+        columns={columnsExcel}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 5,
+            },
+          },
+        }}
+        pageSizeOptions={[5]}
+        checkboxSelection
+        disableRowSelectionOnClick
+        getRowId={(row) => row.idDadosExcel}
+      />
+
+
+    <br/><br/><br/><br/>
+
+      TESTE
+
+      <br/><br/>
+
       
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>  
-              <td>{item.equipamento}</td>
-              <td>{item.tag}</td>
-              <td>{item.denominacao}</td>
-              <td>{item.classe}</td>
-             <td> <button onClick={RI }>RI</button>    <button onClick={RNC}>RNC</button>   <button onClick={RR}>RR</button> </td>
-            
-        
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <DataGrid
+        rows={tableData}
+        columns={columnsReport}
+        getRowId={(row) => row.idDadosExcel}
+      />
+
+
+
     </div>
-  );
-};
+  )
+
+
+
+
+
+
+}
 
 export default JanelaPrestador;

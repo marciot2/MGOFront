@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom"
 
 import Documentos from '../outros/documentos';
 
+ 
+
 const redirectToGoogle = () => {
   
   console.log("end"+window.location.pathname);
@@ -17,9 +19,13 @@ const BicasDeSmelt = (props: Props) => {
     <div>Bicas de Smelt
   
 <br/>
+<div>
+ 
+  </div>
 
- 
- 
+
+
+ <br/><br/><br/><br/>
 <Documentos/> 
     </div>
   );

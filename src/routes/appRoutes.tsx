@@ -128,7 +128,7 @@ const appRoutes: RouteType[] = [
        
       {
         path: "/prestador/janelaprincipal",
-        element: <JanelaPrestador />,
+        element: <JanelaPrestador/>,
         state: "janelaprestador",
         sidebarProps: {
           displayText: "Janela Principal",

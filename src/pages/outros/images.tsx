@@ -44,12 +44,17 @@ const MyForm = () => {
         control={control}
         name="image"
       />
-      <Box sx={{ mt: 2, textAlign: "center" }}>
+
+
+{/*
+<Box sx={{ mt: 2, textAlign: "center" }}>
         <Button type="submit" variant="contained" startIcon={<AddAPhotoIcon/>}>
           Incluir Imagem
         </Button>
       </Box>
-    </Box>
+          */}
+
+      </Box>
   );
 };
 
