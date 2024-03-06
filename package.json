@@ -7,7 +7,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
-    "@mui/material": "^5.10.12",
+    "@mui/material": "^5.15.11",
     "@mui/x-data-grid": "^6.19.6",
     "@react-three/drei": "^9.97.6",
     "@react-three/fiber": "^8.15.16",
@@ -23,6 +23,7 @@
     "antd": "^5.15.0",
     "axios": "^1.6.7",
     "chart.js": "^4.4.1",
+    "cors": "^2.8.5",
     "jodit-react": "^4.0.9",
     "react": "^18.2.0",
     "react-bootstrap-button": "^1.0.3",
@@ -61,5 +62,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://poc.greendocs.doxsg.com.br"
 }

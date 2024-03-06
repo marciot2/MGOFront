@@ -1,6 +1,6 @@
  
 import '../../css/caldeira.css';
-import { TextareaAutosize, Box, TextField, InputLabel, Select, MenuItem, FormControl, SelectChangeEvent } from '@mui/material';
+import {  Box, TextField, InputLabel, Select, MenuItem, FormControl, SelectChangeEvent, Input } from '@mui/material';
 import * as React from 'react';
 import './styles.css';
 import HtmlEditor from './edit';
@@ -9,32 +9,84 @@ import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import LoupeIcon from '@mui/icons-material/Loupe';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BootstrapButton } from 'react-bootstrap-button';
+ 
+ 
+import {   useParams } from 'react-router-dom';
+
 
 import App from './fileupload';
  
 import Button from '@mui/material/Button';
-import {   Pies } from './pie';
+ 
+import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
+import JoditEditor from 'jodit-react';
+import FileUploadGreenDocs from './fileuploadGreenDocs';
  
   
+
+interface RI {
+  equipamento: string;
+  tag: string;
+};
+
+
      
 export default function RelatorioInspecao() {
   
   const [age, setAge] = React.useState('');
-
+  const [data, setData] = useState<RI>();
+  
+  
+  
+  const { id } = useParams();
+ 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
     alert(event.target.value as string);
 
 
   };
+   
 
+   
+  useEffect(() => {
+     
+
+    if (id) {
+    axios.get(`http://localhost:8081/dadosExcel/dadosPorID/${id}`)
+        .then(response => {
+            setData(response.data);
+        })
+        .catch(error => {
+            console.log('Erro ao buscar empresas', error);
+        });        
+
+}},   
+[id]);
+   
+      
+ 
+const editor1 = useRef(null);
+const editor2 = useRef(null);
+const [content1, setContent1] = useState('.');
+const [content2, setContent2] = useState('.');
+
+
+const config = 
+{
+readonly: false,
+editor: '' 
+} 
+  
 
  
   return (
-    <div className="App">
 
+ 
+
+    <div className="App">
+   DADOS: {id}
     <h3>PROBLEMAS ENCONTRADOS DURANTE INSPEÇÃO - RELATÓRIO DE INSPEÇÃO - RI</h3>
     <h5>   PREENCHIDO PELO PRESTADOR DE SERVIÇO TERCERIZADO </h5>
 <br/>
@@ -81,9 +133,21 @@ export default function RelatorioInspecao() {
  <TextField color='success' label='Evento' variant="outlined"></TextField> 
 
  <br/><br/>
+ 
+  
+ <TextField   
+          label={data?.equipamento} 
+          defaultValue={data?.equipamento}
+          helperText="Equipamento" disabled
+        />
 
- <TextField color='success' label='Equipamento' variant="outlined"></TextField> 
- <TextField color='success' label='TAG' variant="outlined"></TextField>
+<TextField   
+          label={data?.tag} 
+          defaultValue={data?.tag}
+          helperText="TAG" disabled
+        />
+
+ 
 
  <br/><br/>
 
@@ -106,17 +170,43 @@ export default function RelatorioInspecao() {
 
  
  <label>Problemas Observados:</label>
-   <HtmlEditor />  
+
+ <JoditEditor
+			 
+       ref={editor1}
+       value={content1}
+       config={config}
+       onBlur={(newContent: string) => setContent1(newContent)}  
+       onChange={(newContent: string) => {}}
+     />
+
+
+   
    <br/> <br/> 
    <label>Recomendações de Reparos:</label>
-   <HtmlEditor />  
+   <JoditEditor
+			 
+       ref={editor2}
+       value={content2}
+       config={config}
+       onBlur={(newContent: string) => setContent2(newContent)}  
+       onChange={(newContent: string) => {}}
+     />
    <br/> <br/> 
 
   <App/>
   <br/> <br/> 
 
+       
+
+
+
 
   <br/> <br/>
+
+  <label>Incluir relatórios: </label>
+  <FileUploadGreenDocs></FileUploadGreenDocs>
+  <br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/>
 
   <Button variant="contained" color="info" startIcon={<PictureAsPdfIcon />}>
   + Adcionar Laudo
@@ -150,7 +240,7 @@ export default function RelatorioInspecao() {
 
   Novo RR
 </Button><br/> <br/>
-<BootstrapButton variant="primary">Enviar</BootstrapButton>{' '}
+ 
 
 <br/> <br/>
 <div style={{height:"30vh",position:"relative", marginBottom:"1%", padding:"1%"}}>

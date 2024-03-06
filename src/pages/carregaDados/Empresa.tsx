@@ -13,12 +13,8 @@ const EmpresaComponent = () => {
     const [responsavel, setResponsavel] = useState('');
     const [empresas, setEmpresas] = useState<Empresa[]>([]);
     const [selectedEmpresa, setSelectedEmpresa] = useState('');
-    const [nome, setNome] = useState('');
-    const [userData, setUserData] = useState({
-      nome: '',
-      email: '',
-      responsavel: ''
-  });
+     
+ 
 
     useEffect(() => {
         axios.get('http://localhost:8081/empresa/listarTodos')

@@ -1,5 +1,5 @@
  
- 
+ import { useParams } from 'react-router-dom';
  
  
 import { useLocation } from 'react-router-dom';
@@ -25,19 +25,18 @@ const Balao = (props: Props) => {
     const params = new URLSearchParams(window.location.pathname );
     setQuery(params+"////");
   }, []);
+  
 
 
 
-
-  const search = useLocation().search;
-  const name = new URLSearchParams(search).get('balao');
+   
 
 
   return (
     <div>  
 {query}  
 <br/>  111    
-{name}
+ 
  
 <Filtro/>        
  

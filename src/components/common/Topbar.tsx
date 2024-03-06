@@ -1,6 +1,26 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
 import colorConfigs from "../../configs/colorConfigs";
 import sizeConfigs from "../../configs/sizeConfigs";
+import { Box, ThemeProvider, createTheme } from '@mui/system';
+
+const theme = createTheme({
+  palette: {
+    background: {
+      paper: '#fff',
+    },
+    text: {
+      primary: '#173A5E',
+      secondary: '#46505A',
+    },
+    action: {
+      active: '#001E3C',
+    },
+    success: {
+      dark: '#009688',
+    },
+  },
+});
+
 
 const Topbar = () => {
   return (
@@ -16,7 +36,20 @@ const Topbar = () => {
     >
       <Toolbar>
         <Typography variant="h6">
-          DEFINIR INFORMAÇÕES!!!! 
+         
+        <ThemeProvider theme={theme}>
+      
+        <Box component="div">Total de Inspeções</Box>
+        <Box component="div">
+          98 
+        </Box>
+        
+       
+  
+     
+
+     
+    </ThemeProvider>
         </Typography>
       </Toolbar>
     </AppBar>

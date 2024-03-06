@@ -1,6 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import   { useState, useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
-import { Button } from '@mui/material'
+import { Button  } from '@mui/material'
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+ 
+ 
+interface DadosExcel {
+  idDadosExcel: number;
+  // Outras propriedades dos dados
+}
+
+
+
+
+const JanelaPrestador= () => {
+  let id = "";
+  
+
+
+
+const handleAction1 = (ids:any) => {
+  console.log('Ação 1 clicada para o ID:', ids);
+  
+   id=ids;
+  {alert("Clicou"+id)}
+
+  // Implemente a lógica para a ação 1 aqui
+};
 
 const columnsExcel = [
   { field: 'idDadosExcel', headerName: 'ID' },
@@ -28,6 +54,7 @@ const columnsExcel = [
     ),
   },
 ];
+ 
 
 const columnsReport = [
   { field: 'idDadosExcel', headerName: 'ID' },
@@ -55,22 +82,23 @@ const columnsReport = [
     ),
   },
 ];
- 
-const handleAction1 = (id: any) => {
-  console.log('Ação 1 clicada para o ID:', id);
 
-  {alert("Clicou"+id)}
+  const RI = () => {
+    {alert("Clicou"+id)}  
+    window.open("http://localhost:3000/prestador/Ri/"+id);
+  
+    
+  };
 
-  // Implemente a lógica para a ação 1 aqui
-};
-const JanelaPrestador= () => {
+  
 
-  const [tableData, setTableData] = useState([])
-
+  
+  const [tableData, setTableData] = useState<DadosExcel[]>([]);
   useEffect(() => {
     fetch("http://localhost:8081/dadosExcel/listarTodos")
       .then((data) => data.json())
       .then((data) => setTableData(data))
+      
 
   }, [])
 
@@ -91,13 +119,30 @@ const JanelaPrestador= () => {
         pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
-        getRowId={(row) => row.idDadosExcel}
+        getRowId={(row) => row.idDadosExcel  }
       />
 
 
     <br/><br/><br/><br/>
 
       TESTE
+      <button onClick={RI }>RI</button>
+       
+  
+ <Button name="btnRNC" variant="contained" color="success" startIcon={<LibraryAddIcon />} onClick={RI }>
+  Novo RI
+</Button>
+
+<Button variant="contained" color="success" startIcon={<LibraryAddIcon />} >
+  Novo RNC
+</Button>
+      
+<Button variant="contained" color="success" startIcon={<AddCircleIcon />}>
+  Novo RR
+</Button>
+<br/> <br/>
+
+
 
       <br/><br/>
 
@@ -121,3 +166,4 @@ const JanelaPrestador= () => {
 }
 
 export default JanelaPrestador;
+ 

@@ -8,7 +8,7 @@ import CaldeiraIndex1 from "../pages/caldeira/CaldeiraIndex1";
 import CaldeiraIndex2 from "../pages/caldeira/CaldeiraIndex2";
 import CaldeiraIndex3 from "../pages/caldeira/CaldeiraIndex3";
  
-import TableRowsIcon from '@mui/icons-material/TableRows';
+ 
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
@@ -47,16 +47,16 @@ import SopradoresDeFuliagem from "../pages/caldeira/SopradoresDeFuliagem";
 import Teto from "../pages/caldeira/Teto";
 import Caldeira from "../pages/caldeira";
 import CarregarDados from "../pages/carregaDados/CarregarDados";
-import FileUpload from "../pages/outros/upload";
+ 
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import BusinessIcon from '@mui/icons-material/Business';
 import Empresa from "../pages/carregaDados/Empresa";
  
-import CarregarIndex from "../pages/caldeira/CarregarIndex";
+ 
 import JanelaPrestador from "../pages/JanelaPrestador";
 import PasswordIcon from '@mui/icons-material/Password';
 import NewPassword from "../pages/carregaDados/NewPassword";
-import RelatorioInspecao from "../pages/outros/RelatorioInspecao";
+ 
 import Ri from "../pages/Ri";
 import RelatorioPosReparo from "../pages/outros/RelatorioPosReparo";
 import Rnc from "../pages/Rnc";
@@ -136,13 +136,18 @@ const appRoutes: RouteType[] = [
         }
       },
       {
-        path: "/prestador/Ri",
+        path: "/prestador/Ri/:id",
         element: <Ri />  ,
         state: "ri",
         sidebarProps: {
           displayText: "RI - Relatório de inspeção",
           icon: <SummarizeTwoToneIcon />
         }
+
+
+        
+
+
       },
       {
         path: "/prestador/RNC",
