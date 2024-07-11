@@ -1,3 +1,5 @@
+/*
+
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 
@@ -19,4 +21,6 @@ function Glb() {
   );
 }
 
-export default Glb;
+export default Glb; 
+
+*/

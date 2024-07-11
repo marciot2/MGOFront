@@ -7,7 +7,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CaldeiraIndex1 from "../pages/caldeira/CaldeiraIndex1";
 import CaldeiraIndex2 from "../pages/caldeira/CaldeiraIndex2";
 import CaldeiraIndex3 from "../pages/caldeira/CaldeiraIndex3";
- 
+import teste1 from "../pages/outros/teste1";
  
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 
@@ -32,6 +32,7 @@ import ParedeDeAgua from "../pages/caldeira/ParedeDeAgua";
 import Nariz from "../pages/caldeira/Nariz";
 import Porao from "../pages/caldeira/Porao";
 import Penthouse from "../pages/caldeira/Penthouse";
+import Piso from "../pages/caldeira/Piso";
 import Queimadores from "../pages/caldeira/Queimadores";
 import SuperaquecedorPrimarioI from "../pages/caldeira/SuperaquecedorPrimarioI";
 import Screen from "../pages/caldeira/Screen";
@@ -63,6 +64,31 @@ import Rnc from "../pages/Rnc";
 import SummarizeTwoToneIcon from '@mui/icons-material/SummarizeTwoTone';
 import AssessmentTwoToneIcon from '@mui/icons-material/AssessmentTwoTone';
 import LibraryBooksTwoToneIcon from '@mui/icons-material/LibraryBooksTwoTone';
+import Evaporadora from "../pages/caldeira/Evaporadora";
+import Evaporacao from "../pages/caldeira/VasosEvaporacao";
+import VasosCaldeira from "../pages/caldeira/VasosCaldeiraNR13";
+import ATMCaldeira from "../pages/caldeira/ATMCaldeira";
+import ATMSecagem from "../pages/secagem/ATMSecagem";
+import VasosSecagem from "../pages/secagem/VasosSecagem";
+import ATMCaustificacao from "../pages/caustificacao/ATMCaustificacao";
+import VasosCaustificacao from "../pages/caustificacao/VasosCaustificacao";
+import ATMBranqueamento from "../pages/branqueamento/ATMBranqueamento";
+import VasosBranqueamento from "../pages/branqueamento/VasosBranqueamento";
+import RoscasTransportadoras from "../pages/caldeira/RoscasTransportadoras";
+import Teste from "../pages/branqueamento/Teste";
+import VasosCaldeiraNR13 from "../pages/caldeira/VasosCaldeiraNR13";
+import ATMLinhaFibras from "../pages/LinhasFibras/ATMLinhaFibras";
+import VasosLinhaFibras from "../pages/LinhasFibras/VasosLinhaFibras";
+import ATMEvaporacao from "../pages/evaporacao/ATMEvaporacao";
+import TurboGerador from "../pages/caldeira/TurboGerador";
+import ETAETAC from "../pages/caldeira/ETAETAC";
+import Digestor from "../pages/caldeira/Digestor"
+import FornoCal from "../pages/caldeira/FornoCal";
+import Relatorios from "../pages/outros/Relatorios";
+import RelatorioInspecao from "../pages/outros/RelatorioInspecao";
+import RelatorioInspecaoRI from "../pages/outros/RelatorioInspecaoRI";
+import RelatorioNaoConformidadeRNC from "../pages/outros/RelatorioNaoConformidadeRNC";
+import RelatorioPosReparoRR from "../pages/outros/RelatorioPosReparoRR";
 const appRoutes: RouteType[] = [
   {
     index: true,
@@ -78,8 +104,8 @@ const appRoutes: RouteType[] = [
       icon: <AccountBalanceIcon />
     }
   },
- 
-   
+    
+    
   {
     path: "/carregaDados",
     element: <CarregarDados />,
@@ -88,7 +114,7 @@ const appRoutes: RouteType[] = [
       displayText: "Carregar Dados",
       icon: <CloudUploadIcon />
     }
-  },
+  },  
   
   {
     path: "/empresa",
@@ -100,22 +126,22 @@ const appRoutes: RouteType[] = [
     }
   },
   
-   
+ 
   {
     path: "/prestador",
     element: <CaldeiraPageLayout />,
     state: "caldeira",
     sidebarProps: {
-      displayText: "MÓDULO PRESTADOR",
+      displayText: "Módulo MKS",
       icon: <DashboardOutlinedIcon />
     },
     child: [
-      {
+      { 
         index: true,
         element: <CaldeiraIndex1 />,
         state: "caldeira.index1"
       },
-
+ 
       {
         path: "/prestador/NewPassword/:hash",
         element: <NewPassword />  ,
@@ -125,7 +151,7 @@ const appRoutes: RouteType[] = [
           icon: <PasswordIcon />
         }
       },
-       
+      
       {
         path: "/prestador/janelaprincipal",
         element: <JanelaPrestador/>,
@@ -149,10 +175,17 @@ const appRoutes: RouteType[] = [
 
 
       },
+
+
+
       {
-        path: "/prestador/RNC",
-        element: <Rnc/>  ,
-        state: "relatorioNaoConformidade",
+ 
+
+
+
+        path: "/prestador/Rnc/:idRelatorioInspecao/:id/:noTAG",
+        element: <Rnc/> ,
+        state: "rnc",
         sidebarProps: {
           displayText: "RNC - Relatório de Não Conformidade",
           icon: <AssessmentTwoToneIcon />
@@ -160,7 +193,7 @@ const appRoutes: RouteType[] = [
       },
       
       {
-        path: "/prestador/RR",
+        path: "/prestador/RR/:id",
         element: <RelatorioPosReparo />  ,
         state: "relatorioReparo",
         sidebarProps: {
@@ -169,6 +202,13 @@ const appRoutes: RouteType[] = [
         }
       },
 
+
+
+
+
+
+
+ 
       {
         path: "/prestador/glb",
         element: <RelatorioPosReparo />   ,
@@ -178,29 +218,31 @@ const appRoutes: RouteType[] = [
           icon: <LibraryBooksTwoToneIcon />
         }
       },
-
+  
 ]},
 
 
 
-
+ 
 
   
  
  
-  
+ 
 
   
   
   {
     path: "/Caldeira",
-    element: <Caldeira />,
+    element: <CaldeiraIndex1 />,
     state: "Caldeirahome",
     sidebarProps: {
       displayText: "Caldeira",
       icon: <AccountBalanceIcon />
     }
   },
+ 
+ 
   {
     path: "/caldeira",
     element: <CaldeiraPageLayout />,
@@ -216,7 +258,7 @@ const appRoutes: RouteType[] = [
         state: "caldeira.index1"
       },
       {
-        path: "/caldeira/balao/:parametro",
+        path: "/caldeira/balao",
         element: <Balao/>,
         state: "caldeira.balao",
         
@@ -434,6 +476,18 @@ const appRoutes: RouteType[] = [
 
 
       {
+        path: "/caldeira/piso",
+        element: <Piso />,
+        state: "caldeira.piso",
+        sidebarProps: {
+          displayText: "Piso",
+          icon: <DashboardOutlinedIcon />
+        }
+      },
+
+
+
+      {
         path: "/caldeira/porao",
         element: <Porao />,
         state: "caldeira.porao",
@@ -619,7 +673,7 @@ const appRoutes: RouteType[] = [
         }
       }
 
-
+ 
     ]
   },
 
@@ -632,11 +686,314 @@ const appRoutes: RouteType[] = [
     element: <DocumentationPage />,
     state: "documentation",
     sidebarProps: {
-      displayText: "Relatórios",
+      displayText: "" 
+      
+    },
+
+    
+  },
+
+ 
+ 
+
+  {
+    path: "/evaporadora",
+    element: <Evaporadora />,
+    state: "evaporadora",
+    sidebarProps: {
+      displayText: "Evaporadora",
       icon: <ArticleOutlinedIcon />
     }
-  },
+},
+
+
+ 
+
+{
+  path: "/evaporacao",
+  element: <Evaporacao />,
+  state: "evaporacao",
+  sidebarProps: {
+    displayText: "Evaporacao",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+,
+
+
+ 
+
+{
+  path: "/VasosCaldeiraNR13",
+  element: <VasosCaldeiraNR13 />,
+  state: "vasoscaldeiranr13",
+  sidebarProps: {
+    displayText: "Vasos Caldeira NR-13",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+ 
+
+{
+  path: "/ATMCaldeira",
+  element: <ATMCaldeira />,
+  state: "atmcaldeira",
+  sidebarProps: {
+    displayText: "ATM Caldeira",
+    icon: <ArticleOutlinedIcon />
+  }
+}
   
+,
+
+
+{
+  path: "/ATMSecagem",
+  element: <ATMSecagem />,
+  state: "atmsecagem",
+  sidebarProps: {
+    displayText: "ATM Secagem",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/VasosSecagem",
+  element: <VasosSecagem />,
+  state: "vasossecagem",
+  sidebarProps: {
+    displayText: "Vasos Secagem",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/ATMCaustificacao",
+  element: <ATMCaustificacao />,
+  state: "atmcaustificacao",
+  sidebarProps: {
+    displayText: "ATM Caustificação",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/VasosCaustificacao",
+  element: <VasosCaustificacao />,
+  state: "vasoscaustificacao",
+  sidebarProps: {
+    displayText: "Vasos Caustificação",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/ATMBranqueamento",
+  element: <ATMBranqueamento />,
+  state: "atmbranqueamento",
+  sidebarProps: {
+    displayText: "ATM Branqueamento",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/VasosBranqueamento",
+  element: <VasosBranqueamento />,
+  state: "vasosbranqueamento",
+  sidebarProps: {
+    displayText: "Vasos Branqueamento",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/RoscasTransportadoras",
+  element: <RoscasTransportadoras />,
+  state: "roscastransportadoras",
+  sidebarProps: {
+    displayText: "Roscas Transportadoras",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/ATMLinhaFibras",
+  element: <ATMLinhaFibras />,
+  state: "atmlinhafibras",
+  sidebarProps: {
+    displayText: "ATM Linha de Fibras",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+{
+  path: "/ATMEvaporacao",
+  element: <ATMEvaporacao />,
+  state: "atmevaporacao",
+  sidebarProps: {
+    displayText: "ATM Evaporação",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+
+
+
+,
+
+
+{
+  path: "/VasosLinhaFibras",
+  element: <VasosLinhaFibras />,
+  state: "vasoslinhafibras",
+  sidebarProps: {
+    displayText: "Vasos Linha de Fibras",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+{
+  path: "/RoscasTransportadoras",
+  element: <RoscasTransportadoras />,
+  state: "roscastransportadoras ",
+  sidebarProps: {
+    displayText: "Roscas Transportadoras",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+
+{
+  path: "/TurboGerador",
+  element: <TurboGerador />,
+  state: "turbogerador",
+  sidebarProps: {
+    displayText: "Turbo Gerador",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+
+
+
+
+{
+  path: "/ETAETAC",
+  element: <ETAETAC />,
+  state: "etaetac",
+  sidebarProps: {
+    displayText: "ETA/ETAC",
+    icon: <ArticleOutlinedIcon />
+  }
+},
+
+
+{
+  path: "/Digestor",
+  element: <Digestor />,
+  state: "digestor",
+  sidebarProps: {
+    displayText: "Digestor",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+
+,
+{
+  path: "/FornoCal",
+  element: <FornoCal />,
+  state: "fornocal",
+  sidebarProps: {
+    displayText: "Forno de Cal",
+    icon: <ArticleOutlinedIcon />
+  }
+}
+ 
+,
+ 
+
+{
+  path: "/teste",
+  element: <Teste />,
+  state: "teste",
+  sidebarProps: {
+    displayText: "Teste",
+    icon: <ArticleOutlinedIcon />
+  }
+},
+ 
+{
+  path: "/prestador/Ris/:id",
+  element: <RelatorioInspecaoRI />  ,
+  state: "ris",
+  sidebarProps: {
+    displayText: "", 
+    
+  }
+},
+{
+  path: "/prestador/RNCs/:id/:noTAG",
+  element: <RelatorioNaoConformidadeRNC />  ,
+  state: "rncs",
+  sidebarProps: {
+    displayText: "", 
+    
+  }
+},
+
+{
+  path: "/prestador/RRs/:id/:noTAG",
+  element: <RelatorioPosReparoRR />  ,
+  state: "rncs",
+  sidebarProps: {
+    displayText: "", 
+    
+  }
+},
+
+{
+  path: "/Relatorios/:etag",
+  element: <Relatorios />  ,
+  state: "relatorios",
+  sidebarProps: {
+    displayText: " " 
+  }
+}
    
 ];
 

@@ -1,0 +1,24 @@
+.produto{
+    display: flex;
+    border-top: none;
+    padding-top: 0;
+}
+
+.prod{
+   flex: 1; /*distribui as 3 divs dentro do conteiner com larguras iguais*/
+   margin: 2px; /*coloca uma margem entre elas*/
+   text-align: center;
+}
+
+.prod img{
+   max-width: 100%;
+}
+
+.prod h6 {
+    font-weight: bold;
+  }
+  .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -42,12 +42,12 @@ const Balao = (props: Props) => {
  
 <br/><br/><br/><br/>
 
-<FileUpload></FileUpload>
+ 
 
 <br/><br/><br/><br/>
 
 
-<SingleRecordViewer></SingleRecordViewer>
+ 
 
 
 

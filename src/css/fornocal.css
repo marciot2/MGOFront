@@ -1,0 +1,34 @@
+.table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  .centralized {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .ipenthouse {
+    display: block;
+    margin: 0% auto;
+    text-align: center;
+    
+  }
+
+  .forno {
+    display: block;
+    margin: 000% auto;
+    
+  }
+  
+  .tpenthouse {
+    text-align: center;
+  }
+  

@@ -39,9 +39,9 @@ const Topbar = () => {
          
         <ThemeProvider theme={theme}>
       
-        <Box component="div">Total de Inspeções</Box>
+        <Box component="div"> </Box>
         <Box component="div">
-          98 
+            
         </Box>
         
        

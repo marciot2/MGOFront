@@ -1,6 +1,7 @@
- 
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import SaveIcon from '@mui/icons-material/Save'; 
 import '../../css/caldeira.css';
-import { TextareaAutosize, Box, TextField, InputLabel, Select, MenuItem, FormControl, SelectChangeEvent } from '@mui/material';
+import { TextareaAutosize, Box, TextField, InputLabel, Select, MenuItem, FormControl, SelectChangeEvent, Input } from '@mui/material';
 import * as React from 'react';
 import './styles.css';
 import HtmlEditor from './edit';
@@ -11,36 +12,362 @@ import GridOnIcon from '@mui/icons-material/GridOn';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BootstrapButton } from 'react-bootstrap-button';
-
+import ArticleIcon from '@mui/icons-material/Article';  
+import {BACKEND} from "../../config"; 
 import App from './fileupload';
  
 import Button from '@mui/material/Button';
 import {   Pies } from './pie';
+import { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import JoditEditor from 'jodit-react';
+import axios from 'axios';
  
-  
+
+interface Rr {
+  denominacao: string;
+  tag: string;
+  empresa: string;
+  equipamento: string;
+  area: string;
+  noTAG: string;
+   
+};
+     
+
+
      
 export default function RelatorioPosReparo() {
   
+
+
+  const [files, setFiles] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+   
+
+
+
+
   const [age, setAge] = React.useState('');
+  const [data, setData] = useState<Rr>();
+  const [eempresa, setEempresa] = useState('');
+  const [denominacao, setDenominacao] = useState('');
+  const [tag, setTag] = useState('');
+  const [noTAG, setNoTAG] = useState('');
+  const [status, setStatus] = useState('');
+  const [numero,setNumero] = useState('');
+  const [equipamento,setEquipamento] = useState('');
+
+  const {idRelatorioNaoConformidade} = useParams();
+  const [idRelatorioReparo,setidRelatorioReparo] = useState('');   
+  const [ensaios,setEnsaios] = useState('.');
+  const [tipoInspecao, settipoInspecao] = useState('');
+  const [area,setArea] = useState('');
+  const [dataInspecao, setdataInspecao] = useState('');
+ 
+  const [recomendacaoReparo, setrecomendacaoReparo] = useState('.');
+   
+ 
+  const [descricaoReparo, setdescricaoReparo] = useState('.');
+  const [responsavelInspecao, setresponsavelInspecao] = useState('');
+  const [empresa, setEmpresa] = useState('');
+  const [dadosExcel, setdadosExcel] = useState<string>('');
+  const { id } = useParams();
+ 
+
+
+  const handleUploadS3 = async () => {
+    if (selectedFile) {
+        const formData = new FormData();
+        formData.append('files', selectedFile);
+        formData.append('id',idRelatorioReparo);
+        formData.append('tipo','RR');
+        formData.append('tag', tag || '');
+        formData.append('noTAG', noTAG || '');
+
+  
+        try {
+            // Substitua com a URL do seu endpoint de upload
+            const uploadUrl = BACKEND+'/RR/S3/salvar';
+             
+            const response = await axios.post(uploadUrl, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+  
+            console.log('Arquivo enviado com sucesso:', response.data);
+            // Adicione aqui mais lógica após o upload ser bem sucedido
+           
+            if(response.status === 200)
+            {
+                console.log('OPA', response.status);
+                handleRefreshFile();
+  
+             } 
+  
+  
+           
+  
+  
+        } catch (error) {
+            console.error('Erro no upload do arquivo:', error);
+            // Adicione aqui sua lógica de tratamento de erro
+        }
+    }
+  };
+  
+
+
+
+  const saveRR = () => {
+ 
+ 
+  
+    try {
+      const formData = {
+ 
+     idRelatorioNaoConformidade,
+        id,
+        status, 
+        equipamento,
+        tag,
+        idRelatorioReparo,
+        numero,
+        area,
+        tipoInspecao,
+        dataInspecao, 
+        noTAG,
+        recomendacaoReparo,
+        empresa, 
+         descricaoReparo,
+         ensaios,
+        denominacao,
+        responsavelInspecao,
+           
+  
+        };
+        console.info(numero);
+  
+        axios.post(BACKEND+'/RR/save',formData) 
+          
+        
+        .then((response) => {
+          console.log(response);
+  
+          if (response.status === 200) {
+           
+           setidRelatorioReparo(response.data);
+            {alert("Relatório de Reparo Salvo com sucesso!!!")};
+            
+             
+          }
+  
+        }, (error) => {
+          console.log(error);
+        });
+  
+   
+       
+      // Trate a resposta do servidor conforme necessário
+    } catch (error) {
+      console.error('Erro ao enviar o formulário:', error);
+    }
+  
+  
+  
+  
+   };
+   
+
+
+
+
+
+  /** EXPORTA DADOS PARA WORD */
+  const ExportWord = () => {
+   
+    setArea(equipamento);
+    
+    try {
+      const formData = {
+        id,
+        status, 
+        area,
+        denominacao,
+        tipoInspecao,
+        dataInspecao,
+        empresa,
+        tag,
+        equipamento, 
+        numero,
+        descricaoReparo,
+        ensaios, 
+       
+              
+        responsavelInspecao
+        };
+        console.info(numero);
+ 
+        axios.post(BACKEND+'/RR/enviar',formData) 
+          
+        
+        .then((response) => {
+          console.log(response);
+
+          if (response.status === 200){
+
+            {alert("Documento gerado com sucesso!!!")}
+
+          }
+
+        }, (error) => {
+          console.log(error);
+        });
+
+
+
+
+       
+      // Trate a resposta do servidor conforme necessário
+    } catch (error) {
+      console.error('Erro ao enviar o formulário:', error);
+    }
+
+
+
+    
+    
+    
+  };
+
+  const baixartWord = () => {
+    axios({
+      method: 'get',
+      url: BACKEND+'/downloadRR',
+      responseType: 'arraybuffer',
+      timeout: 5000 // Define o tipo de resposta como arraybuffer
+    })
+    .then(response => {
+      if (response.status === 200) {
+      const url = URL.createObjectURL(new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'arquivo.docx'); // Define o nome do arquivo e a extensão corretamente
+      document.body.appendChild(link);
+      link.click();
+    }})
+    .catch(error => {
+      console.error(error);
+    });
+  };
 
   const handleChange = (event: SelectChangeEvent) => {
+    setStatus(event.target.value as string);
     setAge(event.target.value as string);
-    alert(event.target.value as string);
+    
 
+    
 
   };
+   
+
+   
+  useEffect(() => {
+     
+
+    if (id) {
+    axios.get(BACKEND+`/RR/buscaDados/${id}`)
+        .then(response => {
+            setData(response.data);
+            setDenominacao(response.data.denominacao);
+            setTag(response.data.tag);
+            setNoTAG(response.data.noTAG);
+            setArea(response.data.area);
+            setEmpresa(response.data.empresa);
+          
+        })
+        .catch(error => {
+            console.log('Erro ao buscar empresas', error);
+        });        
+
+}},   
+[id]);
+   
+      
+
+
+const handleRefreshFile = async () => {
+  setLoading(true);
+  setError(null);
+  try {
+    
+    const response = await axios.get<string[]>(BACKEND+`/RR/buscafile/${idRelatorioReparo}`);
+    setFiles(response.data);
+  } catch (err) {
+    setError('Erro ao buscar os arquivos');
+  } finally {
+    setLoading(false);
+  }
+};
+ 
 
 
  
+const editor1 = useRef(null);
+const editor2 = useRef(null);
+
+
+
+const config = 
+{
+readonly: false,
+editor: '' 
+} 
+  
+
+
+ 
+
+
+
+
+
+
+
+
+const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  if (event.target.files) {
+      setSelectedFile(event.target.files[0]);
+  }
+};
+ 
   return (
+
+ 
+
     <div className="App">
 
-    <h3>RELATÓRIO PÓS REPARO (Aprovação) - RR</h3>
+   Dados Equipamentos: 
+   <br/>
+   Relatório de Inspeção:  
+   <br/> 
+   Relatório de Não Conformidade: {id}
+   <br/>
+   Relatório Pós reparo: {idRelatorioReparo}
+   <br/>
+   
+          <h3>RELATÓRIO PÓS REPARO (Aprovação) - RR</h3>
     <h5>   PREENCHIDO PELO PRESTADOR DE SERVIÇO TERCERIZADO </h5>
+
+
 <br/>
 <br/>
 
-<br/>        
+<br/>         
 
 
 <Box
@@ -51,10 +378,9 @@ export default function RelatorioPosReparo() {
       noValidate
       autoComplete="off"
     >
- 
-<TextField color='success' label='Data' placeholder='99/99/9999' variant="outlined">                   </TextField>
+  
                 
-<TextField color='success' label='Doc. nº' variant="outlined"> </TextField>       
+<TextField color='success' label='Doc. nº' variant="outlined" onChange={(e) => setNumero(e.target.value)}> </TextField>       
 
 <FormControl fullWidth>
        
@@ -69,40 +395,71 @@ export default function RelatorioPosReparo() {
           label="Status"
           onChange={handleChange}
         >
-    <MenuItem value={1}>Verde</MenuItem>
-    <MenuItem value={2}>Amarelo</MenuItem>
-    <MenuItem value={3}>Vermelho</MenuItem>
+   <MenuItem value={'LIBERADO'}>Liberado</MenuItem>
+
+
+   
   </Select>
   </FormControl>
- <br/><br/>
+ <br/> 
+ <br/> 
 
- <TextField color='success' label='Cliente'   variant="outlined"></TextField> 
- <TextField color='success' label='Local' variant="outlined"></TextField> 
- <TextField color='success' label='Evento' variant="outlined"></TextField> 
-
- <br/><br/>
-
- <TextField color='success' label='Equipamento' variant="outlined"></TextField> 
- <TextField color='success' label='TAG' variant="outlined"></TextField>
-
- <br/><br/>
-
- <TextField color='success' label='Responsável pela inspeção' variant="outlined"></TextField> 
- <TextField color='success' label='Responsável pela manutençãos' variant="outlined"></TextField>
-
- <br/><br/>
+  
  
- <TextField color='success' label='Local do problema' variant="outlined"></TextField>
+ 
+ 
+  
+ <TextField   
+         
+          value={data?.denominacao}
+          helperText="Denominação"  
+          onChange={(e) => setDenominacao(e.target.value)} 
+          onFocus={(e) => setDenominacao(e.target.value)} 
+          
+        />
+
+ 
+<TextField   
+          label={data?.tag} 
+          value={data?.tag}
+          helperText="TAG"  
+          onChange={(e) => setTag(e.target.value)} 
+          onFocus={(e) => setTag(e.target.value)} 
+        />
+
+ 
+ 
+ 
+
+<TextField   
+          label={data?.area} 
+          value={data?.area}
+          helperText="Área"  
+          onChange={(e) => setArea(e.target.value)} 
+          onFocus={(e) => setArea(e.target.value)} 
+         
+        />
+
 
  <br/><br/>
- {/* Hello World
+ <TextField color='success' label='Tipo de inspeção' variant="outlined" onChange={(e) => settipoInspecao(e.target.value)}></TextField> 
+ <TextField color='success' label='Data inspeção' variant="outlined" onChange={(e) => setdataInspecao(e.target.value)}></TextField>
+  
 
- <TextareaAutosize aria-label="minimum height" minRows={5} placeholder="Problemas encontrados" />
+ <TextField   
+          label={data?.empresa} 
+          value={data?.empresa}
+          helperText="Empresa"  
+          onChange={(e) => setEmpresa(e.target.value)} 
+          onFocus={(e) => setEmpresa(e.target.value)} 
+        />
 
- <TextareaAutosize aria-label="minimum height" minRows={5} placeholder="Recomendações de Reparo" />
-<p id="pe">Hello World!</p>
-*/}
 
+ <TextField color='success' label='Responsável pela inspeção' variant="outlined" onChange={(e) => setresponsavelInspecao(e.target.value)}></TextField> 
+ 
+
+ <br/><br/>
+  
 
 
 
@@ -112,57 +469,101 @@ export default function RelatorioPosReparo() {
  <br/>
 
  
- <label>Problemas Observados:</label>
-   <HtmlEditor />  
-   <br/> <br/> 
-   <label>Recomendações de Reparos:</label>
-   <HtmlEditor />  
-   <br/> <br/> 
+ <label>Descrição do reparo:</label>
 
-  <App/>
+ <JoditEditor
+			 
+       ref={editor1}
+       value={descricaoReparo}
+       config={config}
+       onBlur={(newContent: string) => setdescricaoReparo(newContent)}  
+       onChange={(newContent: string) => {}}
+     />
+
+ 
+
+   
+   <br/> <br/> 
+   <label>Ensaios utilizados para aprovação:</label>
+   <JoditEditor
+			 
+       ref={editor2}  
+       value={ensaios}
+       config={config}
+       onBlur={(newContent: string) => setEnsaios(newContent)}  
+       onChange={(newContent: string) => {}}
+     />
+   <br/> <br/> 
+   <Button name="btnSalvar "   variant="contained"   startIcon={<SaveIcon />} onClick={saveRR}>
+  Salvar 
+</Button>
+   <Button name="btnWord"    variant="contained" color="success" startIcon={<ArticleIcon />} onClick={ExportWord}>
+  Exportar .DOCX
+</Button>
+
+<Button name="btnGerar"  variant="contained" color="info" startIcon={<ArticleIcon />} onClick={baixartWord}>
+  Baixar .DOCX
+</Button>
+   
   <br/> <br/> 
+
+       
+
+
 
 
   <br/> <br/>
 
-  <Button variant="contained" color="info" startIcon={<PictureAsPdfIcon />}>
-  + Adcionar Laudo
-</Button>
-<Button variant="contained" color="info" startIcon={<GridOnIcon />}>
-  + Adicionar Planilha
-</Button>
+  <label>Incluir relatórios: </label>
+  
+  
+  <InputLabel htmlFor="file-upload"> </InputLabel>
+            <Input
+                id="file-upload"
+                type="file"
+                onChange={handleFileChange}
+                sx={{ mb: 1 }}
+            />
+           
 
-<Button variant="contained" color="warning">
-  + Não Liberado para inspeção
-</Button>
+ 
+ 
+ 
+
+       
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <Button
+        variant="contained"
+        color="primary"
+        onClick={handleUploadS3}
+        disabled={!selectedFile}
+        startIcon={<CloudUploadIcon/>}
+        style={{ textTransform: "none", padding: "18px 50px" }}
+    >
+        Enviar Arquivo
+    </Button>
+   
+ 
+    </div>
 
 
 
-<Button variant="contained" color="success" startIcon={<LoupeIcon />}>
-  Novo RI
-</Button>
-
-<Button variant="contained" color="success" startIcon={<LibraryAddIcon />} >
-  Novo RNC
-</Button>
-
-<Button variant="contained" color="success" startIcon={<AddCircleIcon />}>
-  Novo RR
-</Button>
-<br/> <br/>
-
-<Button variant="contained" color="success" startIcon={<AddCircleIcon />}>
+    <button onClick={handleRefreshFile}>Atualizar arquivo</button>
+    
+    <br/> <br/>
+    <ul>
+            {files.map((file, index) => (
+              <li key={index}>
+                <a href={file} target="_blank" rel="noopener noreferrer">
+                  {file}
+                </a>
+              </li>
+            ))}
+          </ul>
 
 
 
-  Novo RR
-</Button><br/> <br/>
-<BootstrapButton variant="primary">Enviar</BootstrapButton>{' '}
 
-<br/> <br/>
-<div style={{height:"30vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
-<Pies/><Pies/><Pies/>
-</div>
     </div>
     
   );

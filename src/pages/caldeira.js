@@ -1,4 +1,4 @@
-import Caldeira from '../images/caldeira.png';
+import Caldeira from '../images/CaldeiraRecuperacao/Caldeira.png';
 import React from 'react';
 import '../css/caldeira.css';
 

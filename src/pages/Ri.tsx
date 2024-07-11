@@ -7,7 +7,7 @@ type Props = {};
 const Ri = (props: Props) => {
   return (
     <div> 
-    <span>Nome: </span>
+    
    <RelatorioInspecao/>
 
     </div>
