@@ -40,6 +40,7 @@ import CaldeiraForca from "../pages/caldeira/CaldeiraForca";
 // Outros
 import Rosca from "../pages/branqueamento/Rosca";
 import RelatorioInspecaoRIs from "../pages/outros/RelatorioInspecaoRIs";
+import TAGs from "../pages/caldeira/TAGs";
 
 // =================== ROTAS PRINCIPAIS ===================
 const appRoutes: RouteType[] = [
@@ -143,7 +144,7 @@ const appRoutes: RouteType[] = [
   } ,
   {
     path: "/TAGs",
-    element: <CaldeiraForca />,
+    element: <TAGs />,
     state: "caldeiraforca",
     sidebarProps: {
       displayText: "TAGs",

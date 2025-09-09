@@ -1,0 +1,32 @@
+.containerTAGS {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "A1 A3 A3 A3 A2"
+    "A1 tag1 A5 tag2 A2"
+    "A1 tag1 A5 tag2 A2"
+    "A1 tag1 A5 tag2 A2"
+    "A1 tag1 A5 tag2 A2"
+    "A1 sem1 A5 sem2 A2"
+    "A1 A4 A4 A4 A2";
+}
+
+.tag1 { grid-area: tag1; }
+
+.tag2 { grid-area: tag2; }
+
+.sem1 { grid-area: sem1; }
+
+.sem2 { grid-area: sem2; }
+
+.A1 { grid-area: A1; }
+
+.A2 { grid-area: A2; }
+
+.A3 { grid-area: A3; }
+
+.A4 { grid-area: A4; }
+
+.A5 { grid-area: A5; }
