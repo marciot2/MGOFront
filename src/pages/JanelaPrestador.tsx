@@ -128,7 +128,7 @@ const JanelaPrestador: React.FC = () => {
   useEffect(() => {
     // GRID 1 — DadosExcel
 //    fetch(`${BACKEND}/dadosExcel/listarTodos`)
-    fetch(`/dadosExcel/listarTodos`)
+    fetch(`${BACKEND}/dadosExcel/listarTodos`)
       .then((r) => r.json())
       .then((data: DadosExcel[]) => setTableData(data))
       .catch((e) => console.error('Erro ao carregar listarTodos:', e));
