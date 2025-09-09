@@ -1,0 +1,466 @@
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Página</title>
+    <link rel="stylesheet" href="rosca.css">
+  </head>
+  
+  <script>
+    let selectedLA = null; // Variável para armazenar a última div LA clicada
+    const changesLog = []; // Array para armazenar as alterações realizadas
+  
+    document.addEventListener("click", function (event) {
+      // Verifica se o clique foi em um elemento com classe que começa com "LA"
+      const laClassList = Array.from(event.target.classList);
+      const hasLAClass = laClassList.some(cls => cls.startsWith("LA"));
+  
+      if (hasLAClass) {
+        const clickedDiv = event.target;
+  
+        // Caso a div já contenha uma imagem
+        const hasImage = clickedDiv.querySelector("img");
+        if (hasImage) {
+          // Alternar o fundo para azul ou transparente em duplo clique
+          if (clickedDiv.style.backgroundColor === "blue") {
+            clickedDiv.style.backgroundColor = ""; // Remove o fundo azul
+          } else {
+            clickedDiv.style.backgroundColor = "blue"; // Adiciona o fundo azul
+          }
+          return; // Não prosseguir com a lógica de seleção
+        }
+  
+        // Caso contrário, altera a seleção para a div clicada
+        if (selectedLA) {
+          selectedLA.style.backgroundColor = ""; // Remove o fundo azul da anterior
+        }
+        selectedLA = clickedDiv; // Atualiza a variável
+        selectedLA.style.backgroundColor = "blue"; // Define fundo azul
+      }
+  
+      // Verifica se o clique foi em uma div "F"
+      const fElement = event.target.closest(".f7, .f8, .f9, .f10");
+      if (fElement) {
+        if (selectedLA) {
+          // Obtém a imagem dentro da div F
+          const img = fElement.querySelector("img");
+          if (img) {
+            // Armazena a alteração no array de log
+            changesLog.push({
+              LA: selectedLA.className,
+              F: fElement.className,
+              imgSrc: img.src
+            });
+            console.log("Alterações registradas:", changesLog);
+  
+            // Altera o conteúdo da div LA selecionada para a imagem correspondente
+            selectedLA.innerHTML = `<img src="${img.src}" alt="${img.alt}" width="30" height="30" class="${img.className}" style="border-radius: 8px;">`;
+            selectedLA.style.backgroundColor = ""; // Remove o fundo azul após a alteração
+            selectedLA = null; // Reseta a seleção
+          }
+        } else {
+          alert("Selecione uma div azul primeiro!");
+        }
+      }
+    });
+  
+    // Adiciona suporte para clique duplo
+    
+  
+  document.addEventListener("dblclick", function (event) {
+  // Tenta encontrar a div com a classe começando com "LA"
+  const clickedDiv = event.target.closest("[class^='LA']");
+
+  if (clickedDiv) {
+    // Verificar se há uma imagem dentro da div
+    const img = clickedDiv.querySelector("img");
+
+    if (img) {
+      // Remover a imagem da div
+      img.remove();
+      // Alterar o fundo para cinza
+      clickedDiv.style.backgroundColor = "gray";
+
+      // Remover a entrada correspondente no array `changesLog`
+      const indexToRemove = changesLog.findIndex(
+        entry => entry.LA === clickedDiv.className
+      );
+
+      if (indexToRemove !== -1) {
+        changesLog.splice(indexToRemove, 1);
+        console.log("Entrada removida do changesLog:", changesLog);
+      } else {
+        console.warn("Nenhuma entrada correspondente encontrada no changesLog.");
+      }
+
+      console.log("Imagem removida e fundo alterado para cinza.");
+    } else {
+      console.warn("Nenhuma imagem encontrada nesta div.");
+    }
+  } else {
+    console.warn("O clique duplo não foi em uma div com classe 'LA'.");
+  }
+});
+
+
+  </script>
+  
+
+
+
+  <body>
+    <div class="container">
+      <!-- Classe terminando com 1 -->
+      <div class="la1">
+        <img src="ST.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lb1">
+        <img src="STr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lc1">
+        <img src="ST.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="ld1">
+        <img src="STr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="le1">
+        <img src="ST.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lf1">
+        <img src="STr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lg1">
+        <img src="ST.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lh1">
+        <img src="STr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="li1">
+        <img src="ST.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lj1">
+        <img src="STr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lk1">
+        <img src="ST.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lm1">
+        <img src="STr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+
+      <!-- Classe terminando com 2 (sem modificações) -->
+      <div class="la2">
+        <img src="SD.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lb2">
+        <img src="SDr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lc2">
+        <img src="SD.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="ld2">
+        <img src="SDr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="le2">
+        <img src="SD.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lf2">
+        <img src="SDr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lg2">
+        <img src="SD.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lh2">
+        <img src="SDr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="li2">
+        <img src="SD.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lj2">
+        <img src="SDr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lk2">
+        <img src="SD.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lm2">
+        <img src="SDr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+
+      <!-- Classe terminando com 3 -->
+      <div class="la3">
+        <img src="SC.PNG" alt="Imagem 3"  height="8"   class="center">
+      </div>
+      <div class="lb3">
+        <img src="SC.PNG" alt="Imagem 3"  class="center">
+      </div>
+      <div class="lc3">
+        <img src="SC.PNG" alt="Imagem 3"  class="center">
+      </div>
+      <div class="ld3">
+        <img src="SC.PNG" alt="Imagem 3"   class="center">
+      </div>
+      <div class="le3">
+        <img src="SC.PNG" alt="Imagem 3"   class="center">
+      </div>
+      <div class="lf3">
+        <img src="SC.PNG" alt="Imagem 3"  class="center">
+      </div>
+      <div class="lg3">
+        <img src="SC.PNG" alt="Imagem 3"  class="center">
+      </div>
+      <div class="lh3">
+        <img src="SC.PNG" alt="Imagem 3"  class="center">
+      </div>
+      <div class="li3">
+        <img src="SC.PNG" alt="Imagem 3"   class="center">
+      </div>
+      <div class="lj3">
+        <img src="SC.PNG" alt="Imagem 3"   class="center">
+      </div>
+      <div class="lk3">
+        <img src="SC.PNG" alt="Imagem 3"   class="center">
+      </div>
+      <div class="lm3">
+        <img src="SC.PNG" alt="Imagem 3"   class="center">
+      </div>
+
+      <!-- Classe terminando com 4 -->
+      <div class="la4">
+        <img src="SE.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lb4">
+        <img src="SEr.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lc4">
+        <img src="SE.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="ld4">
+        <img src="SEr.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="le4">
+        <img src="SE.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lf4">
+        <img src="SEr.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lg4">
+        <img src="SE.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lh4">
+        <img src="SEr.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="li4">
+        <img src="SE.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lj4">
+        <img src="SEr.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lk4">
+        <img src="SE.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+      <div class="lm4">
+        <img src="SEr.PNG" alt="Imagem 4" width="30" height="30" class="center">
+      </div>
+
+      <!-- Classe terminando com 5 -->
+      <div class="la5">
+        <img src="SI.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lb5">
+        <img src="SIr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lc5">
+        <img src="SI.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="ld5">
+        <img src="SIr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="le5">
+        <img src="SI.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lf5">
+        <img src="SIr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lg5">
+        <img src="SI.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lh5">
+        <img src="SIr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="li5">
+        <img src="SI.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lj5">
+        <img src="SIr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lk5">
+        <img src="SI.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+      <div class="lm5">
+        <img src="SIr.PNG" alt="Imagem 1" width="30" height="30" class="center">
+      </div>
+    </div>
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <style>
+    
+    [class^="LA"] {
+      background-color: grey;
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+    <div class="container1">
+      <div class="LA1">
+        
+
+      </div>
+      <div class="LA2"></div>
+      <div class="LA3"></div>
+      <div class="LA4"></div>
+      <div class="LA5"></div>
+      <div class="LA6"></div>
+      <div class="LA7"></div>
+      <div class="LA8"></div>
+      <div class="LA9"></div>
+      <div class="LA10"></div>
+      <div class="LA11"></div>
+      <div class="LA12"></div>
+      <div class="LA13"></div>
+      <div class="LA14"></div>
+      <div class="LA15"></div>
+      <div class="LA16"></div>
+      <div class="LA17"></div>
+      <div class="LA18"></div>
+      <div class="LA19"></div>
+      <div class="LA20"></div>
+      <div class="LA21"></div>
+      <div class="LA22"></div>
+      <div class="LA23"></div>
+      <div class="LA24"></div>
+      <div class="LA25"></div>
+      <div class="LA26"></div>
+      <div class="LA27"></div>
+      <div class="LA28"></div>
+      <div class="LA29"></div>
+      <div class="LA30"></div>
+      <div class="LA31"></div>
+      <div class="LA32"></div>
+      <div class="LA33"></div>
+      <div class="LA34"></div>
+      <div class="LA35"></div>
+      <div class="LA36"></div>
+      <div class="LA37"></div>
+      <div class="LA38"></div>
+      <div class="LA39"></div>
+      <div class="LA40"></div>
+      <div class="LA41"></div>
+      <div class="LA42"></div>
+      <div class="LA43"></div>
+      <div class="LA44"></div>
+      <div class="LA45"></div>
+      <div class="LA46"></div>
+      <div class="LA47"></div>
+      <div class="LA48"></div>
+      <div class="LA49"></div>
+      <div class="LA50"></div>
+      <div class="LA51"></div>
+      <div class="LA52"></div>
+      <div class="LA53"></div>
+      <div class="LA54"></div>
+      <div class="LA55"></div>
+      <div class="LA56"></div>
+      <div class="LA57"></div>
+      <div class="LA58"></div>
+      <div class="LA59"></div>
+      <div class="LA60"></div>
+      <div class="LA61"></div>
+      <div class="LA62"></div>
+      <div class="LA63"></div>
+      <div class="LA64"></div>
+      <div class="LA65"></div>
+      <div class="LA66"></div>
+      <div class="LA67"></div>
+      <div class="LA68"></div>
+      <div class="LA69"></div>
+      <div class="LA70"></div>
+      <div class="LA71"></div>
+      <div class="LA72"></div>
+      <div class="LA73"></div>
+      <div class="LA74"></div>
+      <div class="LA75"></div>
+      <div class="LA76"></div>
+      <div class="LA77"></div>
+      <div class="LA78"></div>
+      <div class="LA79"></div>
+      <div class="LA80"></div>
+      <div class="LA81"></div>
+      <div class="LA82"></div>
+      <div class="LA83"></div>
+      <div class="LA84"></div>
+      <div class="LA85"></div>
+      <div class="LA86"></div>
+      <div class="LA87"></div>
+      <div class="LA88"></div>
+      <div class="LA89"></div>
+      <div class="LA90"></div>
+      <div class="LA142"></div>
+      <div class="LA140"></div>
+      <div class="AAAA"></div>
+      <div class="AAAAAAA"></div>
+      <div class="AA"></div>
+      <div class="AAA"></div>
+      <div class="BBB"></div>
+      <div class="B"></div>
+      <div class="BB"></div>
+      <div class="aaaaaaa"></div>
+      <div class="aaaaaaaaaaa"></div>
+      <div class="LA141"></div>
+      <div class="AAAAAAAA"></div>
+      <div class="AAAAAAAAAAAAAAAAA"></div>
+      <div class="LA139"></div>
+      <div class="aaaaaaaa"></div>
+    </div>
+
+  <br/>
+  <br/>
+
+
+    <div class="container2">
+      <div class="f1">
+
+        <p> Trincas: </p>
+
+      </div>
+      <div class="f2">  <p> Corrosão: </p> </div>
+      <div class="f3">  <p> Poros: </p> </div>
+      <div class="f4">  <p> Abaulamentos : </p>  </div>
+      <div class="f5"> <p> Resumo:  </p>  </div>
+      <div class="f6"><p> Foto:  </p></div>
+      <div class="f7"> <img src="TRINCA.png" alt="Imagem 1" width="90" height="90" class="center"> </div>
+      <div class="f8"> <img src="CORROSAO.png" alt="Imagem 1" width="90" height="90" class="center"></div>
+      <div class="f9"> <img src="Poros.png" alt="Imagem 1" width="90" height="90" class="center"></div>
+      <div class="f10"> <img src="abaulamentos.png" alt="Imagem 1" width="90" height="90" class="center"></div>
+      <div class="f11"> <p>Data da inspeção: 12/12/2023
+        Foi identificada uma trinca na região 1 do eixo.
+        Realizado reparo: sim </p>
+        </div>
+      <div class="f12"><img src="foto.png" alt="Imagem 1" width="90" height="90" class="center"></div>
+      <div class="f13"></div>
+      <div class="f14"></div>
+      <div class="f15"></div>
+      <div class="f16"></div>
+      <div class="f17"></div>
+      <div class="f18"></div>
+    </div>
+
+
+
+  </body>
+
+
+  </html>

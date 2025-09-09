@@ -1,0 +1,80 @@
+.containerForca {  display: grid;
+  grid-template-columns: 0.5fr 0fr 0fr;
+  grid-template-rows: 1fr 1fr 0.9fr 1.1fr 1fr 1fr 1fr 1fr 0.9fr 1.1fr 1fr 1fr;
+
+  grid-auto-flow: row;
+  grid-template-areas:
+    "a1cf caldeiraForca s1cf"
+    
+    "a2cf caldeiraForca s2cf"
+  
+    "a3cf caldeiraForca s3cf"
+    
+    "a4cf caldeiraForca s4cf"
+    
+    "a5cf caldeiraForca s5cf"
+    
+    "a6cf caldeiraForca s6cf"
+
+     "a6cf caldeiraForca s6cf"
+
+    "a7cf caldeiraForca s7cf"
+    
+    "a8cf caldeiraForca s8cf"
+    
+    "a9cf caldeiraForca s9cf"
+
+     "a9cf caldeiraForca s9cf"
+    
+}
+
+.caldeiraForca { grid-area: caldeiraForca; }
+
+.a1cf { grid-area: a1cf; }
+
+.a2cf { grid-area: a2cf; }
+
+.a3cf { grid-area: a3cf; text-align: right; }
+
+.a4cf { grid-area: a4cf; }
+
+.a5cf { grid-area: a5cf; }
+
+.a6cf { grid-area: a6cf; }
+
+.a7cf { grid-area: a7cf; }
+
+.a8cf { grid-area: a8cf; }
+
+.a9cf { grid-area: a9cf; }
+
+.s1cf { grid-area: s1cf; }
+
+.s2cf { grid-area: s2cf; }
+
+.s3cf { grid-area: s3cf;}
+
+.s4cf { grid-area: s4cf;  }
+
+.s5cf { grid-area: s5cf; }
+
+.s6cf { grid-area: s6cf; }
+
+.s7cf { grid-area: s7cf; }
+
+.s8cf { grid-area: s8cf; }
+
+.s9cf { grid-area: s9cf; }
+
+
+.cfesquerda{
+  text-align: right;
+  font-size: 10px;
+}
+
+.cfdireita{
+  text-align: left;
+  font-size: 10px;
+  float: left;
+  margin-right: 10px;
+}

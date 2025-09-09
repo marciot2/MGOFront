@@ -28,3 +28,26 @@ h3 {
   text-align: center;
 
 }
+
+.custom-datepicker {
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #F5F5F5;
+}
+
+.custom-datepicker input {
+  width: 110%;
+  padding: 20px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 16px;
+  
+}
+
+.custom-datepicker input:focus {
+  outline: none;
+}

@@ -15,19 +15,20 @@ import { BootstrapButton } from 'react-bootstrap-button';
 import ArticleIcon from '@mui/icons-material/Article';  
 import {BACKEND} from "../../config"; 
 import App from './fileupload';
- 
+ import { ptBR } from "date-fns/locale";
 import Button from '@mui/material/Button';
 import {   Pies } from './pie';
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import JoditEditor from 'jodit-react';
 import axios from 'axios';
+import DatePicker from 'react-datepicker';
  
 
 interface Rr {
   denominacao: string;
   tag: string;
-  empresa: string;
+  eempresa: string;
   equipamento: string;
   area: string;
   noTAG: string;
@@ -43,11 +44,11 @@ export default function RelatorioPosReparo() {
 
   const [files, setFiles] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string>();
    
 
-
-
+ const [valueCF, setValueCF] = useState<string>();
+const [isComboCF, setIsComboCF] = useState(false);
 
   const [age, setAge] = React.useState('');
   const [data, setData] = useState<Rr>();
@@ -64,7 +65,9 @@ export default function RelatorioPosReparo() {
   const [ensaios,setEnsaios] = useState('.');
   const [tipoInspecao, settipoInspecao] = useState('');
   const [area,setArea] = useState('');
-  const [dataInspecao, setdataInspecao] = useState('');
+
+
+  const [dataInspecao, setdataInspecao] = useState<Date | null>(new Date());
  
   const [recomendacaoReparo, setrecomendacaoReparo] = useState('.');
    
@@ -75,6 +78,69 @@ export default function RelatorioPosReparo() {
   const [dadosExcel, setdadosExcel] = useState<string>('');
   const { id } = useParams();
  
+
+  const handleChangeCF = (event: SelectChangeEvent) => {
+
+
+    setNoTAG(event.target.value as string);
+
+  };
+
+  const [arrayCF, setArrayCF] = useState([
+    { label: ' ', value: '   ' },
+
+
+    { label: 'SH Secundário BT', value: 'SH_Secundario_BT' },
+    { label: 'Fornalha', value: 'Fornalha' },
+    { label: 'Leito Fluidizado', value: 'Leito_Fluidizado' },
+    { label: 'SH Secundário AT', value: 'SH_Secundario_AT' },
+    { label: 'SH Primário AT', value: 'SH_Primario_AT' },
+    { label: 'SH Primário BT', value: 'SH_Primario_BT' },
+    { label: 'Evaporador', value: 'Evaporador' },
+    { label: 'Economizador', value: 'Economizador' }
+
+
+  ]);
+
+
+
+
+
+
+
+    const checkTagFor = (tag: any) => {
+     
+      
+
+      /*
+      if (tag.includes('CF')) {
+        setIsComboFC(true);
+        setIsComboDG(true);
+        setIsComboCF(false);
+        setIsComboCR(true);
+        
+      }*/
+if (tag === "3403-21-020-CF") {
+        setIsComboCF(false); // desabilita o Select
+      } else {
+        setIsComboCF(true); // habilita o Select
+      }
+
+
+
+
+      
+    };
+
+
+
+
+
+
+
+
+
+
 
 
   const handleUploadS3 = async () => {
@@ -124,6 +190,20 @@ export default function RelatorioPosReparo() {
   const saveRR = () => {
  
  
+
+    if (status.trim() === '') {
+      alert('Selecione um Status!!!');
+  } else if (numero.trim() === '') {
+      alert('Número documento inválido!!!');
+  } else if (tipoInspecao.trim()  === '') {
+      alert('Informe o tipo de inspeção!!!');
+  } else if (responsavelInspecao.trim()  === '') {
+    alert('Informe o responsável pela inspeção!!!');
+  }  else if (descricaoReparo.trim()  === '.') {
+    alert('Informe a descrição do reparo!!!');
+  } else if (ensaios.trim()  === '.') {
+    alert('Informe os ensaios utilizados!!!');
+  } else  {
   
     try {
       const formData = {
@@ -176,7 +256,7 @@ export default function RelatorioPosReparo() {
     }
   
   
-  
+  }
   
    };
    
@@ -189,7 +269,7 @@ export default function RelatorioPosReparo() {
   const ExportWord = () => {
    
     setArea(equipamento);
-    
+    console.log(dataInspecao);
     try {
       const formData = {
         id,
@@ -276,17 +356,17 @@ export default function RelatorioPosReparo() {
    
   useEffect(() => {
      
-
+    console.log(id);
     if (id) {
-    axios.get(BACKEND+`/RR/buscaDados/${id}`)
+    axios.get(BACKEND + `/dadosExcel/dadosPorID/${id}`)
         .then(response => {
             setData(response.data);
             setDenominacao(response.data.denominacao);
             setTag(response.data.tag);
             setNoTAG(response.data.noTAG);
-            setArea(response.data.area);
-            setEmpresa(response.data.empresa);
-          
+            setArea(response.data.equipamento);
+            setEmpresa(response.data.eempresa);
+          checkTagFor(response.data.tag);
         })
         .catch(error => {
             console.log('Erro ao buscar empresas', error);
@@ -300,7 +380,7 @@ export default function RelatorioPosReparo() {
 
 const handleRefreshFile = async () => {
   setLoading(true);
-  setError(null);
+ 
   try {
     
     const response = await axios.get<string[]>(BACKEND+`/RR/buscafile/${idRelatorioReparo}`);
@@ -332,6 +412,19 @@ editor: ''
 
 
 
+const handleNumeroChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const value = e.target.value;
+
+  if (value.trim() === '') {
+    setError('Número não pode ser em branco ou nulo');
+  } else if (!/^\d+$/.test(value)) {
+    setError('Número deve conter apenas dígitos');
+  } else {
+    setError('');
+    setNumero(value);
+  }
+
+};
 
 
 
@@ -351,15 +444,14 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
     <div className="App">
 
-   Dados Equipamentos: 
-   <br/>
+   Dados Equipamentos: {id}
+   <br/><br/><br/> {/*
    Relatório de Inspeção:  
    <br/> 
    Relatório de Não Conformidade: {id}
    <br/>
    Relatório Pós reparo: {idRelatorioReparo}
-   <br/>
-   
+   <br/>  */}
           <h3>RELATÓRIO PÓS REPARO (Aprovação) - RR</h3>
     <h5>   PREENCHIDO PELO PRESTADOR DE SERVIÇO TERCERIZADO </h5>
 
@@ -380,7 +472,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     >
   
                 
-<TextField color='success' label='Doc. nº' variant="outlined" onChange={(e) => setNumero(e.target.value)}> </TextField>       
+<TextField color='success' label='Doc. nº' variant="outlined" onChange={handleNumeroChange} error={!!error}  helperText={error}> </TextField>       
 
 <FormControl fullWidth>
        
@@ -420,7 +512,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
  
 <TextField   
-          label={data?.tag} 
+        //  label={data?.tag} 
           value={data?.tag}
           helperText="TAG"  
           onChange={(e) => setTag(e.target.value)} 
@@ -432,8 +524,8 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
  
 
 <TextField   
-          label={data?.area} 
-          value={data?.area}
+         // label={data?.area} 
+          value={data?.equipamento}
           helperText="Área"  
           onChange={(e) => setArea(e.target.value)} 
           onFocus={(e) => setArea(e.target.value)} 
@@ -443,21 +535,51 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
  <br/><br/>
  <TextField color='success' label='Tipo de inspeção' variant="outlined" onChange={(e) => settipoInspecao(e.target.value)}></TextField> 
- <TextField color='success' label='Data inspeção' variant="outlined" onChange={(e) => setdataInspecao(e.target.value)}></TextField>
   
+ <DatePicker
+          selected={dataInspecao}
+          onChange={(date) => setdataInspecao(date)}
+          dateFormat="dd/MM/yyyy"
+          locale={ptBR}
+          className="custom-datepicker"
+           
+        />
 
  <TextField   
-          label={data?.empresa} 
-          value={data?.empresa}
+         // label={data?.empresa} 
+          value={data?.eempresa}
           helperText="Empresa"  
           onChange={(e) => setEmpresa(e.target.value)} 
           onFocus={(e) => setEmpresa(e.target.value)} 
         />
 
 
- <TextField color='success' label='Responsável pela inspeção' variant="outlined" onChange={(e) => setresponsavelInspecao(e.target.value)}></TextField> 
- 
+ <TextField 
+ color='success' 
+ label='Responsável pela inspeção' 
+ variant="outlined" 
+ onChange={(e) => setresponsavelInspecao(e.target.value)}>
+  </TextField> 
+   <br />  <br />
+ <label>Caldeira Força: </label>
+        <br />
 
+
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={valueCF}
+          label="Age"
+          disabled={isComboCF}
+          onChange={handleChangeCF}
+
+        >
+          {arrayCF.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Select>
  <br/><br/>
   
 
@@ -551,15 +673,18 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     <button onClick={handleRefreshFile}>Atualizar arquivo</button>
     
     <br/> <br/>
-    <ul>
-            {files.map((file, index) => (
-              <li key={index}>
-                <a href={file} target="_blank" rel="noopener noreferrer">
-                  {file}
-                </a>
-              </li>
-            ))}
-          </ul>
+   <ul>
+  {files.map((file, index) => {
+    const fileName = file.split('/').pop(); // Pega o nome do arquivo
+    return (
+      <li key={index}>
+        <a href={file} target="_blank" rel="noopener noreferrer">
+          {fileName}
+        </a>
+      </li>
+    );
+  })}
+</ul>
 
 
 

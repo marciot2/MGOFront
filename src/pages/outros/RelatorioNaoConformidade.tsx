@@ -16,6 +16,10 @@ import {   useParams } from 'react-router-dom';
 import BuildIcon from '@mui/icons-material/Build';
 import App from './fileupload';
  
+import 'react-datepicker/dist/react-datepicker.css';
+import { ptBR } from "date-fns/locale";
+
+
 import Button from '@mui/material/Button';
  
 import { useEffect, useRef, useState } from 'react';
@@ -23,6 +27,7 @@ import axios from 'axios';
 import JoditEditor from 'jodit-react';
 import FileUploadGreenDocs from './fileuploadGreenDocs';
 import {BACKEND} from "../../config"; 
+import DatePicker from 'react-datepicker';
   
 
 interface Rnc {
@@ -42,14 +47,14 @@ export default function RelatorioNaoConformidade() {
 
   const [files, setFiles] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-   
-
+  
+  const [error, setError] = useState<string>();
+  const [noTAG, setNoTAG] = useState('');
 
 
   const { idRelatorioInspecao } = useParams();
   
-   
+   const [tipoRelatorio, setTipoRelatorio] = useState('RNC');
   const [isDisabled, setIsDisabled] = useState(true);
 
   const [age, setAge] = React.useState('');
@@ -63,11 +68,21 @@ export default function RelatorioNaoConformidade() {
 
   const [status, setStatus] = useState('');
   const [numero,setNumero] = useState('');
-  const [date,setDate] = useState('');
+  
+    const [valueCF, setValueCF] = useState<string>();
+
   const [tipoInspecao, settipoInspecao] = useState('');
   const [area,setArea] = useState('');
-  const [dataInspecao, setdataInspecao] = useState('');
+  const [dataInspecao, setdataInspecao] = useState<Date | null>(new Date());
+  const [valueCR, setValueCR] = useState<string>();
+
+  const [isComboDG, setIsComboDG] = useState(false);
+  const [isComboCF, setIsComboCF] = useState(false);
+  const [isComboCR, setIsComboCR] = useState(false);
+  const [isComboFC, setIsComboFC] = useState(false);
   const [equipamento, setEquipamento] = useState(data?.equipamento);
+
+
   const [idRelatorioNaoConformidade, setidRelatorioNaoConformidade] = React.useState('');
   const [recomendacaoReparo, setrecomendacaoReparo] = useState('.');
   const [localProblema, setlocalProblema] = useState('');
@@ -77,19 +92,108 @@ export default function RelatorioNaoConformidade() {
   const [empresa, setEmpresa] = useState('MKS');
   const [dadosExcel, setdadosExcel] = useState<string>('');
   const { id } = useParams();
-  const { noTAG } = useParams();
+  
  
   const [relatorioInspecaoID, setidRelatorioInspecaoID] = useState(Number(idRelatorioInspecao));
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+
+  const [arrayCR, setArrayCR] = useState([
+    { label: '          ', value: '        ' },
+    { label: 'Penthouse', value: 'Penthouse' },
+    { label: 'Balão', value: 'Balao' },
+    { label: 'SH Secundário', value: 'SH_Secundario' },
+    { label: 'SH Terciário', value: 'SH_Terciario' },
+    { label: 'SH Quartenário', value: 'SH_Quartenario' },
+    { label: 'SH Primário I', value: 'SH_Primario_I' },
+    { label: 'SH Primário II', value: 'SH_Primario_II' },
+    { label: 'Screen', value: 'Screen' },
+    { label: "Parede D'água", value: 'Parede_Dagua' },
+    { label: "Piso", value: 'Piso' },
+    { label: 'Válvula de Segurança', value: 'Valvula_de_Seguranca' },
+    { label: 'Teto', value: 'Teto' },
+    { label: 'Economizador I', value: 'Economizador_I' },
+    { label: 'Economizador II', value: 'Economizador_II' },
+    { label: 'Bank', value: 'Bank' },
+    { label: 'Grid', value: 'Grid' },
+    { label: 'Sopradores de Fuligem', value: 'Sopradores_de_Fuligem' },
+    { label: 'Nariz', value: 'Nariz' },
+    { label: 'Câmara Fria', value: 'Camara_Fria' },
+    { label: 'Queimadores', value: 'Queimadores' },
+    { label: 'Entradas de Ar Terciário', value: 'Entradas_de_Ar_Terciario' },
+    { label: 'Entradas de Ar Secundário', value: 'Entradas_de_Ar_Secundario' },
+    { label: 'Dutos e Ventiladores', value: 'Dutos_e_Ventiladores' },
+    { label: 'Câmera de TV', value: 'Camera_de_TV' },
+    { label: 'Bocas de visita', value: 'Bocas_de_visita' },
+    { label: 'Entradas de Ar Primário', value: 'Entradas_de_Ar_Primario' },
+    { label: 'Bicas de Smelt', value: 'Bicas_de_Smelt' },
+    { label: 'Porão', value: 'Porao' }
+  ]
+
+  );
+
+
+
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
         setSelectedFile(event.target.files[0]);
     }
 };
+
+
+
+
+const handleChangeCR = (event: SelectChangeEvent) => {
+
+
+
+  setNoTAG(event.target.value as string);
+
+
+
+
+
+};
+
+
+const handleNumeroChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const value = e.target.value;
+
+  if (value.trim() === '') {
+    setError('Número não pode ser em branco ou nulo');
+  } else if (!/^\d+$/.test(value)) {
+    setError('Número deve conter apenas dígitos');
+  } else {
+    setError('');
+    setNumero(value);
+  }
+
+};
+
+
   const saveRNC = () => {
  
-  
+ 
+
+
+    if (status.trim() === '') {
+      alert('Selecione um Status!!!');
+  } else if (numero.trim() === '') {
+      alert('Número documento inválido!!!');
+  } else if (tipoInspecao.trim()  === '') {
+      alert('Informe o tipo de inspeção!!!');
+  } else if (responsavelInspecao.trim()  === '') {
+    alert('Informe o responsável pela inspeção!!!');
+  }  else if (condicaoEncontrada.trim()  === '.') {
+    alert('Informe a condição encontrada!!!');
+  } else if (recomendacaoReparo.trim()  === '.') {
+    alert('Informe as recomendações de reparo!!!');
+  } else  {
+
+
+
+
   
     try {
       const formData = {
@@ -98,7 +202,7 @@ export default function RelatorioNaoConformidade() {
         status, 
         equipamento,
         tag,
-        date,
+      
         numero,
         area,
         tipoInspecao,
@@ -109,7 +213,7 @@ export default function RelatorioNaoConformidade() {
        denominacao,
        empresa,  
          noTAG,
-         
+         tipoRelatorio,
         responsavelInspecao,
          
   
@@ -142,7 +246,7 @@ export default function RelatorioNaoConformidade() {
     }
   
   
-  
+  }
   
    };
    
@@ -182,7 +286,7 @@ export default function RelatorioNaoConformidade() {
         dataInspecao,
         empresa,
         tag,
-        date,
+        
         numero,
         condicaoEncontrada,
         recomendacaoReparo, 
@@ -251,16 +355,17 @@ export default function RelatorioNaoConformidade() {
    
   useEffect(() => {
      
-    
+
     if (id) {
-    axios.get(BACKEND+`/RNC/dados/${idRelatorioInspecao}`)
+    axios.get(BACKEND+`/RNC/dados/${id}`)
         .then(response => {
             setData(response.data);
+            
             setTag(response.data.tag);
             setEmpresa('MKS');
             setDenominacao(response.data.denominacao);
             setArea(response.data.equipamento);
-            setresponsavelInspecao(response.data.eempresa);
+             checkTagFor(response.data.tag);
           
             console.log('OK');
 
@@ -275,6 +380,29 @@ export default function RelatorioNaoConformidade() {
  
 
 
+    const checkTagFor = (tag: any) => {
+     
+      
+
+      /*
+      if (tag.includes('CF')) {
+        setIsComboFC(true);
+        setIsComboDG(true);
+        setIsComboCF(false);
+        setIsComboCR(true);
+        
+      }*/
+if (tag === "3403-21-020-CF") {
+        setIsComboCF(false); // desabilita o Select
+      } else {
+        setIsComboCF(true); // habilita o Select
+      }
+
+
+
+
+      
+    };
  
 const editor1 = useRef(null);
 const editor2 = useRef(null);
@@ -291,7 +419,7 @@ editor: ''
 
 const handleRefreshFile = async () => {
   setLoading(true);
-  setError(null);
+  
   try {
     
     const response = await axios.get<string[]>(BACKEND+`/RNC/buscafile/${idRelatorioNaoConformidade}`);
@@ -349,10 +477,29 @@ const handleUploadS3 = async () => {
 };
 
 
+  const handleChangeCF = (event: SelectChangeEvent) => {
 
 
+    setNoTAG(event.target.value as string);
+
+  };
 
 
+const [arrayCF, setArrayCF] = useState([
+    { label: ' ', value: '   ' },
+
+
+    { label: 'SH Secundário BT', value: 'SH_Secundario_BT' },
+    { label: 'Fornalha', value: 'Fornalha' },
+    { label: 'Leito Fluidizado', value: 'Leito_Fluidizado' },
+    { label: 'SH Secundário AT', value: 'SH_Secundario_AT' },
+    { label: 'SH Primário AT', value: 'SH_Primario_AT' },
+    { label: 'SH Primário BT', value: 'SH_Primario_BT' },
+    { label: 'Evaporador', value: 'Evaporador' },
+    { label: 'Economizador', value: 'Economizador' }
+
+
+  ]); 
 
 
  
@@ -361,14 +508,14 @@ const handleUploadS3 = async () => {
  
 
     <div className="App">
-   Dados Equipamentos: {id}
-   <br/>
-   Relatório de Inspeção: {idRelatorioInspecao} 
+   Código do Equipamento: {id}
+   <br/>  <br/> <br/>{/*
+   Relatório de Inspeção: {idRelatorioInspecao}  
    <br/> 
-   Relatório de Não Conformidade: {idRelatorioNaoConformidade}
-   <br/>
+   Relatório de Não Conformidade: {idRelatorioNaoConformidade} 
+   <br/> */}
              <h3>RELATÓRIO DE NÃO CONFORMIDADE - RNC</h3>
-    <h5>   PREENCHIDO PELO PRESTADOR DE SERVIÇO TERCERIZADO </h5>
+    <h5>   PPREENCHIDO PELO PRESTADOR DE SERVIÇO TERCEIRIZADO </h5>
 
 <br/>
 <br/>
@@ -385,7 +532,7 @@ const handleUploadS3 = async () => {
       autoComplete="off"
     >
                  
-<TextField color='success' label='Doc. nº' variant="outlined" onChange={(e) => setNumero(e.target.value)}> </TextField>       
+<TextField color='success' label='Doc. nº' variant="outlined" onChange={handleNumeroChange} error={!!error}  helperText={error}> </TextField>       
 
 <FormControl fullWidth>
        
@@ -402,7 +549,7 @@ const handleUploadS3 = async () => {
         >
     
     <MenuItem value={'NÃO_CONFORMIDADE'}>Não Conformidade</MenuItem>
-    <MenuItem value={'LIBERADO'}>Liberado</MenuItem>
+   
    
   </Select>
   </FormControl>
@@ -439,8 +586,18 @@ const handleUploadS3 = async () => {
 <TextField color='success'  value={data?.denominacao} helperText="Denominação"   variant="outlined" onChange={(e) => setEquipamento(e.target.value)}></TextField> 
  <br/><br/>
  <TextField color='success' label='Tipo de inspeção' variant="outlined" onChange={(e) => settipoInspecao(e.target.value)}></TextField> 
- <TextField color='success' placeholder='99/99/9999' label='Data inspeção' variant="outlined" onChange={(e) => setdataInspecao(e.target.value)}></TextField>
  
+ <DatePicker
+          selected={dataInspecao}
+          onChange={(date) => setdataInspecao(date)}
+          dateFormat="dd/MM/yyyy"
+          locale={ptBR}
+          className="custom-datepicker"
+        />
+ 
+
+
+
  <TextField   
           label={data?.eempresa} 
           value="MKS"
@@ -456,7 +613,49 @@ const handleUploadS3 = async () => {
  <br/><br/>
   
 
+{/*
+ <label> Caldeira de Recuperação:  <br /> </label>
+        <br />
 
+        <Select className='combocr'
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={valueCR}
+          disabled={isComboCR}
+          label="Age"
+          onChange={handleChangeCR}
+        >
+          {arrayCR.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+
+        </Select>
+*/}
+
+ <label>Caldeira Força: </label>
+        <br />
+
+
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={valueCF}
+          label="Age"
+          disabled={isComboCF}
+          onChange={handleChangeCF}
+
+        >
+          {arrayCF.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Select>
+
+
+        <br /><br />
 
 </Box>
     
@@ -495,11 +694,11 @@ const handleUploadS3 = async () => {
 </Button>
 
 
-   <Button name="btnWord" disabled  variant="contained" color="success" startIcon={<ArticleIcon />} onClick={ExportWord}>
+   <Button name="btnWord"  variant="contained" color="success" startIcon={<ArticleIcon />} onClick={ExportWord}>
   Exportar .DOCX
 </Button>
 
-<Button name="btnGerar" disabled  variant="contained" color="info" startIcon={<ArticleIcon />} onClick={baixartWord}>
+<Button name="btnGerar" variant="contained" color="info" startIcon={<ArticleIcon />} onClick={baixartWord}>
   Baixar .DOCX
 </Button>
    
@@ -552,14 +751,17 @@ const handleUploadS3 = async () => {
     
     <br/> <br/>
     <ul>
-            {files.map((file, index) => (
-              <li key={index}>
-                <a href={file} target="_blank" rel="noopener noreferrer">
-                  {file}
-                </a>
-              </li>
-            ))}
-          </ul>
+  {files.map((file, index) => {
+    const fileName = file.split('/').pop(); // Pega o nome do arquivo
+    return (
+      <li key={index}>
+        <a href={file} target="_blank" rel="noopener noreferrer">
+          {fileName}
+        </a>
+      </li>
+    );
+  })}
+</ul>
  
  
     </div>

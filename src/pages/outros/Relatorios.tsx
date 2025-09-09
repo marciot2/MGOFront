@@ -86,10 +86,11 @@ const [links, setLinks] = useState<string[]>([]);
 const handleRefresh = async () => {
   setLoading(true);
   setError(null);
-   
+   console.log(etag);
+   console.log(id);
     try {
       const [response1, response2, response3] = await Promise.all([
-        axios.get<string[]>(BACKEND+`/RI/listaRISemaforo/${etag}`),
+        axios.get<string[]>(BACKEND+`/RI/listaRISemaforo1/${etag}`),
         axios.get<string[]>(BACKEND+`/RNC/listaRNCSemaforo/${etag}`),
         axios.get<string[]>(BACKEND+`/RR/listaRRSemaforo/${etag}`)
       ]);
@@ -126,7 +127,7 @@ const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
     <div >
  
-    <h3> <b> Relatórios - Caldeira de Recuperação - PG 2024 - Eldorado Brasil </b></h3>
+    <h3> <b> Relatórios - Eldorado Brasil </b></h3>
     
 <br/>
 <br/>
@@ -135,53 +136,63 @@ const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
    
 <h3>Relatório de Inspeção: {etag}</h3>
- 
-<div  >
-<br/> 
-        {filesRI.map((file, index) => (
-          <li key={index}>
-            <a href={file} target="_blank" rel="noopener noreferrer">
-              {file}
-            </a>
-          </li>
-        ))}
-      
 
-      <br/> 
-    
-            
-            </div>
-            <br/><br/>
+<div>
+  <br />
+  {filesRI.map((file, index) => {
+    // Remove o prefixo e pega só o nome do arquivo
+    const displayName = file.replace("https://pgcaldeiraforca.s3.amazonaws.com/", "");
+
+    return (
+      <li key={index}>
+        <a href={file} target="_blank" rel="noopener noreferrer">
+          {displayName}
+        </a>
+      </li>
+    );
+  })}
+  <br />
+</div>
+<br />
+<br />
 <h3>Relatório de Não Conformidade: {etag}</h3>
 
-<div  ><br/>
-{filesRNC.map((file, index) => (
-          <li key={index}>
-            <a href={file} target="_blank" rel="noopener noreferrer">
-              {file}
-            </a>
-          </li>
-        ))}
-      
-
-      <br/> </div><br/> <br/>
+<div>
+  <br />
+  {filesRNC.map((file, index) => {
+    const displayName = file.replace("https://pgcaldeiraforca.s3.amazonaws.com/", "");
+    return (
+      <li key={index}>
+        <a href={file} target="_blank" rel="noopener noreferrer">
+          {displayName}
+        </a>
+      </li>
+    );
+  })}
+  <br />
+</div>
+<br /><br />
 <h3>Relatório de Reparo: {etag}</h3>
 
-<div  ><br/>
- 
-{filesRR.map((file, index) => (
-          <li key={index}>
-            <a href={file} target="_blank" rel="noopener noreferrer">
-              {file}
-            </a>
-          </li>
-        ))}
-      
+<div>
+  <br />
+  {filesRR.map((file, index) => {
+    // pega apenas o último segmento da URL (ex.: "arquivo.pdf")
+    const displayName = file.split("/").pop() || file;
 
-      <br/>  </div> 
-<br/> <br/>
- 
+    return (
+      <li key={index}>
+        <a href={file} target="_blank" rel="noopener noreferrer">
+          {displayName}
+        </a>
+      </li>
+    );
+  })}
+  <br />
 </div>
+<br /><br />
+</div>
+
   
     
   );

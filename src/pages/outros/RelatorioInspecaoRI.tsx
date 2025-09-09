@@ -34,6 +34,7 @@ import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import JoditEditor from 'jodit-react';
 import { UploadFile } from '@mui/icons-material';
+import DatePicker from 'react-datepicker';
   
 
 
@@ -102,7 +103,7 @@ const [links, setLinks] = useState<string[]>([]);
   const [status, setStatus] = useState('');
 
   const [numero,setNumero] = useState(data?.numero);
-  const [date,setDate] = useState('');
+  const [date, setDate] = useState<Date | null>();
   const [problemasObservados, setproblemasObservados] = useState<string>(data?.problemasObservados ?? '.');
   const [recomendacoesReparo, setrecomendacoesReparo] = useState<string>(data?.recomendacoesReparo ?? '.');
   const [localProblema, setlocalProblema] = useState('');
@@ -197,7 +198,7 @@ const [arrayFC, setArrayFC] = useState ([
  
 
 const RNC = () => {
- 
+   
   if (Number(id) > 0){
 
        
@@ -454,7 +455,8 @@ const handleUploadS3 = async () => {
             setData(response.data);
             setStatusRI(response.data.statusRI);
             setNoTAG(response.data.noTAG);
-            setresponsavelInspecao(response.data.eempresa);
+            setresponsavelInspecao(response.data.responsavelInspecao);
+            setresponsavelManutencao(response.data.responsavelManutencao);
             setidRelatorioInspecao(response.data.idRelatorioInspecao);
             setDate(response.data.date);
             setproblemasObservados(response.data.problemasObservados);
@@ -543,10 +545,22 @@ editor: ''
       noValidate
       autoComplete="off"
     >
- 
-<TextField color='success'  helperText='Data' placeholder='99/99/9999'   value={data?.date} variant="outlined" onChange={(e) => setDate(e.target.value)}>                   </TextField>
-                
-<TextField color='success'  helperText='Doc. nº'   value={data?.numero} variant="outlined" onChange={(e) => setNumero(e.target.value)}> </TextField>       
+
+
+<DatePicker
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat="dd/MM/yyyy"
+          className="custom-datepicker"
+        />
+
+
+<TextField color='success'  helperText='Doc. nº'    value={numero} variant="outlined" onChange={(e) => setNumero(e.target.value)}> </TextField>       
+
+
+
+
+
 
 <FormControl fullWidth>
        
@@ -615,7 +629,7 @@ editor: ''
  <TextField 
           color='success'
           
-          value={data?.responsavelInspecao}
+          value={responsavelInspecao}
           helperText="Responsável pela Inspeção" 
           variant="outlined" 
           onChange={(e) => setresponsavelInspecao(e.target.value)}
@@ -623,11 +637,11 @@ editor: ''
           /> 
 
  
- <TextField color='success'   value={data?.responsavelManutencao}  helperText='Responsável pela manutenção' variant="outlined" onChange={(e) => setresponsavelManutencao(e.target.value)}></TextField>
+ <TextField color='success'   value={responsavelManutencao}  helperText='Responsável pela manutenção' variant="outlined" onChange={(e) => setresponsavelManutencao(e.target.value)}></TextField>
 
  <br/><br/>
  
- <TextField color='success'  value={data?.localProblema} helperText='Local do problema' variant="outlined" onChange={(e) => setlocalProblema(e.target.value)}></TextField>
+ <TextField color='success'  value={localProblema} helperText='Local do problema' variant="outlined" onChange={(e) => setlocalProblema(e.target.value)}></TextField>
 
  <br/><br/> 
  
@@ -729,7 +743,7 @@ editor: ''
  <JoditEditor
 			 
        ref={editor1}
-       value={data?.problemasObservados || '.'}
+       value={problemasObservados || '.'}
        config={config}
        onBlur={(newContent: string) => setproblemasObservados(newContent)}  
        onChange={(newContent: string) => {}}
@@ -743,7 +757,7 @@ editor: ''
    <JoditEditor
 			 
        ref={editor2}
-       value={data?.recomendacoesReparo || '.'}
+       value={recomendacoesReparo || '.'}
        config={config}
        onBlur={(newContent: string) => setrecomendacoesReparo(newContent)}  
        onChange={(newContent: string) => {}}

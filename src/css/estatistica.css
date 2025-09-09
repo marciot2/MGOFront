@@ -1,0 +1,115 @@
+.containerE {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "et et et et"
+      "e1 e1a e1a e7"
+      "e2 e2a e2a e7"
+      "e3 e3a e3a e7"
+      "e4 e4a e4a e7"
+      "e5 e5a e5b e7"
+      "e6 e6a e6b e7";
+  }
+  
+  .e1 { grid-area: e1; 
+
+    text-align: center;/* Define a família de fontes */
+    font-size: 18px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte */
+    color: #333; /* Cor da fonte */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    line-height: 1.0; /* Altura da linha */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+
+}
+  
+  .e2 { grid-area: e2; 
+    text-align: center;/* Define a família de fontes */
+    font-size: 18px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte */
+    color: #333; /* Cor da fonte */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    line-height: 1.0; /* Altura da linha */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+
+}
+  
+  .e3 { grid-area: e3; 
+
+    text-align: center;/* Define a família de fontes */
+    font-size: 18px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte */
+    color: #333; /* Cor da fonte */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    line-height: 1.0; /* Altura da linha */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+  
+  .e4 { grid-area: e4; 
+
+    text-align: center;/* Define a família de fontes */
+    font-size: 18px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte */
+    color: #333; /* Cor da fonte */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    line-height: 1.0; /* Altura da linha */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+  
+  .e1a { grid-area: e1a; }
+  
+  .e2a { grid-area: e2a; }
+  
+  .e3a { grid-area: e3a; }
+  
+  .e4a { grid-area: e4a; }
+  
+  .e5 { grid-area: e5;
+
+    text-align: center;/* Define a família de fontes */
+    font-size: 18px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte */
+    color: #333; /* Cor da fonte */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    line-height: 1.0; /* Altura da linha */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+
+}
+  
+  .e5a { grid-area: e5a; }
+  
+  .e5b { grid-area: e5b; }
+  
+  .e6 { grid-area: e6;
+
+    text-align: center;/* Define a família de fontes */
+    font-size: 18px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte */
+    color: #333; /* Cor da fonte */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    line-height: 1.0; /* Altura da linha */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+
+}
+  
+  .e6a { grid-area: e6a; }
+  
+  .e6b { grid-area: e6b; }
+  
+  .et { grid-area: et; }
+  
+  .e7 { grid-area: e7; }
+
+  .e1, .e2, .e3, .e4, .e1a, .e2a, .e3a, .e4a, .e5, .e5a, .e5b, .e6, .e6a, .e6b, .et, .e7 {
+    border: 2px solid #000; /* Cor e estilo da borda */
+    padding: 4px; /* Espaçamento interno opcional */
+    margin-bottom: 4px; /* Espaçamento entre as divs opcional */
+  }
+
+
+
+
+  
+  

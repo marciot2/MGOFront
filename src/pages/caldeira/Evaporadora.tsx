@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import evaporadora from "../../images/Evaporadora.png";
+import EvaporadoraImg from '../../images/Evaporadora.png';
+
 import legenda from "../../images/Legenda.png";
 import "../../css/semaforo.css";
 
@@ -91,8 +92,7 @@ const Evaporadora = (props: Props) => {
  
 
  
-    <img className='image' src={evaporadora} alt="Imagem" width="500" height="500"/>
-    <div className='produto' >
+       <div className='produto' >
     <span className="prod">
     <br/><br/><br/><br/>
 

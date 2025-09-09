@@ -1,0 +1,499 @@
+.container {  display: grid;
+border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;
+  grid-template-columns: repeat(36, 0.2fr);
+  grid-template-rows: 0.2fr 0.2fr 0.2fr;
+  gap: -5px -5x;
+  grid-auto-flow: row;
+text-align: center;
+  grid-template-areas:
+    "la1 la1 la1 lb1 lb1 lb1 lc1 lc1 lc1 ld1 ld1 ld1 le1 le1 le1 lf1 lf1 lf1 lg1 lg1 lg1 lh1 lh1 lh1 li1 li1 li1 lj1 lj1 lj1 lk1 lk1 lk1 lm1 lm1 lm1"
+    "la2 la3 la4 lb2 lb3 lb4 lc2 lc3 lc4 ld2 ld3 ld4 le2 le3 le4 lf2 lf3 lf4 lg2 lg3 lg4 lh2 lh3 lh4 li2 li3 li4 lj2 lj3 lj4 lk2 lk3 lk4 lm2 lm3 lm4"
+    "la5 la5 la5 lb5 lb5 lb5 lc5 lc5 lc5 ld5 ld5 ld5 le5 le5 le5 lf5 lf5 lf5 lg5 lg5 lg5 lh5 lh5 lh5 li5 li5 li5 lj5 lj5 lj5 lk5 lk5 lk5 lm5 lm5 lm5";
+
+}
+
+.la1 { grid-area: la1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.la2 { grid-area: la2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.la3 { grid-area: la3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.la4 { grid-area: la4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.la5 { grid-area: la5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lb1 { grid-area: lb1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lb2 { grid-area: lb2;border: 1px solid black; /* Define a borda */
+  box-sizing: border-box; }
+
+.lb3 { grid-area: lb3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lb4 { grid-area: lb4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lb5 { grid-area: lb5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lc1 { grid-area: lc1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lc2 { grid-area: lc2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lc3 { grid-area: lc3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lc4 { grid-area: lc4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lc5 { grid-area: lc5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.ld1 { grid-area: ld1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.ld2 { grid-area: ld2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.ld3 { grid-area: ld3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.ld4 { grid-area: ld4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.ld5 { grid-area: ld5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.le1 { grid-area: le1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.le2 { grid-area: le2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.le3 { grid-area: le3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.le4 { grid-area: le4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lf1 { grid-area: lf1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lf2 { grid-area: lf2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lf3 { grid-area: lf3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lf4 { grid-area: lf4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lf5 { grid-area: lf5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lg1 { grid-area: lg1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lg2 { grid-area: lg2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lg3 { grid-area: lg3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lg4 { grid-area: lg4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lg5 { grid-area: lg5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lh1 { grid-area: lh1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.li1 { grid-area: li1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lj1 { grid-area: lj1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lk1 { grid-area: lk1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lm1 { grid-area: lm1; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lh2 { grid-area: lh2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lh3 { grid-area: lh3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lh4 { grid-area: lh4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.li2 { grid-area: li2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.li3 { grid-area: li3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.li4 { grid-area: li4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lj2 { grid-area: lj2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lj3 { grid-area: lj3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lj4 { grid-area: lj4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lk2 { grid-area: lk2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lk3 { grid-area: lk3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lk4 { grid-area: lk4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lm2 { grid-area: lm2; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lm3 { grid-area: lm3; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lm4 { grid-area: lm4; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lh5 { grid-area: lh5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.li5 { grid-area: li5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lj5 { grid-area: lj5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lk5 { grid-area: lk5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.lm5 { grid-area: lm5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+.le5 { grid-area: le5; border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;}
+
+
+  .container1 {  display: grid;
+    border: 1px solid black; /* Define a borda */
+  box-sizing: border-box;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr .1fr .1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "AAAA AAAA LA1 LA2 LA3 LA4 LA5 LA6 LA7 LA8 LA9 L10 LA11 LA12 LA13 LA14 LA15 LA16 LA17 LA18 BBB BBB"
+      "AAA aaaaaaa LA19 LA20 LA21 LA22 LA23 LA24 LA25 LA26 LA27 LA28 LA29 LA30 LA31 LA32 LA33 LA34 LA35 LA36 AAAAAAAA B"
+      "LA142 LA141 LA37 LA38 LA39 LA40 LA41 LA42 LA43 LA44 LA45 LA46 LA47 LA48 LA49 LA50 LA51 LA52 LA53 LA54 LA139 LA140"
+      "AA aaaaaaaaaaa LA55 LA56 LA57 LA58 LA59 LA60 LA61 LA62 LA63 LA64 LA65 LA66 LA67 LA68 LA69 LA70 LA71 LA72 AAAAAAAAAAAAAAAAA BB"
+      "AAAAAAA AAAAAAA LA73 LA74 LA75 LA76 LA77 LA78 LA79 LA80 LA81 LA82 LA83 LA84 LA85 LA86 LA87 LA88 LA89 LA90 aaaaaaaa aaaaaaaa";
+  }
+  
+  .LA1 { grid-area: LA1; }
+  
+  .LA2 { grid-area: LA2; }
+  
+  .LA3 { grid-area: LA3; }
+  
+  .LA4 { grid-area: LA4; }
+  
+  .LA5 { grid-area: LA5; }
+  
+  .LA6 { grid-area: LA6; }
+  
+  .LA7 { grid-area: LA7; }
+  
+  .LA8 { grid-area: LA8; }
+  
+  .LA9 { grid-area: LA9; }
+  
+  .L10 { grid-area: L10; }
+  
+  .LA11 { grid-area: LA11; }
+  
+  .LA12 { grid-area: LA12; }
+  
+  .LA13 { grid-area: LA13; }
+  
+  .LA14 { grid-area: LA14; }
+  
+  .LA15 { grid-area: LA15; }
+  
+  .LA16 { grid-area: LA16; }
+  
+  .LA17 { grid-area: LA17; }
+  
+  .LA18 { grid-area: LA18; }
+  
+  .LA19 { grid-area: LA19; }
+  
+  .LA20 { grid-area: LA20; }
+  
+  .LA21 { grid-area: LA21; }
+  
+  .LA22 { grid-area: LA22; }
+  
+  .LA23 { grid-area: LA23; }
+  
+  .LA24 { grid-area: LA24; }
+  
+  .LA25 { grid-area: LA25; }
+  
+  .LA26 { grid-area: LA26; }
+  
+  .LA27 { grid-area: LA27; }
+  
+  .LA28 { grid-area: LA28; }
+  
+  .LA29 { grid-area: LA29; }
+  
+  .LA30 { grid-area: LA30; }
+  
+  .LA31 { grid-area: LA31; }
+  
+  .LA32 { grid-area: LA32; }
+  
+  .LA33 { grid-area: LA33; }
+  
+  .LA34 { grid-area: LA34; }
+  
+  .LA35 { grid-area: LA35; }
+  
+  .LA36 { grid-area: LA36; }
+  
+  .LA37 { grid-area: LA37; }
+  
+  .LA38 { grid-area: LA38; }
+  
+  .LA39 { grid-area: LA39; }
+  
+  .LA40 { grid-area: LA40; }
+  
+  .LA41 { grid-area: LA41; }
+  
+  .LA42 { grid-area: LA42; }
+  
+  .LA43 { grid-area: LA43; }
+  
+  .LA44 { grid-area: LA44; }
+  
+  .LA45 { grid-area: LA45; }
+  
+  .LA46 { grid-area: LA46; }
+  
+  .LA47 { grid-area: LA47; }
+  
+  .LA48 { grid-area: LA48; }
+  
+  .LA49 { grid-area: LA49; }
+  
+  .LA50 { grid-area: LA50; }
+  
+  .LA51 { grid-area: LA51; }
+  
+  .LA52 { grid-area: LA52; }
+  
+  .LA53 { grid-area: LA53; }
+  
+  .LA54 { grid-area: LA54; }
+  
+  .LA55 { grid-area: LA55; }
+  
+  .LA56 { grid-area: LA56; }
+  
+  .LA57 { grid-area: LA57; }
+  
+  .LA58 { grid-area: LA58; }
+  
+  .LA59 { grid-area: LA59; }
+  
+  .LA60 { grid-area: LA60; }
+  
+  .LA61 { grid-area: LA61; }
+  
+  .LA62 { grid-area: LA62; }
+  
+  .LA63 { grid-area: LA63; }
+  
+  .LA64 { grid-area: LA64; }
+  
+  .LA65 { grid-area: LA65; }
+  
+  .LA66 { grid-area: LA66; }
+  
+  .LA67 { grid-area: LA67; }
+  
+  .LA68 { grid-area: LA68; }
+  
+  .LA69 { grid-area: LA69; }
+  
+  .LA70 { grid-area: LA70; }
+  
+  .LA71 { grid-area: LA71; }
+  
+  .LA72 { grid-area: LA72; }
+  
+  .LA73 { grid-area: LA73; }
+  
+  .LA74 { grid-area: LA74; }
+  
+  .LA75 { grid-area: LA75; }
+  
+  .LA76 { grid-area: LA76; }
+  
+  .LA77 { grid-area: LA77; }
+  
+  .LA78 { grid-area: LA78; }
+  
+  .LA79 { grid-area: LA79; }
+  
+  .LA80 { grid-area: LA80; }
+  
+  .LA81 { grid-area: LA81; }
+  
+  .LA82 { grid-area: LA82; }
+  
+  .LA83 { grid-area: LA83; }
+  
+  .LA84 { grid-area: LA84; }
+  
+  .LA85 { grid-area: LA85; }
+  
+  .LA86 { grid-area: LA86; }
+  
+  .LA87 { grid-area: LA87; }
+  
+  .LA88 { grid-area: LA88; }
+  
+  .LA89 { grid-area: LA89; }
+  
+  .LA90 { grid-area: LA90; }
+  
+  .LA142 { grid-area: LA142; }
+  
+  .LA140 { grid-area: LA140; }
+  
+  .AAAA { grid-area: AAAA; }
+  
+  .AAAAAAA { grid-area: AAAAAAA; }
+  
+  .AA { grid-area: AA; }
+  
+  .AAA { grid-area: AAA; }
+  
+  .BBB { grid-area: BBB; }
+  
+  .B { grid-area: B; }
+  
+  .BB { grid-area: BB; }
+  
+  .aaaaaaa { grid-area: aaaaaaa; }
+  
+  .aaaaaaaaaaa { grid-area: aaaaaaaaaaa; }
+  
+  .LA141 { grid-area: LA141; }
+  
+  .AAAAAAAA { grid-area: AAAAAAAA; }
+  
+  .AAAAAAAAAAAAAAAAA { grid-area: AAAAAAAAAAAAAAAAA; }
+  
+  .LA139 { grid-area: LA139; }
+  
+  .aaaaaaaa { grid-area: aaaaaaaa; }
+
+  [class^="LA"] {
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 8px; /* Borda arredondada */
+  }
+  
+  [class^="aa"] {
+    border: 1px solid black;
+    box-sizing: border-box;
+   
+  }
+
+  [class^="f"] {
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 8px; /* Borda arredondada */
+    p {
+      text-align: center; /* Centraliza o texto dentro das tags <p> que estão dentro de elementos com classe "f" */
+    }
+    img {
+      display: block;
+      margin: 0 auto; /* Centraliza a imagem horizontalmente */
+      border-radius: 8px;
+      box-sizing: border-box;
+      border: 1px solid black;
+    }
+  }
+  
+
+  .container2 {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.4fr 0.4fr 0.4fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "f1 f2 f3 f4 f5 f6"
+      "f7 f8 f9 f10 f11 f12"
+      "f13 f14 f15 f16 f17 f18";
+  }
+  
+  .f1 { grid-area: f1; }
+  
+  .f2 { grid-area: f2; }
+  
+  .f3 { grid-area: f3; }
+  
+  .f4 { grid-area: f4; }
+  
+  .f5 { grid-area: f5; }
+  
+  .f6 { grid-area: f6; }
+  
+  .f7 { grid-area: f7; }
+  
+  .f8 { grid-area: f8; }
+  
+  .f9 { grid-area: f9; }
+  
+  .f10 { grid-area: f10; }
+  
+  .f11 { grid-area: f11; }
+  
+  .f12 { grid-area: f12; }
+  
+  .f13 { grid-area: f13; }
+  
+  .f14 { grid-area: f14; }
+  
+  .f15 { grid-area: f15; }
+  
+  .f16 { grid-area: f16; }
+  
+  .f17 { grid-area: f17; }
+  
+  .f18 { grid-area: f18; }
+  

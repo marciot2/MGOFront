@@ -1,7 +1,0 @@
-h5 {
-    display: inline;
-    width: 100%;
-   
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to right, purple 0%, purple 33%, limegreen 33%, limegreen 66%, blue 66%, blue 100%);
-}

@@ -1,140 +1,414 @@
-import React from 'react';
-import Caldeira from '../..//images/Caldeira.png';
-import AmareloD from '../../images/AMARELOD.png';
+ import React, { useEffect, useState } from 'react';
+
  
+ 
+import Caldeira from '../../images/CaldeiraForca/CaldeiraForca.png' 
+ 
+ 
+ 
+import '../../css/caldeiraforca.css';
+ import CinzaD from '../../images/CINZAD.png';
+ import AmareloD from '../../images/AMARELOD.png';
+import VerdeD from '../../images/VERDED.png';
+import VermelhoD from '../../images/VERMELHOD.png';
 type Props = {};
 
-const CaldeiraIndex = (props: Props) => {
-  return (
-    <div>
-
-
-<img src={AmareloD} className='itestehidro'/>  
-      <p className='ttestehidro'><b>Teste Hidro</b> (IV / PM) </p>  
-
-<table>
- 
-    <tr>
-      
-     
-      <td> 
- 
-      <br/> <br/> 
-
-     <a href='http://localhost:3000/caldeira/penthouse'> <img src={AmareloD} className='ipenthouse'/>  </a>
-      <p className='tpenthouse'><b>Penthouse</b> (IV / PM) </p>  
-      
-      <a href='http://localhost:3000/caldeira/balao'>  <img src={AmareloD} className='ibalao'/>  </a>  
-      <p className='tbalao'><b>Balão</b> (IV) </p>  
-
-      <a href='http://localhost:3000/caldeira/superaquecedorsecundario'> <img src={AmareloD} className='ishsecundario'/> </a>
-      <p className='tshsecundario'><b>SH Secundário</b> (IV / MEUS / RG) </p>  
-      
-      <a href='http://localhost:3000/caldeira/superaquecedorterciario'>     <img src={AmareloD} className='ishterciario'/> </a> 
-      <p className='tshterciario'><b>SH Terciário</b> (IV / MEUS) </p> 
-
-      <a href='http://localhost:3000/caldeira/superaquecedorquaternario'>  <img src={AmareloD} className='ishquartenario'/> </a>   
-      <p className='tshquartenario'><b>SH Quartenario</b> (IV / MEUS) </p> 
-      
-      
-      <a href='http://localhost:3000/caldeira/superaquecedorprimarioI'>  <img src={AmareloD} className='ishprimarioI'/>  </a>    
-      <p className='tshprimarioI'><b>SH Primário I</b> (IV / MEUS) </p> 
-
-      <a href='http://localhost:3000/caldeira/superaquecedorprimarioII'>  <img src={AmareloD} className='ishprimarioII'/> </a>    
-      <p className='tshprimarioII'><b>SH Primário II</b> (IV / MEUS) </p> 
-
-      <a href='http://localhost:3000/caldeira/screen'>  <img src={AmareloD} className='iscreen'/> </a>     
-      <p className='tscreen'><b>Screen</b> (IV / MEUS) </p> 
-
-      
-      <a href='http://localhost:3000/caldeira/parededeagua'> <img src={AmareloD} className='iparede' />    </a>
-      <p className='tparede'><b>Parede D'água</b> (IV / MEUS) </p> 
-      <br/><br/><br/><br/><br/><br/> <br/> <br/> 
-
-      <a href='http://localhost:3000/caldeira/piso'> <img src={AmareloD} className='ipiso'/>  </a>
-      <p className='tpiso'><b>Piso</b> (IV / MEUS / LP) </p>
-      </td>
- 
-      <td><img src={Caldeira}/></td>
-      
-       
-       <td>
-
-      <br/>
-
-      
-
-      <a href='http://localhost:3000/caldeira/valvuladeseguranca'> <img src={AmareloD} className='ivalseg'/> </a>    
-       <p className='tvalseg'><b>Válvula de Segurança</b> (MAN / CAL) </p>  
-
-       <a href='http://localhost:3000/caldeira/teto'><img src={AmareloD} className='iteto'/>  </a>
-       <p className='tteto'>    <b>Teto</b> (IV) </p>  
-      
-       <a href='http://localhost:3000/caldeira/economizadorI'> <img src={AmareloD} className='ieconomizadorI'/> </a>  
-       <p className='teconomizadorI'>    <b>EconomizadorI</b> (IV / MEUS / DRO) </p>  
-
-       <a href='http://localhost:3000/caldeira/economizadorII'> <img src={AmareloD} className='ieconomizadorII'/> </a>
-       <p className='teconomizadorII'>    <b>EconomizadorII</b> (IV / MEUS / DRO) </p>  
-
-
-       <a href='http://localhost:3000/caldeira/bank'> <img src={AmareloD} className='ibank'/> </a>   
-       <p className='tbank'>    <b>Bank</b> (IV / MEUS / DRO) </p>  
-
-       <a href='http://localhost:3000/caldeira/grid'> <img src={AmareloD} className='igrid'/>  </a>  
-       <p className='tgrid'>    <b>GRID</b> (IV / MEUS) </p>  
-
-       <a href='http://localhost:3000/caldeira/SopradoresDeFuliagem'> <img src={AmareloD} className='isopradores'/> </a>   
-       <p className='tsoprasdores'>    <b>Sopradores de Fuligem</b> (IV / RG) </p>  
-
-
-       <a href='http://localhost:3000/caldeira/nariz'> <img src={AmareloD} className='inariz' />  </a>
-       <p className='tnariz'>    <b>Nariz</b> (IV / MEUS) </p>  
-
-       <a href='http://localhost:3000/caldeira/camarafria'>  <img src={AmareloD} className='icamarafria'/> </a>  
-       <p className='tcamarafria'>    <b>Câmara Fria</b> (IV / MEUS) </p>  
-
-       <a href='http://localhost:3000/caldeira/queimadores'> <img src={AmareloD} className='iqueimadores'/>  </a> 
-       <p className='tqueimadores'>    <b>Queimadores</b> (IV / MEUS) </p>  
-
-       <a href='http://localhost:3000/caldeira/EntradaArTerciaria'> <img src={AmareloD} className='iarterciario'/>  </a> 
-       <p className='tarterciario'>    <b>Entrada de ar Terciário</b> (IV / MEUS / LP) </p>  
-
-       <a href='http://localhost:3000/caldeira/EntradaArSecundaria'> <img src={AmareloD} className='iarsecundario'/>  </a> 
-       <p className='tarsecundario'>    <b>Entrada de ar Secundário</b> (IV / MEUS / LP) </p>  
-       
-       <a href='http://localhost:3000/caldeira/DutosEVentiladores'><img src={AmareloD} className='idutos'/> </a>    
-       <p className='tdutos'>    <b>Dutos e ventiladores</b> (IV) </p>  
-       
-       <a href='http://localhost:3000/caldeira/CamaraTV'> <img src={AmareloD} className='icameraTV'/>  </a> 
-       <p className='tcameraTV'>    <b>Câmera de TV</b> (IV / MEUS) </p>  
-       
-       <a href='http://localhost:3000/caldeira/BocaDeVisitaFornalhaBaixa'> <img src={AmareloD} className='ibocas' />  </a> 
-       <p className='tbocas'>    <b>Bocas de visita</b> (IV / MEUS) </p>  
-       
-       <a href='http://localhost:3000/caldeira/EntradaAr'> <img src={AmareloD} className='iarprimario' /> </a>   
-       <p className='tarprimario'>    <b>Entrada de ar Primário</b> (IV / MEUS / LP) </p>  
-       
-       <a href='http://localhost:3000/caldeira/BicasDeSmelt'> <img src={AmareloD} className='ibicas'/> </a>  
-       <p className='tbicas'>    <b>Bicas de Smelt</b>  (IV / MEUS / LP) </p>
-
-       <a href='http://localhost:3000/caldeira/porao'> <img src={AmareloD} className='iporao'/>  </a>
-       <p className='tporao'>    <b>Porão</b> (IV) </p>
-      </td> 
-
-       
-    </tr> 
+const CaldeiraForca = (props: Props) => {
+  
  
 
-</table>
+/*Esquerda Caldeira */
+const [naoIniciadoshsecundarioBT, setNaoIniciadoSHSecundarioBT] = useState<string | null>(null);
+
+ 
+  
+const [naoIniciadoFornalha, setNaoIniciadoFornalha] = useState<string | null>(null);
+ 
+
+const [naoIniciadoLeitoFluidizado, setNaoIniciadoLeitoFluidizado] = useState<string | null>(null);
+ 
 
 
 
 
+/*Direita Calderia */ 
+ 
+const [naoIniciadoShSecundarioAT, setNaoIniciadoShSecundarioAT] = useState<string | null>(null);
+const [canceladoShSecundarioAT, setCanceladoShSecundarioAT] =  useState(Number);
+const [rrRncShSecundarioAT, setRrRncShSecundarioAT] = useState<string>('');
+const [riShSecundarioAT, setRiShSecundarioAT] =  useState(Number);
+
+
+const [naoIniciadoShPrimarioAT, setNaoIniciadoShPrimarioAT] = useState<string | null>(null);
+const [canceladoShPrimarioAT, setCanceladoShPrimarioAT] = useState(Number);
+const [rrRncShPrimarioAT, setRrRncShPrimarioAT] = useState<string>('');
+const [riShPrimarioAT, setRiShPrimarioAT] =  useState(Number);
+
+
+const [naoIniciadoShPrimarioBT, setNaoIniciadoShPrimarioBT] = useState<string | null>(null);
+const [canceladoShPrimarioBT, setCanceladoShPrimarioBT] = useState(Number);
+const [rrRncShPrimarioBT, setRrRncShPrimarioBT] = useState<string>('');
+const [riShPrimarioBT, setRiShPrimarioBT] =  useState(Number);
+
+const [naoIniciadoEvaporador, setNaoIniciadoEvaporador] = useState<string | null>(null);
+const [canceladoEvaporador, setCanceladoEvaporador] = useState(Number);
+const [rrRncEvaporador, setRrRncEvaporador] = useState<string>('');
+const [riEvaporador, setRiEvaporador] =  useState(Number);
+
+
+const [naoIniciadoEconomizador, setNaoIniciadoEconomizador] = useState<string | null>(null);
+const [canceladoEconomizador, setCanceladoEconomizador] = useState(Number);
+const [rrRncEconomizador, setRrRncEconomizador] = useState<string>('');
+const [riEconomizador, setRiEconomizador] =  useState(Number);
+
+
+ 
+   
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+      const response1 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Secundario_BT');
+      const data1 = await response1.text(); 
+      setNaoIniciadoSHSecundarioBT(data1);  
+  
+
+        const response2 = await fetch('http://localhost:8081/RI/semaforoTodos/Fornalha');
+        const data2 = await response2.text();  
+        setNaoIniciadoFornalha(data2); 
+
+        
+        const response3 = await fetch('http://localhost:8081/RI/semaforoTodos/Leito_Fluidizado');
+        const data3 = await response3.text(); 
+       setNaoIniciadoLeitoFluidizado(data3);
+
+        const response4 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Secundario_AT');
+        const data4 = await response4.text(); 
+        setNaoIniciadoShSecundarioAT(data4);
+
+
+        const response5 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Primario_AT');
+        const data5 = await response5.text();  
+       setNaoIniciadoShPrimarioAT(data5);
+
+
+        const response6 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Primario_BT');
+        const data6 = await response6.text();  
+        setNaoIniciadoShPrimarioBT(data6);
+
+        const response7 = await fetch('http://localhost:8081/RI/semaforoTodos/Evaporador');
+        const data7 = await response7.text();   
+        setNaoIniciadoEvaporador(data7);
+
+        const response8 = await fetch('http://localhost:8081/RI/semaforoTodos/Economizador');
+        const data8 = await response8.text();  
+        setNaoIniciadoEconomizador(data8);
+
+  
+         
+
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();  
+
+    const interval = setInterval(() => {
+      fetchData();  
+    }, 5000);  
+
+    return () => clearInterval(interval); 
+  }, []); 
+
+ 
+ 
+  
+
+
+
+
+
+
+ let imageShSecundarioBT;  
+if (naoIniciadoshsecundarioBT === "NAO_INICIADO") {
+  imageShSecundarioBT = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;
+  
+} 
+
+if (naoIniciadoshsecundarioBT  === "EM_ANDAMENTO") {  
+  imageShSecundarioBT = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;
+   
+} 
+if (naoIniciadoshsecundarioBT === "NÃO_CONFORMIDADE") {
+  imageShSecundarioBT = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+ 
+} 
+if (naoIniciadoshsecundarioBT=== "LIBERADO") {  
+  imageShSecundarioBT = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+  
+} 
+
+  
+  
+
+ let imageFornalha;  
+if (naoIniciadoFornalha === "NAO_INICIADO") {
+  imageFornalha = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;
+  
+} 
+
+if (naoIniciadoFornalha === "EM_ANDAMENTO") {  
+  imageFornalha = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;
+   
+} 
+if (naoIniciadoFornalha === "NÃO_CONFORMIDADE") {
+  imageFornalha = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+ 
+} 
+if (naoIniciadoFornalha === "LIBERADO") {  
+  imageFornalha = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+  
+} 
+ 
+
+
+
+
+ let imageLeitoFluidizado;  
+if (naoIniciadoLeitoFluidizado === "NAO_INICIADO") {
+  imageLeitoFluidizado = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;  
+} 
+
+if (naoIniciadoLeitoFluidizado === "EM_ANDAMENTO") {  
+ imageLeitoFluidizado = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;   
+} 
+
+if (naoIniciadoLeitoFluidizado === "NÃO_CONFORMIDADE") {
+  imageLeitoFluidizado = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+} 
+
+if (naoIniciadoLeitoFluidizado === "LIBERADO") {  
+  imageLeitoFluidizado = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+}
+ 
+
+
+
+
+
+ let imageShSecundarioAT;  
+if (naoIniciadoShSecundarioAT === "NAO_INICIADO") {
+  imageShSecundarioAT = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;
+  
+} 
+
+if (naoIniciadoShSecundarioAT === "EM_ANDAMENTO") {  
+  imageShSecundarioAT = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;
+   
+} 
+if (naoIniciadoShSecundarioAT === "NÃO_CONFORMIDADE") {
+  imageShSecundarioAT = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+ 
+} 
+if (naoIniciadoShSecundarioAT  === "LIBERADO") {  
+  imageShSecundarioAT = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+  
+}  
+
+
+ 
+ 
+ 
+
+
+ 
+
+
+ let imageShPrimarioAT;  
+if (naoIniciadoShPrimarioAT === "NAO_INICIADO") {
+  imageShPrimarioAT = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;
+  
+} 
+
+if (naoIniciadoShPrimarioAT === "EM_ANDAMENTO") {  
+  imageShPrimarioAT = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;
+   
+} 
+if (naoIniciadoShPrimarioAT === "NÃO_CONFORMIDADE") {
+  imageShPrimarioAT = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+ 
+} 
+if (naoIniciadoShPrimarioAT === "LIBERADO") {  
+  imageShPrimarioAT = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+  
+}  
+
+
+
+ 
+
+
+
+
+
+
+ let imageShPrimarioBT;  
+if (naoIniciadoShPrimarioBT === "NAO_INICIADO") {
+  imageShPrimarioBT = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;
+  
+} 
+
+if (naoIniciadoShPrimarioBT === "EM_ANDAMENTO") {  
+  imageShPrimarioBT = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;
+   
+} 
+if (naoIniciadoShPrimarioBT === "NÃO_CONFORMIDADE") {
+  imageShPrimarioBT = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+ 
+} 
+if (naoIniciadoShPrimarioBT === "LIBERADO") {  
+  imageShPrimarioBT = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+  
+}  
+
+
+
+
+
+
+
+
+
+
+ let imageEvaporador;  
+if (naoIniciadoEvaporador === "NAO_INICIADO") {
+  imageEvaporador = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;
+  
+} 
+
+if (naoIniciadoEvaporador === "EM_ANDAMENTO") {  
+  imageEvaporador = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;
+   
+} 
+if (naoIniciadoEvaporador === "NÃO_CONFORMIDADE") {
+  imageEvaporador = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+ 
+} 
+if (naoIniciadoEvaporador === "LIBERADO") {  
+  imageEvaporador = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+  
+}  
+
+
+
+
+
+
+ let imageEconomizador;  
+if (naoIniciadoEconomizador === "NAO_INICIADO") {
+  imageEconomizador = <img src={CinzaD} className='ibocas1' alt='CinzaD'/>;
+  
+} 
+
+if (naoIniciadoEconomizador === "EM_ANDAMENTO") {  
+  imageEconomizador = <img src={AmareloD} className='ibocas1' alt='AmareloD'/>;
+   
+} 
+if (naoIniciadoEconomizador === "NÃO_CONFORMIDADE") {
+  imageEconomizador = <img src={VermelhoD} className='ibocas1' alt='VermelhoD'/>;
+ 
+} 
+if (naoIniciadoEconomizador === "LIBERADO") {  
+  imageEconomizador = <img src={VerdeD} className='ibocas1' alt='VerdeD'/>;
+  
+}  
+
+
+ 
+
+
+
+
+
+ return (
+  <div>
+    
+    <div className="containerForca">
+  <div className="caldeiraForca"><img src={Caldeira}/></div>
+   
+  <div className="a3cf">
+    
+  
+  <a href='http://localhost:3000/relatorios/SH_Secundario_BT' target="_blank">  {imageShSecundarioBT}   </a>  
+    <p className='cfesquerda'><b>SH Secundário BT    </b>   </p>
+  
+
+  </div>
+   
+  <div className="a7cf"> 
+
+
+  <a href='http://localhost:3000/relatorios/Fornalha' target="_blank"> {imageFornalha}  </a>
+  <p className='cfesquerda'>    <b>Fornalha    </b>  </p> 
+
+
+  </div>
+  
+  <div className="a9cf">
+
+  <a href='http://localhost:3000/relatorios/Leito_Fluidizado' target="_blank">  {imageLeitoFluidizado}  </a>
+  <p className='cfesquerda'>    <b>Leito Fluidizado</b> </p>
+ 
+
+
+  </div>
+  
+   
+
+ 
+  <div className="s4cf">
+ 
+  <a href='http://localhost:3000/relatorios/SH_Secundario_AT' target="_blank">  {imageShSecundarioAT}  </a>
+  <p className='cfdireita'>    <b>SH Secundário AT</b> </p>
+ 
+
+   
 
 </div>
+  <div className="s5cf"> 
+  <a href='http://localhost:3000/relatorios/SH_Primario_AT' target="_blank">  {imageShPrimarioAT}  </a>
+  <p className='cfdireita'>    <b>SH Primário AT</b> </p>
+
+  
+ </div>
+  <div className="s6cf">
+  <a href='http://localhost:3000/relatorios/SH_Primario_BT' target="_blank">  {imageShPrimarioBT}  </a>
+  <p className='cfdireita'>    <b>SH Primário BT</b> </p>
+ </div>
+  <div className="s7cf">
+  <a href='http://localhost:3000/relatorios/Evaporador' target="_blank">  {imageEvaporador}  </a>
+  <p className='cfdireita'>    <b>Evaporador</b> </p>
+ </div>
+ 
+ <div className="s8cf">
+  <a href='http://localhost:3000/relatorios/Economizador' target="_blank">  {imageEconomizador}  </a>
+  <p className='cfdireita'>    <b>Economizador</b> </p>
+ </div>
+ 
+   
+</div>
+
+
+
+
+
+ </div>
 
 
   );
 };
 
-export default CaldeiraIndex;
+export default CaldeiraForca;
+
+ 

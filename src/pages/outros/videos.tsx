@@ -46,12 +46,7 @@ const MyForm = () => {
         control={control}
         name="image"
       />
-      <Box sx={{ mt: 2, textAlign: "center" }}>
-        <Button type="submit" variant="contained" startIcon={<LiveTvIcon/>} >
-                                                  
-        Incluir Video
-        </Button>
-      </Box>
+      
     </Box>
   );
 };

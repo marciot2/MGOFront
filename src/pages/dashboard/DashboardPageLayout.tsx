@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const DashboardPageLayout = () => {
   return (
-    <><Outlet /></>
+    <><Outlet /> </>
   );
 };
 

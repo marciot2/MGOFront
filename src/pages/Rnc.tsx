@@ -15,7 +15,7 @@ type Props = {};
 const Rnc = (props: Props) => {
   return (
     <div> 
-    <span>Nome: </span>
+     
    <RelatorioNaoConformidade/>
 
     </div>
