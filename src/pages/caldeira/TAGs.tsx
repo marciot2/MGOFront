@@ -4,7 +4,7 @@
  
 import Caldeira from '../../images/CaldeiraForca/CaldeiraForca.png' 
  
- 
+ import { BACKEND } from '../../config';
  
 import '../../css/containerTAGs.css';
  import CinzaD from '../../images/CINZAD.png';
@@ -36,12 +36,12 @@ const [naoIniciadoTAG340321002, setNaoIniciadoTAG340321002] = useState<string | 
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const response1 = await fetch('http://localhost:8081/RI/semaforoTodosTAG/3403-21-001');
+      const response1 = await fetch(`${BACKEND}/RI/semaforoTodosTAG/3403-21-001`);
       const data1 = await response1.text(); 
       setnaoIniciadoTAG340321001(data1);  
   
 
-        const response2 = await fetch('http://localhost:8081/RI/semaforoTodosTAG/3403-21-002');
+        const response2 = await fetch(`${BACKEND}/RI/semaforoTodosTAG/3403-21-002`);
         const data2 = await response2.text();  
         setNaoIniciadoTAG340321002(data2); 
 
@@ -123,7 +123,7 @@ if (naoIniciadoTAG340321002 === "LIBERADO") {
   <div className="tag2"><img src={TQDescargaF}/></div>
   <div className="sem1"><br/>
   
-  <a href='http://localhost:3000/ SH_Secundario_BT' target="_blank">  {imageTAG340321001}   </a>  
+  <a href='http://localhost:3000/SH_Secundario_BT' target="_blank">  {imageTAG340321001}   </a>  
     <p className='cfesquerda'><b>SH Secundário BT    </b>   </p>
     
     

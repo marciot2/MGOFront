@@ -3,7 +3,7 @@
  
  
 import Caldeira from '../../images/CaldeiraForca/CaldeiraForca.png' 
- 
+ import { BACKEND } from '../../config';
  
  
 import '../../css/caldeiraforca.css';
@@ -67,39 +67,39 @@ const [riEconomizador, setRiEconomizador] =  useState(Number);
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const response1 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Secundario_BT');
+      const response1 = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Secundario_BT`);
       const data1 = await response1.text(); 
       setNaoIniciadoSHSecundarioBT(data1);  
   
 
-        const response2 = await fetch('http://localhost:8081/RI/semaforoTodos/Fornalha');
+        const response2 = await fetch(`${BACKEND}/RI/semaforoTodos/Fornalha`);
         const data2 = await response2.text();  
         setNaoIniciadoFornalha(data2); 
 
         
-        const response3 = await fetch('http://localhost:8081/RI/semaforoTodos/Leito_Fluidizado');
+        const response3 = await fetch(`${BACKEND}/RI/semaforoTodos/Leito_Fluidizado`);
         const data3 = await response3.text(); 
        setNaoIniciadoLeitoFluidizado(data3);
 
-        const response4 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Secundario_AT');
+        const response4 = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Secundario_AT`);
         const data4 = await response4.text(); 
         setNaoIniciadoShSecundarioAT(data4);
 
 
-        const response5 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Primario_AT');
+        const response5 = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Primario_AT`);
         const data5 = await response5.text();  
        setNaoIniciadoShPrimarioAT(data5);
 
 
-        const response6 = await fetch('http://localhost:8081/RI/semaforoTodos/SH_Primario_BT');
+        const response6 = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Primario_BT`);
         const data6 = await response6.text();  
         setNaoIniciadoShPrimarioBT(data6);
 
-        const response7 = await fetch('http://localhost:8081/RI/semaforoTodos/Evaporador');
+        const response7 = await fetch(`${BACKEND}/RI/semaforoTodos/Evaporador`);
         const data7 = await response7.text();   
         setNaoIniciadoEvaporador(data7);
 
-        const response8 = await fetch('http://localhost:8081/RI/semaforoTodos/Economizador');
+        const response8 = await fetch(`${BACKEND}/RI/semaforoTodos/Economizador`);
         const data8 = await response8.text();  
         setNaoIniciadoEconomizador(data8);
 
