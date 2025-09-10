@@ -346,9 +346,9 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
         responsavelManutencao,
         responsavelInspecao
       };
-      console.info(numero);
+      console.info(BACKEND);
 
-      axios.post(BACKEND + '/RI/enviar', formData)
+      axios.post(process.env.REACT_APP_API_URL + '/RI/enviar', formData)
 
 
         .then((response) => {
