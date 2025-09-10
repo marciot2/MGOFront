@@ -5,6 +5,7 @@
 import Caldeira from '../../images/CaldeiraForca/CaldeiraForca.png' 
  import { BACKEND } from '../../config';
  
+import { FRONTEND } from '../../config';
  
 import '../../css/caldeiraforca.css';
  import CinzaD from '../../images/CINZAD.png';
@@ -340,7 +341,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
   <div className="a3cf">
     
   
-  <a href='http://localhost:3000/relatorios/SH_Secundario_BT' target="_blank">  {imageShSecundarioBT}   </a>  
+  <a href={`${FRONTEND}/relatorios/SH_Secundario_BT`} target="_blank">  {imageShSecundarioBT}   </a>  
     <p className='cfesquerda'><b>SH Secundário BT    </b>   </p>
   
 
@@ -349,7 +350,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
   <div className="a7cf"> 
 
 
-  <a href='http://localhost:3000/relatorios/Fornalha' target="_blank"> {imageFornalha}  </a>
+  <a href={`${FRONTEND}/relatorios/Fornalha`} target="_blank"> {imageFornalha}  </a>
   <p className='cfesquerda'>    <b>Fornalha    </b>  </p> 
 
 
@@ -357,7 +358,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
   
   <div className="a9cf">
 
-  <a href='http://localhost:3000/relatorios/Leito_Fluidizado' target="_blank">  {imageLeitoFluidizado}  </a>
+  <a href={`${FRONTEND}/relatorios/Leito_Fluidizado`} target="_blank">  {imageLeitoFluidizado}  </a>
   <p className='cfesquerda'>    <b>Leito Fluidizado</b> </p>
  
 
@@ -369,7 +370,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
  
   <div className="s4cf">
  
-  <a href='http://localhost:3000/relatorios/SH_Secundario_AT' target="_blank">  {imageShSecundarioAT}  </a>
+  <a href={`${FRONTEND}/relatorios/SH_Secundario_AT`} target="_blank">  {imageShSecundarioAT}  </a>
   <p className='cfdireita'>    <b>SH Secundário AT</b> </p>
  
 
@@ -377,22 +378,22 @@ if (naoIniciadoEconomizador === "LIBERADO") {
 
 </div>
   <div className="s5cf"> 
-  <a href='http://localhost:3000/relatorios/SH_Primario_AT' target="_blank">  {imageShPrimarioAT}  </a>
+  <a href={`${FRONTEND}/relatorios/SH_Primario_AT`} target="_blank">  {imageShPrimarioAT}  </a>
   <p className='cfdireita'>    <b>SH Primário AT</b> </p>
 
   
  </div>
   <div className="s6cf">
-  <a href='http://localhost:3000/relatorios/SH_Primario_BT' target="_blank">  {imageShPrimarioBT}  </a>
+  <a href={`${FRONTEND}/relatorios/SH_Primario_BT`} target="_blank">  {imageShPrimarioBT}  </a>
   <p className='cfdireita'>    <b>SH Primário BT</b> </p>
  </div>
   <div className="s7cf">
-  <a href='http://localhost:3000/relatorios/Evaporador' target="_blank">  {imageEvaporador}  </a>
+  <a href={`${FRONTEND}/relatorios/Evaporador`} target="_blank">  {imageEvaporador}  </a>
   <p className='cfdireita'>    <b>Evaporador</b> </p>
  </div>
  
  <div className="s8cf">
-  <a href='http://localhost:3000/relatorios/Economizador' target="_blank">  {imageEconomizador}  </a>
+ <a href={`${FRONTEND}/relatorios/Economizador`} target="_blank">  {imageEconomizador}  </a>
   <p className='cfdireita'>    <b>Economizador</b> </p>
  </div>
  

@@ -27,6 +27,7 @@ import axios from 'axios';
 import JoditEditor from 'jodit-react';
 import FileUploadGreenDocs from './fileuploadGreenDocs';
 import {BACKEND} from "../../config"; 
+import { FRONTEND } from '../../config';
 import DatePicker from 'react-datepicker';
   
 
@@ -259,7 +260,7 @@ const handleNumeroChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
      
       
-      window.open("http://localhost:3000/prestador/RR/"+idRelatorioNaoConformidade);
+      window.open(`${FRONTEND}/prestador/RR/`+idRelatorioNaoConformidade);
 
     } else {
 

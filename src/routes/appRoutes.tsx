@@ -225,9 +225,17 @@ const appRoutes: RouteType[] = [
           displayText: "",
           
         }
+      },
+
+ {
+        path: "/relatoriosTAG/:etag",
+        element: <Relatorios />,
+        state: "relatorios",
+        sidebarProps: {
+          displayText: "",
+          
+        }
       }
-
-
 
  
 

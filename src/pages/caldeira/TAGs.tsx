@@ -5,7 +5,8 @@
 import Caldeira from '../../images/CaldeiraForca/CaldeiraForca.png' 
  
  import { BACKEND } from '../../config';
- 
+ import { FRONTEND } from "../../config";
+
 import '../../css/containerTAGs.css';
  import CinzaD from '../../images/CINZAD.png';
  import AmareloD from '../../images/AMARELOD.png';
@@ -123,12 +124,19 @@ if (naoIniciadoTAG340321002 === "LIBERADO") {
   <div className="tag2"><img src={TQDescargaF}/></div>
   <div className="sem1"><br/>
   
-  <a href='http://localhost:3000/SH_Secundario_BT' target="_blank">  {imageTAG340321001}   </a>  
-    <p className='cfesquerda'><b>SH Secundário BT    </b>   </p>
+  <a href={`${FRONTEND}/relatoriosTAG/3403-21-001`} target="_blank">  {imageTAG340321001}   </a>  
+    
     
     
     </div>
-  <div className="sem2"><br/><img src={AmareloD}/></div>
+  <div className="sem2"><br/>
+  
+  
+  <a href={`${FRONTEND}/relatoriosTAG/3403-21-002`} target="_blank">  {imageTAG340321002}   </a>  
+  
+  
+  
+  </div>
   <div className="A1"></div>
   <div className="A2"></div>
   <div className="A3"></div>
@@ -139,75 +147,7 @@ if (naoIniciadoTAG340321002 === "LIBERADO") {
  
 
 
-{/*
-
-
-    <div className="containerForca">
-  <div className="caldeiraForca"><img src={Caldeira}/></div>
-   
-  <div className="a3cf">
-    
-  
-  <a href='http://localhost:3000/relatorios/SH_Secundario_BT' target="_blank">  {imageShSecundarioBT}   </a>  
-    <p className='cfesquerda'><b>SH Secundário BT    </b>   </p>
-  
-
-  </div>
-   
-  <div className="a7cf"> 
-
-
-  <a href='http://localhost:3000/relatorios/Fornalha' target="_blank"> {imageFornalha}  </a>
-  <p className='cfesquerda'>    <b>Fornalha    </b>  </p> 
-
-
-  </div>
-  
-  <div className="a9cf">
-
-  <a href='http://localhost:3000/relatorios/Leito_Fluidizado' target="_blank">  {imageLeitoFluidizado}  </a>
-  <p className='cfesquerda'>    <b>Leito Fluidizado</b> </p>
  
-
-
-  </div>
-  
-   
-
- 
-  <div className="s4cf">
- 
-  <a href='http://localhost:3000/relatorios/SH_Secundario_AT' target="_blank">  {imageShSecundarioAT}  </a>
-  <p className='cfdireita'>    <b>SH Secundário AT</b> </p>
- 
-
-   
-
-</div>
-  <div className="s5cf"> 
-  <a href='http://localhost:3000/relatorios/SH_Primario_AT' target="_blank">  {imageShPrimarioAT}  </a>
-  <p className='cfdireita'>    <b>SH Primário AT</b> </p>
-
-  
- </div>
-  <div className="s6cf">
-  <a href='http://localhost:3000/relatorios/SH_Primario_BT' target="_blank">  {imageShPrimarioBT}  </a>
-  <p className='cfdireita'>    <b>SH Primário BT</b> </p>
- </div>
-  <div className="s7cf">
-  <a href='http://localhost:3000/relatorios/Evaporador' target="_blank">  {imageEvaporador}  </a>
-  <p className='cfdireita'>    <b>Evaporador</b> </p>
- </div>
- 
- <div className="s8cf">
-  <a href='http://localhost:3000/relatorios/Economizador' target="_blank">  {imageEconomizador}  </a>
-  <p className='cfdireita'>    <b>Economizador</b> </p>
- </div>
- 
-   
-</div>
-
- */ }
 
 </div>
 
