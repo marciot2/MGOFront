@@ -350,7 +350,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
   <div className="a7cf"> 
 
 
-  <a href={`${FRONTEND}/relatorios/Fornalha`} target="_blank"> {imageFornalha}  </a>
+  <a href={`https://www.pg2025.com.br/relatorios/Fornalha`} target="_blank"> {imageFornalha}  </a>
   <p className='cfesquerda'>    <b>Fornalha    </b>  </p> 
 
 
@@ -358,7 +358,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
   
   <div className="a9cf">
 
-  <a href={`${FRONTEND}/relatorios/Leito_Fluidizado`} target="_blank">  {imageLeitoFluidizado}  </a>
+  <a href={`https://www.pg2025.com.br/relatorios/Leito_Fluidizado`} target="_blank">  {imageLeitoFluidizado}  </a>
   <p className='cfesquerda'>    <b>Leito Fluidizado</b> </p>
  
 
@@ -370,7 +370,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
  
   <div className="s4cf">
  
-  <a href={`${FRONTEND}/relatorios/SH_Secundario_AT`} target="_blank">  {imageShSecundarioAT}  </a>
+  <a href={`https://www.pg2025.com.br/relatorios/SH_Secundario_AT`} target="_blank">  {imageShSecundarioAT}  </a>
   <p className='cfdireita'>    <b>SH Secundário AT</b> </p>
  
 
@@ -378,22 +378,22 @@ if (naoIniciadoEconomizador === "LIBERADO") {
 
 </div>
   <div className="s5cf"> 
-  <a href={`${FRONTEND}/relatorios/SH_Primario_AT`} target="_blank">  {imageShPrimarioAT}  </a>
+  <a href={`https://www.pg2025.com.br/relatorios/SH_Primario_AT`} target="_blank">  {imageShPrimarioAT}  </a>
   <p className='cfdireita'>    <b>SH Primário AT</b> </p>
 
   
  </div>
   <div className="s6cf">
-  <a href={`${FRONTEND}/relatorios/SH_Primario_BT`} target="_blank">  {imageShPrimarioBT}  </a>
+  <a href={`https://www.pg2025.com.br/relatorios/SH_Primario_BT`} target="_blank">  {imageShPrimarioBT}  </a>
   <p className='cfdireita'>    <b>SH Primário BT</b> </p>
  </div>
   <div className="s7cf">
-  <a href={`${FRONTEND}/relatorios/Evaporador`} target="_blank">  {imageEvaporador}  </a>
+  <a href={`https://www.pg2025.com.br/relatorios/Evaporador`} target="_blank">  {imageEvaporador}  </a>
   <p className='cfdireita'>    <b>Evaporador</b> </p>
  </div>
  
  <div className="s8cf">
- <a href={`${FRONTEND}/relatorios/Economizador`} target="_blank">  {imageEconomizador}  </a>
+ <a href={`https://www.pg2025.com.br/relatorios/Economizador`} target="_blank">  {imageEconomizador}  </a>
   <p className='cfdireita'>    <b>Economizador</b> </p>
  </div>
  
