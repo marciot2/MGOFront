@@ -213,7 +213,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
       try {
         // Substitua com a URL do seu endpoint de upload
-        const uploadUrl = BACKEND + '/RI/S3/salvar';
+        const uploadUrl = `${BACKEND}/RI/S3/salvar`;
 
         const response = await axios.post(uploadUrl, formData, {
           headers: {
@@ -290,9 +290,9 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
       };
       console.info(numero);
 
-      axios.post(BACKEND + '/RI/save', formData)
+      axios.post(`${BACKEND}/RI/save`, formData)
 
-
+ 
         .then((response) => {
           console.log(response);
 
@@ -348,7 +348,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
       };
       console.info(BACKEND);
 
-      axios.post(process.env.REACT_APP_API_URL + '/RI/enviar', formData)
+      axios.post(`${BACKEND}/RI/enviar`, formData)
 
 
         .then((response) => {
