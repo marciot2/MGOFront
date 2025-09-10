@@ -112,15 +112,15 @@ const JanelaPrestador: React.FC = () => {
 
   // Aberturas em nova aba
   const abrirRI = () => {
-    if (selectedId) window.open(`${FRONTEND}/prestador/Ri/${selectedId}`, '_blank');
+    if (selectedId) window.open(`https://eldorado.pg2025.com.br/prestador/Ri/${selectedId}`, '_blank');
     else alert('Selecione um registro na tabela acima para prosseguir');
   };
   const abrirRR = () => {
-    if (selectedId) window.open(`${FRONTEND}/prestador/RR/${selectedId}`, '_blank');
+    if (selectedId) window.open(`https://eldorado.pg2025.com.br/prestador/RR/${selectedId}`, '_blank');
     else alert('Selecione um registro na tabela acima para prosseguir');
   };
   const abrirRNC = () => {
-    if (selectedId) window.open(`${FRONTEND}/prestador/RNC/${selectedId}`, '_blank');
+    if (selectedId) window.open(`https://eldorado.pg2025.com.br/prestador/RNC/${selectedId}`, '_blank');
     else alert('Selecione um registro na tabela acima para prosseguir');
   };
 
@@ -190,9 +190,9 @@ const JanelaPrestador: React.FC = () => {
       if (!idDoRel) return null;
 
       const rotas: Record<TipoRelatorio, string> = {
-        RI: `${FRONTEND}/prestador/Ris/${idDoRel}`,
-        RNC: `${FRONTEND}/prestador/RNCs/${idDoRel}`,
-        RR: `${FRONTEND}/prestador/RRs/${idDoRel}`,
+        RI: `https://eldorado.pg2025.com.br/prestador/Ris/${idDoRel}`,
+        RNC: `https://eldorado.pg2025.com.br/prestador/RNCs/${idDoRel}`,
+        RR: `https://eldorado.pg2025.com.br/prestador/RRs/${idDoRel}`,
       };
 
       // Definição de estilos por tipo
