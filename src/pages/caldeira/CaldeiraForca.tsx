@@ -341,7 +341,7 @@ if (naoIniciadoEconomizador === "LIBERADO") {
   <div className="a3cf">
     
   
-  <a href={`${FRONTEND}/relatorios/SH_Secundario_BT`} target="_blank">  {imageShSecundarioBT}   </a>  
+  <a href={`https://www.pg2025.com.br:3000/relatorios/SH_Secundario_BT`} target="_blank">  {imageShSecundarioBT}   </a>  
     <p className='cfesquerda'><b>SH Secundário BT    </b>   </p>
   
 
