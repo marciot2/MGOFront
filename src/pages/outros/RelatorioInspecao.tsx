@@ -900,11 +900,11 @@ if (tag === "3403-21-020-CF") {
       </Button>
 
 
-      <Button name="btnWord" variant="contained" color="success" startIcon={<WordIcon />} onClick={ExportWord}>
+      <Button name="btnWord" variant="contained" disabled color="success" startIcon={<WordIcon />} onClick={ExportWord}>
         Exportar .DOCX
       </Button>
 
-      <Button name="btnGerar" variant="contained" color="info" startIcon={<BaixarIcon />} onClick={baixartWord}>
+      <Button name="btnGerar" variant="contained" disabled color="info" startIcon={<BaixarIcon />} onClick={baixartWord}>
         Baixar .DOCX
       </Button>
 

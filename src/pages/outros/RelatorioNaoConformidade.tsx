@@ -695,11 +695,11 @@ const [arrayCF, setArrayCF] = useState([
 </Button>
 
 
-   <Button name="btnWord"  variant="contained" color="success" startIcon={<ArticleIcon />} onClick={ExportWord}>
+   <Button name="btnWord"  variant="contained" disabled color="success" startIcon={<ArticleIcon />} onClick={ExportWord}>
   Exportar .DOCX
 </Button>
 
-<Button name="btnGerar" variant="contained" color="info" startIcon={<ArticleIcon />} onClick={baixartWord}>
+<Button name="btnGerar" variant="contained" disabled color="info" startIcon={<ArticleIcon />} onClick={baixartWord}>
   Baixar .DOCX
 </Button>
    
