@@ -252,7 +252,18 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 } else if (numero.trim() === '') {
     alert('Número documento inválido!!!');
 } else if (noTAG.trim()  === '') {
-    alert('Selecione uma opção na lista Caldeira de Recuperação!!!');
+
+    if (tag?.includes("CF")){
+
+       alert('Selecione uma opção na lista Caldeira de Recuperação!!!');
+
+    } else {
+
+     
+      
+    }
+
+    
 } else if (responsavelManutencao.trim()  === '') {
   alert('Informe o responsável pela manutenção!!!');
 } else if (localProblema.trim()  === '') {
