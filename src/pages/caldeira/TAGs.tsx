@@ -124,7 +124,7 @@ if (naoIniciadoTAG340321002 === "LIBERADO") {
   <div className="tag2"><img src={TQDescargaF}/></div>
   <div className="sem1"><br/>
   
-  <a href={`${FRONTEND}/relatoriosTAG/3403-21-001`} target="_blank">  {imageTAG340321001}   </a>  
+  <a href={`${FRONTEND}/RI/semaforoTodosTAG/3403-21-001`} target="_blank">  {imageTAG340321001}   </a>  
     
     
     
@@ -132,7 +132,7 @@ if (naoIniciadoTAG340321002 === "LIBERADO") {
   <div className="sem2"><br/>
   
   
-  <a href={`${FRONTEND}/relatoriosTAG/3403-21-002`} target="_blank">  {imageTAG340321002}   </a>  
+  <a href={`${FRONTEND}/RI/semaforoTodosTAG/3403-21-002`} target="_blank">  {imageTAG340321002}   </a>  
   
   
   
