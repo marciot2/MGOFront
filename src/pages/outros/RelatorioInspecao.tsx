@@ -251,17 +251,13 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
     alert('Selecione um Status!!!');
 } else if (numero.trim() === '') {
     alert('Número documento inválido!!!');
-} else if (noTAG.trim()  === '') {
+} else if (noTAG.trim()  === '' ) {
 
     if (tag?.includes("CF")){
 
        alert('Selecione uma opção na lista Caldeira de Recuperação!!!');
 
-    } else {
-
-     
-      
-    }
+    }  
 
     
 } else if (responsavelManutencao.trim()  === '') {
@@ -303,7 +299,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
       axios.post(`${BACKEND}/RI/save`, formData)
 
- 
+        
         .then((response) => {
           console.log(response);
 
