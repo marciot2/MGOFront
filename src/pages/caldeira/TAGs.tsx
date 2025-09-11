@@ -40,12 +40,12 @@ const [naoIniciadoTAG340321002, setNaoIniciadoTAG340321002] = useState<string | 
       const response1 = await fetch(`${BACKEND}/RI/semaforoTodosTAG/3403-21-001`);
       const data1 = await response1.text(); 
       setnaoIniciadoTAG340321001(data1);  
-  
-
+        
+        console.log(data1);
         const response2 = await fetch(`${BACKEND}/RI/semaforoTodosTAG/3403-21-002`);
         const data2 = await response2.text();  
         setNaoIniciadoTAG340321002(data2); 
-
+  console.log(data2);
          
          
 

@@ -458,7 +458,7 @@ const [valueCF, setValueCF] = useState<string>('');
 
       <Button name="btnWord" variant="contained" disabled color="success" startIcon={<ArticleIcon />} onClick={exportWord}>
         Exportar .DOCX
-      </Button>
+      </Button> 
 
       <Button name="btnGerar" variant="contained" disabled color="info" startIcon={<ArticleIcon />} onClick={baixarWord}>
         Baixar .DOCX
