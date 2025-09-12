@@ -145,6 +145,10 @@ const [valueCF, setValueCF] = useState<string>('');
     const equipamentoFinal = area ?? '';
     setEquipamento(equipamentoFinal);
 
+   let noTAGValue = noTAG;
+
+
+  if (tag?.includes("CF")) {
     // Validações mínimas
     if ((status ?? '').trim() === '') return alert('Selecione um Status!!!');
     if ((numero ?? '').trim() === '' || !!errorNumero) return alert('Número do documento inválido!!!');
@@ -152,6 +156,37 @@ const [valueCF, setValueCF] = useState<string>('');
     if ((descricaoReparo ?? '.').trim() === '.') return alert('Informe a descrição do reparo!!!');
     if ((ensaios ?? '.').trim() === '.') return alert('Informe os ensaios utilizados!!!');
     if ((area ?? '').trim() === '') return alert('Informe a Área!!!');
+
+
+ if (noTAGValue.trim() === '') {
+
+        alert('Selecione uma opção na lista Caldeira de Recuperação!!!');
+
+      }
+
+  } else {
+
+
+ // Validações mínimas
+    if ((status ?? '').trim() === '') return alert('Selecione um Status!!!');
+    if ((numero ?? '').trim() === '' || !!errorNumero) return alert('Número do documento inválido!!!');
+    if ((responsavelInspecao ?? '').trim() === '') return alert('Informe o responsável pela inspeção!!!');
+    if ((descricaoReparo ?? '.').trim() === '.') return alert('Informe a descrição do reparo!!!');
+    if ((ensaios ?? '.').trim() === '.') return alert('Informe os ensaios utilizados!!!');
+    if ((area ?? '').trim() === '') return alert('Informe a Área!!!');
+
+
+ if (noTAGValue.trim() === '') {
+
+         noTAGValue = 'NAO_SE_APLICA';
+      }
+
+
+
+
+  }
+
+
 
     try {
       const formData = {
@@ -165,7 +200,7 @@ const [valueCF, setValueCF] = useState<string>('');
         area,
         tipoInspecao,
         dataInspecao,
-        noTAG,
+        noTAGValue,
         empresa,
         denominacao,
         responsavelInspecao,

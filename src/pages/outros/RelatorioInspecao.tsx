@@ -76,7 +76,7 @@ export default function RelatorioInspecao() {
   const [valueDG, setValueDG] = useState<string>();
   const [valueCR, setValueCR] = useState<string>();
 
-  
+
 
   const [valueCF, setValueCF] = useState<string>();
   const [valueFC, setValueFC] = useState<string>();
@@ -104,7 +104,7 @@ export default function RelatorioInspecao() {
   const { id } = useParams();
   const { idRIs } = useParams();
   const [error, setError] = useState<string>();
-const [tipoRelatorio, setTipoRelatorio] = useState('RI');
+  const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
 
 
@@ -165,7 +165,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
 
   const [arrayStatus, setArrayStatus] = useState([
-    
+
     { label: 'Liberado', value: 'LIBERADO' }, { label: 'Em andamento', value: 'EM_ANDAMENTO' },
   ]);
   const [arrayCF, setArrayCF] = useState([
@@ -186,11 +186,11 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
 
 
-  const Voltar = () => {   
- 
-      window.open(FRONTEND + "/prestador/janelaprincipal");
+  const Voltar = () => {
 
-    
+    window.open(FRONTEND + "/prestador/janelaprincipal");
+
+
 
   };
 
@@ -209,7 +209,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
       formData.append('tipo', 'RI');
       formData.append('tag', tag + "");
       formData.append('noTAG', noTAG);
-      formData.append('tipoRelatorio',"RI");
+      formData.append('tipoRelatorio', "RI");
 
       try {
         // Substitua com a URL do seu endpoint de upload
@@ -244,33 +244,64 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
 
   const saveRI = () => {
-  
-  setIdDadosExcel(Number(id));
-  console.log(statusRI);   
-  if (statusRI.trim() === '') {
-    alert('Selecione um Status!!!');
-} else if (numero.trim() === '') {
-    alert('Número documento inválido!!!');
-} else if (noTAG.trim()  === '' ) {
+    let noTAGValue = noTAG;
+    setIdDadosExcel(Number(id));
+    console.log(statusRI);
 
-    if (tag?.includes("CF")){
 
-       alert('Selecione uma opção na lista Caldeira de Recuperação!!!');
 
-    }  
+    if (tag?.includes("CF")) {
 
-    
-} else if (responsavelManutencao.trim()  === '') {
-  alert('Informe o responsável pela manutenção!!!');
-} else if (localProblema.trim()  === '') {
-  alert('Informe o local do problema!!!');
-} else if (problemasObservados.trim()  === '.') {
-  alert('Informe o Problemas Observados!!!');
-} else if (recomendacoesReparo.trim()  === '.') {
-  alert('Informe as recomendações de reparo!!!');
-} else if (idDadosExcel == 0) {
-  alert('Código não encontrado!!!');
-}else  {    
+
+      if (statusRI.trim() === '') {
+        alert('Selecione um Status!!!');
+      } if (numero.trim() === '') {
+        alert('Número documento inválido!!!');
+      } if (noTAG.trim() === '') {
+
+        alert('Selecione uma opção na lista Caldeira de Recuperação!!!');
+
+      } if (responsavelManutencao.trim() === '') {
+        alert('Informe o responsável pela manutenção!!!');
+      } if (localProblema.trim() === '') {
+        alert('Informe o local do problema!!!');
+      } if (problemasObservados.trim() === '.') {
+        alert('Informe o Problemas Observados!!!');
+      } if (recomendacoesReparo.trim() === '.') {
+        alert('Informe as recomendações de reparo!!!');
+      } if (idDadosExcel == 0) {
+        alert('Código não encontrado!!!');
+      }
+
+    } else {
+      console.log('CHEGOU AKI1');
+
+      if (statusRI.trim() === '') {
+        alert('Selecione um Status!!!');
+      } if (numero.trim() === '') {
+        alert('Número documento inválido!!!');
+      } if (noTAGValue.trim() === '') {
+
+        noTAGValue = 'NAO_SE_APLICA';
+
+      } if (responsavelManutencao.trim() === '') {
+        alert('Informe o responsável pela manutenção!!!');
+      } if (localProblema.trim() === '') {
+        alert('Informe o local do problema!!!');
+      } if (problemasObservados.trim() === '.') {
+        alert('Informe o Problemas Observados!!!');
+      } if (recomendacoesReparo.trim() === '.') {
+        alert('Informe as recomendações de reparo!!!');
+      } if (idDadosExcel == 0) {
+        alert('Código não encontrado!!!');
+      }
+
+
+    }
+    console.log(statusRI);
+
+    setStatus(statusRI);
+
 
 
     try {
@@ -292,18 +323,20 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
         statusRI,
         denominacao,
         idDadosExcel,
-        noTAG
+        noTAGValue
 
       };
       console.info(numero);
-
+      console.log('CHEGOU AKI2');
+      console.log(JSON.stringify(formData, null, 2));
       axios.post(`${BACKEND}/RI/save`, formData)
 
-        
+
         .then((response) => {
           console.log(response);
 
           if (response.status === 200) {
+            console.log('CHEGOU AKI3');
 
             setidRelatorioInspecao(response.data);
             { alert("Relatório de Inspeção Salvo com sucesso!!!") };
@@ -312,7 +345,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
           }
 
         }, (error) => {
-          console.log(error);
+          console.log(error + 'ERRORRRRR');
         });
 
 
@@ -322,7 +355,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
       console.error('Erro ao enviar o formulário:', error);
     }
 
-  }
+
 
 
   };
@@ -504,7 +537,7 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
   const handleChangeDG = (event: SelectChangeEvent) => {
 
-    
+
     setNoTAG(event.target.value as string);
 
 
@@ -544,9 +577,9 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
           setDenominacao(response.data.denominacao);
           setresponsavelInspecao(response.data.eempresa);
           setIdDadosExcel(Number(id));
-          checkTagFor(response.data.tag);   
+          checkTagFor(response.data.tag);
 
- 
+
         })
         .catch(error => {
           console.log('Erro ao buscar empresas', error);
@@ -560,29 +593,29 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
 
 
 
-    const checkTagFor = (tag: any) => {
-      if (tag.includes('CR')) {
-        setIsComboFC(true);
-        setIsComboDG(true);
-        setIsComboCF(true);
-        setIsComboCR(false);
-        
-      }
-      if (tag.includes('DG')) {
-        setIsComboFC(true);
-        setIsComboDG(false);
-        setIsComboCF(true);
-        setIsComboCR(true);
-        
-      }
+  const checkTagFor = (tag: any) => {
+    if (tag.includes('CR')) {
+      setIsComboFC(true);
+      setIsComboDG(true);
+      setIsComboCF(true);
+      setIsComboCR(false);
 
-      if (tag.includes('FC')) {
-        setIsComboFC(false);
-        setIsComboDG(true);
-        setIsComboCF(true);
-        setIsComboCR(true);
-        
-      }/*
+    }
+    if (tag.includes('DG')) {
+      setIsComboFC(true);
+      setIsComboDG(false);
+      setIsComboCF(true);
+      setIsComboCR(true);
+
+    }
+
+    if (tag.includes('FC')) {
+      setIsComboFC(false);
+      setIsComboDG(true);
+      setIsComboCF(true);
+      setIsComboCR(true);
+
+    }/*
       if (tag.includes('CF')) {
         setIsComboFC(true);
         setIsComboDG(true);
@@ -590,18 +623,18 @@ const [tipoRelatorio, setTipoRelatorio] = useState('RI');
         setIsComboCR(true);
         
       }*/
-if (tag === "3403-21-020-CF") {
-        setIsComboCF(false); // desabilita o Select
-      } else {
-        setIsComboCF(true); // habilita o Select
-      }
+    if (tag === "3403-21-020-CF") {
+      setIsComboCF(false); // desabilita o Select
+    } else {
+      setIsComboCF(true); // habilita o Select
+    }
 
 
 
 
-      
-    };
- 
+
+  };
+
 
   const handleRefreshFile = async () => {
     setLoading(true);
@@ -674,7 +707,7 @@ if (tag === "3403-21-020-CF") {
           selected={date}
           onChange={(date) => setDate(date)}
           dateFormat="dd/MM/yyyy"
-           locale={ptBR}
+          locale={ptBR}
           className="custom-datepicker"
         />
         <TextField color='success' label='Doc. nº' variant="outlined" onChange={handleNumeroChange} error={!!error}
@@ -724,7 +757,7 @@ if (tag === "3403-21-020-CF") {
 
 
         <TextField
-         // label={data?.denominacao}
+          // label={data?.denominacao}
           value={data?.denominacao}
           helperText="Denominação"
           onLoad={(e: React.ChangeEvent<HTMLInputElement>) => setDenominacao(e.currentTarget.value)}
@@ -734,7 +767,7 @@ if (tag === "3403-21-020-CF") {
         />
 
         <TextField
-         // label={data?.tag}
+          // label={data?.tag}
           value={data?.tag}
           helperText="TAG"
 
@@ -757,13 +790,13 @@ if (tag === "3403-21-020-CF") {
         />
 
 
-        <TextField 
-        color='success' 
-        label='Responsável pela manutenção' 
-        variant="outlined"
-        onChange={(e) => setresponsavelManutencao(e.target.value)}   
-        
-         ></TextField>
+        <TextField
+          color='success'
+          label='Responsável pela manutenção'
+          variant="outlined"
+          onChange={(e) => setresponsavelManutencao(e.target.value)}
+
+        ></TextField>
 
 
 
@@ -779,7 +812,7 @@ if (tag === "3403-21-020-CF") {
 
 
 
-{/** 
+        {/** 
         <label> Caldeira de Recuperação:  <br /> </label>
         <br />
 
@@ -969,17 +1002,17 @@ if (tag === "3403-21-020-CF") {
       <button onClick={handleRefreshFile}>Carregar arquivos</button>
       <br /> <br />
       <ul>
-  {files.map((file, index) => {
-    const fileName = file.split('/').pop(); // Pega o nome do arquivo
-    return (
-      <li key={index}>
-        <a href={file} target="_blank" rel="noopener noreferrer">
-          {fileName}
-        </a>
-      </li>
-    );
-  })}
-</ul>
+        {files.map((file, index) => {
+          const fileName = file.split('/').pop(); // Pega o nome do arquivo
+          return (
+            <li key={index}>
+              <a href={file} target="_blank" rel="noopener noreferrer">
+                {fileName}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
 
     </div>
 
