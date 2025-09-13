@@ -90,9 +90,9 @@ const handleRefresh = async () => {
    console.log(id);
     try {
       const [response1, response2, response3] = await Promise.all([
-        axios.get<string[]>(BACKEND+`/RI/listaRISemaforo1/${etag}`),
-        axios.get<string[]>(BACKEND+`/RNC/listaRNCSemaforo/${etag}`),
-        axios.get<string[]>(BACKEND+`/RR/listaRRSemaforo/${etag}`)
+        axios.get<string[]>(BACKEND+`/RI/listaRISemaforo1tag/${etag}`),
+        axios.get<string[]>(BACKEND+`/RNC/listaRNCSemaforotag/${etag}`),
+        axios.get<string[]>(BACKEND+`/RR/listaRRSemaforotag/${etag}`)
       ]);
       setFilesRI(response1.data);
       setFilesRNC(response2.data);
