@@ -37,12 +37,12 @@ const [naoIniciadoTAG340321002, setNaoIniciadoTAG340321002] = useState<string | 
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const response1 = await fetch(`${BACKEND}/RI/semaforoTodosTAG/3403-21-001`);
+      const response1 = await fetch(`${BACKEND}/Todos/semaforoTodosTAG/3403-21-001`);
       const data1 = await response1.text(); 
       setnaoIniciadoTAG340321001(data1);  
         
         console.log(data1);
-        const response2 = await fetch(`${BACKEND}/RI/semaforoTodosTAG/3403-21-002`);
+        const response2 = await fetch(`${BACKEND}/Todos/semaforoTodosTAG/3403-21-002`);
         const data2 = await response2.text();  
         setNaoIniciadoTAG340321002(data2); 
   console.log(data2);
@@ -124,7 +124,7 @@ if (naoIniciadoTAG340321002 === "LIBERADO") {
   <div className="tag2"><img src={TQDescargaF}/></div>
   <div className="sem1"><br/>
   
-  <a href={`${FRONTEND}/RI/semaforoTodosTAG/3403-21-001`} target="_blank">  {imageTAG340321001}   </a>  
+  <a href={`${FRONTEND}/relatoriosTAG/3403-21-001`} target="_blank">  {imageTAG340321001}   </a>  
     
     
     
@@ -132,7 +132,7 @@ if (naoIniciadoTAG340321002 === "LIBERADO") {
   <div className="sem2"><br/>
   
   
-  <a href={`${FRONTEND}/RI/semaforoTodosTAG/3403-21-002`} target="_blank">  {imageTAG340321002}   </a>  
+  <a href={`${FRONTEND}/relatoriosTAG/3403-21-002`} target="_blank">  {imageTAG340321002}   </a>  
   
   
   
