@@ -117,7 +117,7 @@ setNaoIniciadoPisoAll(data10a);
  
 
 
-const response11a = await fetch(`${BACKEND}/RI/semaforoTodos/Bicas_de_Smeltt`);
+const response11a = await fetch(`${BACKEND}/RI/semaforoTodos/Bicas_de_Smelt`);
 const data11a = await response11a.text(); 
 setNaoIniciadoBicasSmeltAll(data11a);
 
