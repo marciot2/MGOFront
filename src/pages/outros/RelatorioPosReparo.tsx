@@ -453,7 +453,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
    Relatório Pós reparo: {idRelatorioReparo}
    <br/>  */}
           <h3>RELATÓRIO PÓS REPARO (Aprovação) - RR</h3>
-    <h5>   PREENCHIDO PELO PRESTADOR DE SERVIÇO TERCERIZADO </h5>
+     
 
 
 <br/>

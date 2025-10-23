@@ -411,8 +411,8 @@ useEffect(() => {
     
       <br /> 
       Código do Relatório de Inspeção: {idRelatorioInspecao}<br /><br />
-      <h3>PROBLEMAS ENCONTRADOS DURANTE A INSPEÇÃO – RELATÓRIO DE INSPEÇÃO – RI</h3>
-      <h5>PREENCHIDO PELO PRESTADOR DE SERVIÇO TERCEIRIZADO</h5>
+      <h3>RELATÓRIO DE INSPEÇÃO – RI</h3>
+      
       <br />
 
       <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }, }} noValidate autoComplete="off">

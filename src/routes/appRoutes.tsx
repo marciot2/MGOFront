@@ -127,6 +127,21 @@ const appRoutes: RouteType[] = [
       }*/
     ]
   },
+
+
+{
+    path: "/CaldeiraRecuperacao",
+    element: <CaldeiraIndex1 />,
+    state: "caldeirarecuperacao",
+    sidebarProps: {
+      displayText: "Caldeira de Recuperação",
+      icon: <BoltIcon/>
+    }
+  } ,
+
+
+
+
   {
     path: "/CaldeiraForca",
     element: <CaldeiraForca />,

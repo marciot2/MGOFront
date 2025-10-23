@@ -250,6 +250,34 @@ export default function RelatorioInspecao() {
 
 
 
+
+if (tag?.includes("CR")) {
+
+
+      if (statusRI.trim() === '') {
+        alert('Selecione um Status!!!');
+      } if (numero.trim() === '') {
+        alert('Número documento inválido!!!');
+      } if (noTAG.trim() === '') {
+
+        alert('Selecione uma opção na lista Caldeira de Recuperação!!!');
+
+      } if (responsavelManutencao.trim() === '') {
+        alert('Informe o responsável pela manutenção!!!');
+      } if (localProblema.trim() === '') {
+        alert('Informe o local do problema!!!');
+      } if (problemasObservados.trim() === '.') {
+        alert('Informe o Problemas Observados!!!');
+      } if (recomendacoesReparo.trim() === '.') {
+        alert('Informe as recomendações de reparo!!!');
+      } if (idDadosExcel == 0) {
+        alert('Código não encontrado!!!');
+      }
+
+    }
+
+/*
+
     if (tag?.includes("CF")) {
 
 
@@ -298,6 +326,7 @@ export default function RelatorioInspecao() {
 
 
     }
+      */
     console.log(statusRI);
 
     setStatus(statusRI);
@@ -623,14 +652,20 @@ export default function RelatorioInspecao() {
         setIsComboCR(true);
         
       }*/
+      //*PEGAR TAG
+    if (tag === "3402-21-110-CR") {
+      setIsComboCR(false); // desabilita o Select
+    } else {
+      setIsComboCR(true); // habilita o Select
+    }
+/*
+ *tag da caldeira
     if (tag === "3403-21-020-CF") {
       setIsComboCF(false); // desabilita o Select
     } else {
       setIsComboCF(true); // habilita o Select
     }
-
-
-
+*/
 
 
   };
@@ -878,12 +913,10 @@ export default function RelatorioInspecao() {
         </Select>
 
         <br />
-*/}
-        <label>Caldeira Força: </label>
-        <br />
 
 
-        <Select
+
+         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={valueCF}
@@ -893,6 +926,29 @@ export default function RelatorioInspecao() {
 
         >
           {arrayCF.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Select>
+*/
+
+
+}
+       <label>Caldeira Recuperação: </label>
+        <br />
+
+
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={valueCR}
+          label="Age"
+          disabled={isComboCR}
+          onChange={handleChangeCR}
+
+        >
+          {arrayCR.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>

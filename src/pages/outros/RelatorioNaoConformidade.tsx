@@ -549,7 +549,7 @@ return (
    Relatório de Não Conformidade: {idRelatorioNaoConformidade} 
    <br/> */}
     <h3>RELATÓRIO DE NÃO CONFORMIDADE - RNC</h3>
-    <h5>   PPREENCHIDO PELO PRESTADOR DE SERVIÇO TERCEIRIZADO </h5>
+     
 
     <br />
     <br />
