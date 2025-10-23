@@ -546,19 +546,19 @@ if (naoIniciadoGrid === "LIBERADO") {
 let imageSopradorFuligem;
 
 if (naoIniciadoSopradorFuligem === "NAO_INICIADO") {
-  imageSopradorFuligem = <img src={CinzaD} className='isopradorfuligem' alt='CinzaD'/>;
+  imageSopradorFuligem = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoSopradorFuligem === "EM_ANDAMENTO") {
-  imageSopradorFuligem = <img src={AmareloD} className='isopradorfuligem' alt='AmareloD'/>;
+  imageSopradorFuligem = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoSopradorFuligem === "NÃO_CONFORMIDADE") {
-  imageSopradorFuligem = <img src={VermelhoD} className='isopradorfuligem' alt='VermelhoD'/>;
+  imageSopradorFuligem = <img src={VermelhoD} className='ivalsegm' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoSopradorFuligem === "LIBERADO") {
-  imageSopradorFuligem = <img src={VerdeD} className='isopradorfuligem' alt='VerdeD'/>;
+  imageSopradorFuligem = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 
@@ -622,36 +622,36 @@ if (naoIniciadoQueimadores === "LIBERADO") {
 
 let imageEntradaArSecundario;
 if (naoIniciadoEntradaArSecundario === "NAO_INICIADO") {
-  imageEntradaArSecundario = <img src={CinzaD} className='ientradaarsecundario' alt='CinzaD'/>;
+  imageEntradaArSecundario = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoEntradaArSecundario === "EM_ANDAMENTO") {
-  imageEntradaArSecundario = <img src={AmareloD} className='ientradaarsecundario' alt='AmareloD'/>;
+  imageEntradaArSecundario = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoEntradaArSecundario === "NÃO_CONFORMIDADE") {
-  imageEntradaArSecundario = <img src={VermelhoD} className='ientradaarsecundario' alt='VermelhoD'/>;
+  imageEntradaArSecundario = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoEntradaArSecundario === "LIBERADO") {
-  imageEntradaArSecundario = <img src={VerdeD} className='ientradaarsecundario' alt='VerdeD'/>;
+  imageEntradaArSecundario = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 let imageEntradaArTerciario;
 if (naoIniciadoEntradaArTerciario === "NAO_INICIADO") {
-  imageEntradaArTerciario = <img src={CinzaD} className='ientradaarterciario' alt='CinzaD'/>;
+  imageEntradaArTerciario = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoEntradaArTerciario === "EM_ANDAMENTO") {
-  imageEntradaArTerciario = <img src={AmareloD} className='ientradaarterciario' alt='AmareloD'/>;
+  imageEntradaArTerciario = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoEntradaArTerciario === "NÃO_CONFORMIDADE") {
-  imageEntradaArTerciario = <img src={VermelhoD} className='ientradaarterciario' alt='VermelhoD'/>;
+  imageEntradaArTerciario = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoEntradaArTerciario === "LIBERADO") {
-  imageEntradaArTerciario = <img src={VerdeD} className='ientradaarterciario' alt='VerdeD'/>;
+  imageEntradaArTerciario = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 
@@ -679,55 +679,55 @@ if (naoIniciadoDutoseVentiladores === "LIBERADO") {
 let imageCameraTV;
 
 if (naoIniciadoCameraTV === "NAO_INICIADO") {
-  imageCameraTV = <img src={CinzaD} className='icameratv' alt='CinzaD'/>;
+  imageCameraTV = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoCameraTV === "EM_ANDAMENTO") {
-  imageCameraTV = <img src={AmareloD} className='icameratv' alt='AmareloD'/>;
+  imageCameraTV = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoCameraTV === "NÃO_CONFORMIDADE") {
-  imageCameraTV = <img src={VermelhoD} className='icameratv' alt='VermelhoD'/>;
+  imageCameraTV = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoCameraTV === "LIBERADO") {
-  imageCameraTV = <img src={VerdeD} className='icameratv' alt='VerdeD'/>;
+  imageCameraTV = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 
 let imageBocasVisita;
 if (naoIniciadoBocasVisita === "NAO_INICIADO") {
-  imageBocasVisita = <img src={CinzaD} className='ibocasvisita' alt='CinzaD'/>;
+  imageBocasVisita = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoBocasVisita === "EM_ANDAMENTO") {
-  imageBocasVisita = <img src={AmareloD} className='ibocasvisita' alt='AmareloD'/>;
+  imageBocasVisita = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoBocasVisita === "NÃO_CONFORMIDADE") {
-  imageBocasVisita = <img src={VermelhoD} className='ibocasvisita' alt='VermelhoD'/>;
+  imageBocasVisita = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoBocasVisita === "LIBERADO") {
-  imageBocasVisita = <img src={VerdeD} className='ibocasvisita' alt='VerdeD'/>;
+  imageBocasVisita = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 
 let imageEntradaArPrimario;
 if (naoIniciadoEntradaArPrimario === "NAO_INICIADO") {
-  imageEntradaArPrimario = <img src={CinzaD} className='ientradaarprimario' alt='CinzaD'/>;
+  imageEntradaArPrimario = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoEntradaArPrimario === "EM_ANDAMENTO") {
-  imageEntradaArPrimario = <img src={AmareloD} className='ientradaarprimario' alt='AmareloD'/>;
+  imageEntradaArPrimario = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoEntradaArPrimario === "NÃO_CONFORMIDADE") {
-  imageEntradaArPrimario = <img src={VermelhoD} className='ientradaarprimario' alt='VermelhoD'/>;
+  imageEntradaArPrimario = <img src={VermelhoD} className='iivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoEntradaArPrimario === "LIBERADO") {
-  imageEntradaArPrimario = <img src={VerdeD} className='ientradaarprimario' alt='VerdeD'/>;
+  imageEntradaArPrimario = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 
@@ -753,19 +753,19 @@ if (naoIniciadoPorao === "LIBERADO") {
 let imageValvulaSeguranca;
 
 if (naoIniciadoValvulaSeguranca === "NAO_INICIADO") {
-  imageValvulaSeguranca = <img src={CinzaD} className='ivalvulaseguranca' alt='CinzaD'/>;
+  imageValvulaSeguranca = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoValvulaSeguranca === "EM_ANDAMENTO") {
-  imageValvulaSeguranca = <img src={AmareloD} className='ivalvulaseguranca' alt='AmareloD'/>;
+  imageValvulaSeguranca = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoValvulaSeguranca === "NÃO_CONFORMIDADE") {
-  imageValvulaSeguranca = <img src={VermelhoD} className='ivalvulaseguranca' alt='VermelhoD'/>;
+  imageValvulaSeguranca = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoValvulaSeguranca === "LIBERADO") {
-  imageValvulaSeguranca = <img src={VerdeD} className='ivalvulaseguranca' alt='VerdeD'/>;
+  imageValvulaSeguranca = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 
@@ -785,7 +785,7 @@ if (naoIniciadoValvulaSeguranca === "LIBERADO") {
 <div className="container1">
   <div className="s1">
     
-  <a href='http://localhost:3000/relatorios/Valvula_de_Seguranca' target="_blank">  {imageValvulaSeguranca}   </a>  
+  <a href={`https://eldorado.pg2025.com.br/relatorios/Valvula_de_Seguranca`} target="_blank">  {imageValvulaSeguranca}   </a>  
     <p className='tvalseg'><b>Válvula de Segurança</b> (MAN / CAL) </p>
   
 
@@ -842,7 +842,7 @@ if (naoIniciadoValvulaSeguranca === "LIBERADO") {
   </div>
   <div className="s10">
     
-  <a href='http://localhost:3000/relatorios/Queimadores' target="_blank"> {imageQueimadores}   </a>
+  <a href={`https://eldorado.pg2025.com.br/relatorios/Queimadores`} target="_blank"> {imageQueimadores}   </a>
   <p className='tqueimadores'>    <b>Queimadores</b> (IV / MEUS) </p> 
 
   </div>
@@ -874,7 +874,7 @@ if (naoIniciadoValvulaSeguranca === "LIBERADO") {
   <p className='tbocas'>    <b>Bocas de visita</b> (IV / MEUS) </p>  
   </div>
   <div className="s16">
-  <a href={`http://localhost:3000/relatorios/Entradas_de_Ar_Primario`} target="_blank"> {imageEntradaArPrimario}   </a>
+  <a href={`https://eldorado.pg2025.com.br/relatorios/Entradas_de_Ar_Primario`} target="_blank"> {imageEntradaArPrimario}   </a>
   <p className='tarprimario'>    <b>Entrada de ar Primário</b> (IV / MEUS / LP) </p>
 
   </div>
