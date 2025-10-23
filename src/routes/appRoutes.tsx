@@ -140,7 +140,7 @@ const appRoutes: RouteType[] = [
   } ,
 
 
-
+/*
 
   {
     path: "/CaldeiraForca",
@@ -150,7 +150,7 @@ const appRoutes: RouteType[] = [
       displayText: "Caldeira Força",
       icon: <BoltIcon/>
     }
-  } ,
+  } ,*/
   {
     path: "/TAGs",
     element: <TAGs />,
