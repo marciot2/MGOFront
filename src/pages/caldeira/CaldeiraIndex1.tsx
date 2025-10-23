@@ -61,171 +61,171 @@ const [naoIniciadoValvulaSeguranca, setNaoIniciadoValvulaSegurancaAll] = useStat
       try {
        
         const response1 = await fetch(`${BACKEND}/RI/semaforoTodos/Screen`);
-        const data1 = await response1.json(); 
+        const data1 = await response1.text(); 
         setNaoIniciadoScreeenAll(data1);
 
  
 
         
         const response2 = await fetch(`${BACKEND}/RI/semaforoTodos/Penthouse`);
-        const data2 = await response2.json(); 
+        const data2 = await response2.text(); 
         setNaoIniciadoPenthouseAll(data2);
          
         
 
         const response3 = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Secundario`);
-        const data3 = await response3.json(); 
+        const data3 = await response3.text(); 
         setNaoIniciadoShsecundarioAll(data3);
         
         const response4 = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Terciario`);
-        const data4 = await response4.json(); 
+        const data4 = await response4.text(); 
         setNaoIniciadoShterciarioAll(data4);
 
       
 
 const response5 = await fetch(`${BACKEND}/RI/semaforoTodos/Balao`);
-const data5 = await response5.json(); 
+const data5 = await response5.text(); 
 setNaoIniciadoBalaoAll(data5);
 
  
 
 const response6a = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Quartenario`);
-const data6a = await response6a.json(); 
+const data6a = await response6a.text(); 
 setNaoIniciadoShquartenarioAll(data6a);
 
   
 
 const response7a = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Primario_I`);
-const data7a = await response7a.json(); 
+const data7a = await response7a.text(); 
 setNaoIniciadoShprimarioIAll(data7a);
  
 
 const response8a = await fetch(`${BACKEND}/RI/semaforoTodos/SH_Primario_II`);
-const data8a = await response8a.json(); 
+const data8a = await response8a.text(); 
 setNaoIniciadoShprimarioIIAll(data8a);
 
 const response9a = await fetch(`${BACKEND}/RI/semaforoTodos/Parede_Dagua`);
-const data9a = await response9a.json(); 
+const data9a = await response9a.text(); 
 setNaoIniciadoParedeDaguaAll(data9a);
  
 
 
 const response10a = await fetch(`${BACKEND}/RI/semaforoTodos/semaforoTodos/Piso`);
-const data10a = await response10a.json(); 
+const data10a = await response10a.text(); 
 setNaoIniciadoPisoAll(data10a);
 
  
 
 
 const response11a = await fetch(`${BACKEND}/RI/semaforoTodos/Bicas_de_Smeltt`);
-const data11a = await response11a.json(); 
+const data11a = await response11a.text(); 
 setNaoIniciadoBicasSmeltAll(data11a);
 
  
 
 const response12a = await fetch(`${BACKEND}/RI/semaforoTodos/Teto`);
-const data12a = await response12a.json(); 
+const data12a = await response12a.text(); 
 setNaoIniciadoTetoAll(data12a);
 
  
 
 const response13a = await fetch(`${BACKEND}/RI/semaforoTodos/Economizador_I`);
-const data13a = await response13a.json(); 
+const data13a = await response13a.text(); 
 setNaoIniciadoEconomizadorIAll(data13a);
 
  
 
 const response14a = await fetch(`${BACKEND}/RI/semaforoTodos/Economizador_II`);
-const data14a = await response14a.json(); 
+const data14a = await response14a.text(); 
 setNaoIniciadoEconomizadorIIAll(data14a);
 
  
 
 
 const response15a = await fetch(`${BACKEND}/RI/semaforoTodos/Bank`);
-const data15a = await response15a.json(); 
+const data15a = await response15a.text(); 
 setNaoIniciadoBankAll(data15a);
 
  
 
 const response16a = await fetch(`${BACKEND}/RI/semaforoTodos/Grid`);
-const data16a = await response16a.json(); 
+const data16a = await response16a.text(); 
 setNaoIniciadoGridAll(data16a);
 
  
 
 
 const response17a = await fetch(`${BACKEND}/RI/semaforoTodos/Sopradores_de_Fuligem`);
-const data17a = await response17a.json(); 
+const data17a = await response17a.text(); 
 setNaoIniciadoSopradorFuligemAll(data17a);
 
  
 
 
 const response18a = await fetch(`${BACKEND}/RI/semaforoTodos/Nariz`);
-const data18a = await response18a.json(); 
+const data18a = await response18a.text(); 
 setNaoIniciadoNarizAll(data18a);
 
  
 
 
 const response19a = await fetch(`${BACKEND}/RI/semaforoTodos/Camara_Fria`);
-const data19a = await response19a.json(); 
+const data19a = await response19a.text(); 
 setNaoIniciadoCamarafriaAll(data19a);
 
  
 
 
 const response20a = await fetch(`${BACKEND}/RI/semaforoTodos/Queimadores`);
-const data20a = await response20a.json(); 
+const data20a = await response20a.text(); 
 setNaoIniciadoQueimadoresAll(data20a);
 
  
 
 
 const response21a = await fetch(`${BACKEND}/RI/semaforoTodos/Entradas_de_Ar_Secundario`);
-const data21a = await response21a.json(); 
+const data21a = await response21a.text(); 
 setNaoIniciadoEntradaArSecundarioAll(data21a);
 
  
 
 const response22a = await fetch(`${BACKEND}/RI/semaforoTodos/Entradas_de_Ar_Terciario`);
-const data22a = await response22a.json(); 
+const data22a = await response22a.text(); 
 setNaoIniciadoEntradaArTerciarioAll(data22a);
 
   
 
 
 const response24a = await fetch(`${BACKEND}/RI/semaforoTodos/Camera_de_TV`);
-const data24a = await response24a.json(); 
+const data24a = await response24a.text(); 
 setNaoIniciadoCameraTVAll(data24a);
 
  
 
 
 const response25a = await fetch(`${BACKEND}/RI/semaforoTodos/Bocas_de_visita`);
-const data25a = await response25a.json(); 
+const data25a = await response25a.text(); 
 setNaoIniciadoBocasVisitaAll(data25a);
 
  
 
 
 const response26a = await fetch(`${BACKEND}/RI/semaforoTodos/Entradas_de_Ar_Primario`);
-const data26a = await response26a.json(); 
+const data26a = await response26a.text(); 
 setNaoIniciadoEntradaArPrimarioAll(data26a);
 
  
 
 
 const response27a = await fetch(`${BACKEND}/RI/semaforoTodos/Porao`);
-const data27a = await response27a.json(); 
+const data27a = await response27a.text(); 
 setNaoIniciadoPoraoAll(data27a);
 
  
 
 
 const response28a = await fetch(`${BACKEND}/RI/semaforoTodos/Valvula_de_Seguranca`);
-const data28a = await response28a.json(); 
+const data28a = await response28a.text(); 
 setNaoIniciadoValvulaSegurancaAll(data28a);
 
  
