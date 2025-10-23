@@ -110,7 +110,7 @@ setNaoIniciadoParedeDaguaAll(data9a);
  
 
 
-const response10a = await fetch(`${BACKEND}/RI/semaforoTodos/semaforoTodos/Piso`);
+const response10a = await fetch(`${BACKEND}/RI/semaforoTodos/Piso`);
 const data10a = await response10a.text(); 
 setNaoIniciadoPisoAll(data10a);
 

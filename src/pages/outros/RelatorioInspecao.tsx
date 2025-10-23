@@ -721,8 +721,8 @@ if (tag?.includes("CR")) {
       Código interno do Equipamento: {id}
       <br /><br />
       Código do Relatório de Inspeção: {idRelatorioInspecao}<br /><br />
-      <h3>PROBLEMAS ENCONTRADOS DURANTE A INSPEÇÃO – RELATÓRIO DE INSPEÇÃO – RI</h3>
-      <h5>   PREENCHIDO PELO PRESTADOR DE SERVIÇO TERCEIRIZADO </h5>
+      <h3>  RELATÓRIO DE INSPEÇÃO – RI</h3>
+       
       <br />
       <br />
 
