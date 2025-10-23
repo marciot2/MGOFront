@@ -156,8 +156,7 @@ const appRoutes: RouteType[] = [
     element: <TAGs />,
     state: "caldeiraforca",
     sidebarProps: {
-      displayText: "",
-      icon: <PowerInputIcon />
+      displayText: ""//,   icon: <PowerInputIcon />
     }
   }, 
 

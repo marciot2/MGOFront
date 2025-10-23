@@ -46,9 +46,12 @@ export default function RelatorioPosReparo() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>();
    
+ const [valueCR, setValueCR] = useState<string>();
+const [isComboCR, setIsComboCR] = useState(false);
 
- const [valueCF, setValueCF] = useState<string>();
-const [isComboCF, setIsComboCF] = useState(false);
+
+ const [valueCF1, setValueCF] = useState<string>();
+const [isComboCF1, setIsComboCF] = useState(false);
 
   const [age, setAge] = React.useState('');
   const [data, setData] = useState<Rr>();
@@ -79,14 +82,14 @@ const [isComboCF, setIsComboCF] = useState(false);
   const { id } = useParams();
  
 
-  const handleChangeCF = (event: SelectChangeEvent) => {
+  const handleChangeCR = (event: SelectChangeEvent) => {
 
 
     setNoTAG(event.target.value as string);
 
   };
 
-  const [arrayCF, setArrayCF] = useState([
+  const [arrayCF1, setArrayCF] = useState([
     { label: ' ', value: '   ' },
 
 
@@ -103,6 +106,39 @@ const [isComboCF, setIsComboCF] = useState(false);
   ]);
 
 
+  const [arrayCR, setArrayCR] = useState([
+    { label: '          ', value: '        ' },
+    { label: 'Penthouse', value: 'Penthouse' },
+    { label: 'Balão', value: 'Balao' },
+    { label: 'SH Secundário', value: 'SH_Secundario' },
+    { label: 'SH Terciário', value: 'SH_Terciario' },
+    { label: 'SH Quartenário', value: 'SH_Quartenario' },
+    { label: 'SH Primário I', value: 'SH_Primario_I' },
+    { label: 'SH Primário II', value: 'SH_Primario_II' },
+    { label: 'Screen', value: 'Screen' },
+    { label: "Parede D'água", value: 'Parede_Dagua' },
+    { label: "Piso", value: 'Piso' },
+    { label: 'Válvula de Segurança', value: 'Valvula_de_Seguranca' },
+    { label: 'Teto', value: 'Teto' },
+    { label: 'Economizador I', value: 'Economizador_I' },
+    { label: 'Economizador II', value: 'Economizador_II' },
+    { label: 'Bank', value: 'Bank' },
+    { label: 'Grid', value: 'Grid' },
+    { label: 'Sopradores de Fuligem', value: 'Sopradores_de_Fuligem' },
+    { label: 'Nariz', value: 'Nariz' },
+    { label: 'Câmara Fria', value: 'Camara_Fria' },
+    { label: 'Queimadores', value: 'Queimadores' },
+    { label: 'Entradas de Ar Terciário', value: 'Entradas_de_Ar_Terciario' },
+    { label: 'Entradas de Ar Secundário', value: 'Entradas_de_Ar_Secundario' },
+    { label: 'Dutos e Ventiladores', value: 'Dutos_e_Ventiladores' },
+    { label: 'Câmera de TV', value: 'Camera_de_TV' },
+    { label: 'Bocas de visita', value: 'Bocas_de_visita' },
+    { label: 'Entradas de Ar Primário', value: 'Entradas_de_Ar_Primario' },
+    { label: 'Bicas de Smelt', value: 'Bicas_de_Smelt' },
+    { label: 'Porão', value: 'Porao' }
+  ]
+
+  );
 
 
 
@@ -119,7 +155,7 @@ const [isComboCF, setIsComboCF] = useState(false);
         setIsComboCF(false);
         setIsComboCR(true);
         
-      }*/
+      } 
 if (tag === "3403-21-020-CF") {
         setIsComboCF(false); // desabilita o Select
       } else {
@@ -127,7 +163,15 @@ if (tag === "3403-21-020-CF") {
       }
 
 
+*/
+ if (tag === "3402-21-110-CR") {
 
+      
+      setIsComboCR(true);
+        // desabilita o Select
+    } else {
+      setIsComboCR(false); // habilita o Select
+    }
 
       
     };
@@ -568,13 +612,13 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={valueCF}
+          value={valueCR}
           label="Age"
-          disabled={isComboCF}
-          onChange={handleChangeCF}
+         // disabled={isComboCR}
+          onChange={handleChangeCR}
 
         >
-          {arrayCF.map((option) => (
+          {arrayCR.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>

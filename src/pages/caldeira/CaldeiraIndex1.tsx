@@ -555,7 +555,7 @@ if (naoIniciadoSopradorFuligem === "EM_ANDAMENTO") {
 }
 
 if (naoIniciadoSopradorFuligem === "NÃO_CONFORMIDADE") {
-  imageSopradorFuligem = <img src={VermelhoD} className='ivalsegm' alt='VermelhoD'/>;
+  imageSopradorFuligem = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoSopradorFuligem === "LIBERADO") {
@@ -724,7 +724,7 @@ if (naoIniciadoEntradaArPrimario === "EM_ANDAMENTO") {
 }
 
 if (naoIniciadoEntradaArPrimario === "NÃO_CONFORMIDADE") {
-  imageEntradaArPrimario = <img src={VermelhoD} className='iivalseg' alt='VermelhoD'/>;
+  imageEntradaArPrimario = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoEntradaArPrimario === "LIBERADO") {

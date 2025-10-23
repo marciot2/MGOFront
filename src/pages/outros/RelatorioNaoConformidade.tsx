@@ -70,16 +70,16 @@ export default function RelatorioNaoConformidade() {
   const [status, setStatus] = useState('');
   const [numero, setNumero] = useState('');
 
-  const [valueCF, setValueCF] = useState<string>();
+//  const [valueCF, setValueCF] = useState<string>();
 
   const [tipoInspecao, settipoInspecao] = useState('');
   const [area, setArea] = useState('');
   const [dataInspecao, setdataInspecao] = useState<Date | null>(new Date());
-  const [valueCR, setValueCR] = useState<string>();
+  const [valueCR, setValueCR] = useState<string>('');
 
   const [isComboDG, setIsComboDG] = useState(false);
-  const [isComboCF, setIsComboCF] = useState(false);
-  const [isComboCR, setIsComboCR] = useState(false);
+  //const [isComboCF, setIsComboCF] = useState(false);
+  const [isComboCR, setIsComboCR] = useState(true);
   const [isComboFC, setIsComboFC] = useState(false);
   const [equipamento, setEquipamento] = useState(data?.equipamento);
 
@@ -148,9 +148,10 @@ export default function RelatorioNaoConformidade() {
   const handleChangeCR = (event: SelectChangeEvent) => {
 
 
-
+    console.log(event.target.value);
     setNoTAG(event.target.value as string);
-
+ 
+  setValueCR(event.target.value as string);
 
 
 
@@ -177,9 +178,9 @@ export default function RelatorioNaoConformidade() {
 
     let noTAGValue = noTAG;
 
-    console.log(tag);
+    console.log(noTAGValue);
 
-    if (tag?.includes("CF")) {
+    if (tag?.includes("CR")) {
 
       if (noTAG.trim() === '') {
 
@@ -235,7 +236,7 @@ export default function RelatorioNaoConformidade() {
         status,
         equipamento,
         tag,
-
+        noTAG,
         numero,
         area,
         tipoInspecao,
@@ -319,7 +320,7 @@ const ExportWord = () => {
       dataInspecao,
       empresa,
       tag,
-
+      
       numero,
       condicaoEncontrada,
       recomendacaoReparo,
@@ -426,14 +427,21 @@ const checkTagFor = (tag: any) => {
     setIsComboCF(false);
     setIsComboCR(true);
     
-  }*/
+  }
   if (tag === "3403-21-020-CF") {
     setIsComboCF(false); // desabilita o Select
   } else {
     setIsComboCF(true); // habilita o Select
   }
+*/
+    if (tag === "3402-21-110-CR") {
 
-
+      
+      setIsComboCR(true);
+        // desabilita o Select
+    } else {
+      setIsComboCR(false); // habilita o Select
+    }
 
 
 
@@ -518,7 +526,7 @@ const handleChangeCF = (event: SelectChangeEvent) => {
 
 };
 
-
+/*
 const [arrayCF, setArrayCF] = useState([
   { label: ' ', value: '   ' },
 
@@ -534,7 +542,7 @@ const [arrayCF, setArrayCF] = useState([
 
 
 ]);
-
+*/
 
 
 return (
@@ -599,17 +607,20 @@ return (
 
       <TextField
         helperText="Área"
-        value={data?.equipamento}
+        value={data?.equipamento || ''}
 
         variant="outlined"
         onChange={(e) => setEquipamento(e.target.value)}
         onFocus={(e) => setEquipamento(e.target.value)}
 
       />
+ 
+
+
 
       <TextField
 
-        value={data?.tag}
+        value={data?.tag || ''}
         helperText="TAG"
 
         onChange={(e) => setTag(e.target.value)}
@@ -617,7 +628,7 @@ return (
       />
 
 
-      <TextField color='success' value={data?.denominacao} helperText="Denominação" variant="outlined" onChange={(e) => setEquipamento(e.target.value)}></TextField>
+      <TextField color='success' value={data?.denominacao || ''}   helperText="Denominação" variant="outlined" onChange={(e) => setEquipamento(e.target.value)}></TextField>
       <br /><br />
       <TextField color='success' label='Tipo de inspeção' variant="outlined" onChange={(e) => settipoInspecao(e.target.value)}></TextField>
 
@@ -666,9 +677,10 @@ return (
           ))}
 
         </Select>
-*/}
 
-      <label>Caldeira Força: </label>
+
+
+  <label>Caldeira Força: </label>
       <br />
 
 
@@ -688,6 +700,28 @@ return (
         ))}
       </Select>
 
+*/}
+ 
+            <label>Caldeira Recuperação: </label>
+            <br />
+    
+    
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={valueCR}
+              label="Age"
+             // disabled={isComboCR}
+              onChange={handleChangeCR}
+    
+            >
+              {arrayCR.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+ 
 
       <br /><br />
 
