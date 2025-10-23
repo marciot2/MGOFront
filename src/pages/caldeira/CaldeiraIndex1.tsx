@@ -209,7 +209,6 @@ setNaoIniciadoBocasVisitaAll(data25a);
 
  
 
-
 const response26a = await fetch(`${BACKEND}/RI/semaforoTodos/Entradas_de_Ar_Primario`);
 const data26a = await response26a.text(); 
 setNaoIniciadoEntradaArPrimarioAll(data26a);
@@ -229,9 +228,11 @@ const data28a = await response28a.text();
 setNaoIniciadoValvulaSegurancaAll(data28a);
 
  
+const response29a = await fetch(`${BACKEND}/RI/semaforoTodos/Dutos_e_Ventiladores`);
+const data29a = await response29a.text(); 
+setNaoIniciadoDutoseVentiladoresAll(data29a);
 
-
-
+ 
 
 
 
@@ -659,19 +660,19 @@ if (naoIniciadoEntradaArTerciario === "LIBERADO") {
 let imageDutoseVentiladores;
 
 if (naoIniciadoDutoseVentiladores === "NAO_INICIADO") {
-  imageDutoseVentiladores = <img src={CinzaD} className='idutoseventiladores' alt='CinzaD'/>;
+  imageDutoseVentiladores = <img src={CinzaD} className='ivalseg' alt='CinzaD'/>;
 }
 
 if (naoIniciadoDutoseVentiladores === "EM_ANDAMENTO") {
-  imageDutoseVentiladores = <img src={AmareloD} className='idutoseventiladores' alt='AmareloD'/>;
+  imageDutoseVentiladores = <img src={AmareloD} className='ivalseg' alt='AmareloD'/>;
 }
 
 if (naoIniciadoDutoseVentiladores === "NÃO_CONFORMIDADE") {
-  imageDutoseVentiladores = <img src={VermelhoD} className='idutoseventiladores' alt='VermelhoD'/>;
+  imageDutoseVentiladores = <img src={VermelhoD} className='ivalseg' alt='VermelhoD'/>;
 }
 
 if (naoIniciadoDutoseVentiladores === "LIBERADO") {
-  imageDutoseVentiladores = <img src={VerdeD} className='idutoseventiladores' alt='VerdeD'/>;
+  imageDutoseVentiladores = <img src={VerdeD} className='ivalseg' alt='VerdeD'/>;
 }
 
 

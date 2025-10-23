@@ -352,7 +352,7 @@ if (tag?.includes("CR")) {
         statusRI,
         denominacao,
         idDadosExcel,
-        noTAGValue
+        noTAG
 
       };
       console.info(numero);
@@ -555,7 +555,7 @@ if (tag?.includes("CR")) {
   const handleChangeCR = (event: SelectChangeEvent) => {
 
 
-
+    console.log(event.target.value);
     setNoTAG(event.target.value as string);
 
 
