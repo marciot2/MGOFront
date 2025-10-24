@@ -775,7 +775,7 @@ if (tag?.includes("CR")) {
 
         <TextField color='success' label='Cliente' value={"Eldorado Brasil"} disabled variant="outlined"></TextField>
         <TextField color='success' label='Local' value={"Três Lagoas-MS"} disabled variant="outlined"></TextField>
-        <TextField name='lblEvento' label='Evento' color='success' value={"PG CF 2025"} disabled variant="outlined"></TextField>
+        <TextField name='lblEvento' label='Evento' color='success' value={"PG 2025"} disabled variant="outlined"></TextField>
 
         <br /><br />
 
